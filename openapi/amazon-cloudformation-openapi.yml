@@ -1,0 +1,1283 @@
+openapi: 3.1.0
+info:
+  title: Amazon CloudFormation API
+  description: >-
+    Amazon CloudFormation is an infrastructure as code service that enables you
+    to model, provision, and manage AWS and third-party resources by treating
+    infrastructure as code. You use templates to define your resources and their
+    dependencies, then deploy them as stacks.
+  version: '2010-05-15'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/cloudformation/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: https://cloudformation.amazonaws.com
+    description: Amazon CloudFormation regional endpoint
+  - url: https://cloudformation.{region}.amazonaws.com
+    description: Amazon CloudFormation regional endpoint
+    variables:
+      region:
+        default: us-east-1
+        description: The AWS region
+paths:
+  /?Action=CreateStack:
+    get:
+      operationId: CreateStack
+      summary: Create a stack
+      description: >-
+        Creates a stack as specified in the template. After the call completes
+        successfully, the stack creation starts. You can check the status of the
+        stack through the DescribeStacks action.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - CreateStack
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-15'
+        - name: StackName
+          in: query
+          required: true
+          description: >-
+            The name that is associated with the stack. The name must be unique
+            in the Region in which you are creating the stack.
+          schema:
+            type: string
+        - name: TemplateBody
+          in: query
+          description: Structure containing the template body.
+          schema:
+            type: string
+        - name: TemplateURL
+          in: query
+          description: Location of file containing the template body.
+          schema:
+            type: string
+            format: uri
+        - name: DisableRollback
+          in: query
+          description: Set to true to disable rollback of the stack if stack creation failed.
+          schema:
+            type: boolean
+        - name: TimeoutInMinutes
+          in: query
+          description: The amount of time that can pass before the stack status becomes CREATE_FAILED.
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/CreateStackOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+        - Stacks
+
+  /?Action=DescribeStacks:
+    get:
+      operationId: DescribeStacks
+      summary: Describe stacks
+      description: >-
+        Returns the description for the specified stack; if no stack name was
+        specified, then it returns the description for all the stacks created.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - DescribeStacks
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-15'
+        - name: StackName
+          in: query
+          description: >-
+            The name or the unique stack ID that is associated with the stack.
+          schema:
+            type: string
+        - name: NextToken
+          in: query
+          description: A string that identifies the next page of stacks to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeStacksOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+        - Stacks
+
+  /?Action=UpdateStack:
+    get:
+      operationId: UpdateStack
+      summary: Update a stack
+      description: >-
+        Updates a stack as specified in the template. After the call completes
+        successfully, the stack update starts.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - UpdateStack
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-15'
+        - name: StackName
+          in: query
+          required: true
+          description: The name or unique stack ID of the stack to update.
+          schema:
+            type: string
+        - name: TemplateBody
+          in: query
+          description: Structure containing the template body.
+          schema:
+            type: string
+        - name: TemplateURL
+          in: query
+          description: Location of file containing the template body.
+          schema:
+            type: string
+            format: uri
+        - name: UsePreviousTemplate
+          in: query
+          description: Reuse the existing template that is associated with the stack.
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/UpdateStackOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+        - Stacks
+
+  /?Action=DeleteStack:
+    get:
+      operationId: DeleteStack
+      summary: Delete a stack
+      description: >-
+        Deletes a specified stack. Once the call completes successfully, stack
+        deletion starts. Deleted stacks do not show up in the DescribeStacks
+        action if the deletion has been completed successfully.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - DeleteStack
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-15'
+        - name: StackName
+          in: query
+          required: true
+          description: The name or the unique stack ID that is associated with the stack.
+          schema:
+            type: string
+        - name: RetainResources
+          in: query
+          description: >-
+            For stacks in the DELETE_FAILED state, a list of resource logical IDs
+            that are associated with the resources you want to retain.
+          schema:
+            type: array
+            items:
+              type: string
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+        - Stacks
+
+  /?Action=ListStacks:
+    get:
+      operationId: ListStacks
+      summary: List stacks
+      description: >-
+        Returns the summary information for stacks whose status matches the
+        specified StackStatusFilter.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - ListStacks
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-15'
+        - name: NextToken
+          in: query
+          description: A string that identifies the next page of stacks to retrieve.
+          schema:
+            type: string
+        - name: StackStatusFilter
+          in: query
+          description: Stack status to use as a filter.
+          schema:
+            type: array
+            items:
+              type: string
+              enum:
+                - CREATE_IN_PROGRESS
+                - CREATE_FAILED
+                - CREATE_COMPLETE
+                - ROLLBACK_IN_PROGRESS
+                - ROLLBACK_FAILED
+                - ROLLBACK_COMPLETE
+                - DELETE_IN_PROGRESS
+                - DELETE_FAILED
+                - DELETE_COMPLETE
+                - UPDATE_IN_PROGRESS
+                - UPDATE_COMPLETE_CLEANUP_IN_PROGRESS
+                - UPDATE_COMPLETE
+                - UPDATE_FAILED
+                - UPDATE_ROLLBACK_IN_PROGRESS
+                - UPDATE_ROLLBACK_FAILED
+                - UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS
+                - UPDATE_ROLLBACK_COMPLETE
+                - REVIEW_IN_PROGRESS
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ListStacksOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+        - Stacks
+
+  /?Action=CreateChangeSet:
+    get:
+      operationId: CreateChangeSet
+      summary: Create a change set
+      description: >-
+        Creates a list of changes that will be applied to a stack so that you can
+        review the changes before executing them. Change sets allow you to see
+        how your changes might impact your running resources before implementing them.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - CreateChangeSet
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-15'
+        - name: StackName
+          in: query
+          required: true
+          description: The name or the unique ID of the stack for which you are creating a change set.
+          schema:
+            type: string
+        - name: ChangeSetName
+          in: query
+          required: true
+          description: The name of the change set.
+          schema:
+            type: string
+        - name: TemplateBody
+          in: query
+          description: Structure containing the template body.
+          schema:
+            type: string
+        - name: TemplateURL
+          in: query
+          description: Location of file containing the template body.
+          schema:
+            type: string
+            format: uri
+        - name: ChangeSetType
+          in: query
+          description: The type of change set operation.
+          schema:
+            type: string
+            enum:
+              - CREATE
+              - UPDATE
+              - IMPORT
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/CreateChangeSetOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+        - Change Sets
+
+  /?Action=DescribeChangeSet:
+    get:
+      operationId: DescribeChangeSet
+      summary: Describe a change set
+      description: >-
+        Returns the inputs and a list of changes that CloudFormation will make
+        if you execute the change set.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - DescribeChangeSet
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-15'
+        - name: ChangeSetName
+          in: query
+          required: true
+          description: The name or Amazon Resource Name (ARN) of the change set.
+          schema:
+            type: string
+        - name: StackName
+          in: query
+          description: The name or the unique ID of the stack associated with the change set.
+          schema:
+            type: string
+        - name: NextToken
+          in: query
+          description: A string that identifies the next page of information to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeChangeSetOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+        - Change Sets
+
+  /?Action=ExecuteChangeSet:
+    get:
+      operationId: ExecuteChangeSet
+      summary: Execute a change set
+      description: >-
+        Updates a stack using the input information that was provided when the
+        specified change set was created.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - ExecuteChangeSet
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-15'
+        - name: ChangeSetName
+          in: query
+          required: true
+          description: The name or ARN of the change set to execute.
+          schema:
+            type: string
+        - name: StackName
+          in: query
+          description: The name or unique ID of the stack associated with the change set.
+          schema:
+            type: string
+        - name: DisableRollback
+          in: query
+          description: Preserves the state of previously provisioned resources when an operation fails.
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+        - Change Sets
+
+  /?Action=ValidateTemplate:
+    get:
+      operationId: ValidateTemplate
+      summary: Validate a template
+      description: >-
+        Validates a specified template. CloudFormation first checks if the
+        template is valid JSON or YAML. If both checks fail, CloudFormation
+        returns a template validation error.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - ValidateTemplate
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-15'
+        - name: TemplateBody
+          in: query
+          description: Structure containing the template body.
+          schema:
+            type: string
+        - name: TemplateURL
+          in: query
+          description: Location of file containing the template body.
+          schema:
+            type: string
+            format: uri
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ValidateTemplateOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+        - Templates
+
+  /?Action=GetTemplate:
+    get:
+      operationId: GetTemplate
+      summary: Get template
+      description: >-
+        Returns the template body for a specified stack. You can get the template
+        for running or deleted stacks.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - GetTemplate
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-15'
+        - name: StackName
+          in: query
+          description: The name or the unique stack ID.
+          schema:
+            type: string
+        - name: ChangeSetName
+          in: query
+          description: The name or Amazon Resource Name (ARN) of a change set.
+          schema:
+            type: string
+        - name: TemplateStage
+          in: query
+          description: The stage of the template that is returned.
+          schema:
+            type: string
+            enum:
+              - Original
+              - Processed
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/GetTemplateOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+        - Templates
+
+  /?Action=GetTemplateSummary:
+    get:
+      operationId: GetTemplateSummary
+      summary: Get template summary
+      description: >-
+        Returns information about a new or existing template. The
+        GetTemplateSummary action is useful for viewing parameter information,
+        such as default parameter values and parameter types, before you create
+        or update a stack or stack set.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - GetTemplateSummary
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-15'
+        - name: TemplateBody
+          in: query
+          description: Structure containing the template body.
+          schema:
+            type: string
+        - name: TemplateURL
+          in: query
+          description: Location of file containing the template body.
+          schema:
+            type: string
+            format: uri
+        - name: StackName
+          in: query
+          description: The name or the stack ID.
+          schema:
+            type: string
+        - name: StackSetName
+          in: query
+          description: The name or unique ID of the stack set.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/GetTemplateSummaryOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+        - Templates
+
+  /?Action=ListStackResources:
+    get:
+      operationId: ListStackResources
+      summary: List stack resources
+      description: >-
+        Returns descriptions of all resources of the specified stack.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - ListStackResources
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-15'
+        - name: StackName
+          in: query
+          required: true
+          description: The name or the unique stack ID.
+          schema:
+            type: string
+        - name: NextToken
+          in: query
+          description: A string that identifies the next page of stack resources to retrieve.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ListStackResourcesOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+        - Resources
+
+  /?Action=DescribeStackResources:
+    get:
+      operationId: DescribeStackResources
+      summary: Describe stack resources
+      description: >-
+        Returns AWS resource descriptions for running and deleted stacks. If
+        StackName is specified, all the associated resources that are part of
+        the stack are returned.
+      parameters:
+        - name: Action
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - DescribeStackResources
+        - name: Version
+          in: query
+          required: true
+          schema:
+            type: string
+            default: '2010-05-15'
+        - name: StackName
+          in: query
+          description: The name or the unique stack ID.
+          schema:
+            type: string
+        - name: LogicalResourceId
+          in: query
+          description: The logical name of the resource.
+          schema:
+            type: string
+        - name: PhysicalResourceId
+          in: query
+          description: >-
+            The name or unique identifier that corresponds to a physical instance
+            ID of a resource.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeStackResourcesOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+        - Resources
+
+components:
+  schemas:
+    Stack:
+      type: object
+      required:
+        - StackName
+        - StackStatus
+        - CreationTime
+      properties:
+        StackId:
+          type: string
+          description: Unique identifier of the stack.
+        StackName:
+          type: string
+          description: The name associated with the stack.
+        ChangeSetId:
+          type: string
+          description: The unique ID of the change set.
+        Description:
+          type: string
+          description: A user-defined description associated with the stack.
+        Parameters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Parameter'
+          description: A list of Parameter structures.
+        CreationTime:
+          type: string
+          format: date-time
+          description: The time at which the stack was created.
+        DeletionTime:
+          type: string
+          format: date-time
+          description: The time the stack was deleted.
+        LastUpdatedTime:
+          type: string
+          format: date-time
+          description: The time the stack was last updated.
+        RollbackConfiguration:
+          $ref: '#/components/schemas/RollbackConfiguration'
+        StackStatus:
+          type: string
+          description: Current status of the stack.
+          enum:
+            - CREATE_IN_PROGRESS
+            - CREATE_FAILED
+            - CREATE_COMPLETE
+            - ROLLBACK_IN_PROGRESS
+            - ROLLBACK_FAILED
+            - ROLLBACK_COMPLETE
+            - DELETE_IN_PROGRESS
+            - DELETE_FAILED
+            - DELETE_COMPLETE
+            - UPDATE_IN_PROGRESS
+            - UPDATE_COMPLETE_CLEANUP_IN_PROGRESS
+            - UPDATE_COMPLETE
+            - UPDATE_FAILED
+            - UPDATE_ROLLBACK_IN_PROGRESS
+            - UPDATE_ROLLBACK_FAILED
+            - UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS
+            - UPDATE_ROLLBACK_COMPLETE
+            - REVIEW_IN_PROGRESS
+            - IMPORT_IN_PROGRESS
+            - IMPORT_COMPLETE
+            - IMPORT_ROLLBACK_IN_PROGRESS
+            - IMPORT_ROLLBACK_FAILED
+            - IMPORT_ROLLBACK_COMPLETE
+        StackStatusReason:
+          type: string
+          description: Success or failure message associated with the stack status.
+        DisableRollback:
+          type: boolean
+          description: Whether rollback on stack creation failures is disabled.
+        NotificationARNs:
+          type: array
+          items:
+            type: string
+          description: Amazon SNS topic ARNs to which stack related events are published.
+        TimeoutInMinutes:
+          type: integer
+          description: The amount of time within which stack creation should complete.
+        Capabilities:
+          type: array
+          items:
+            type: string
+            enum:
+              - CAPABILITY_IAM
+              - CAPABILITY_NAMED_IAM
+              - CAPABILITY_AUTO_EXPAND
+          description: The capabilities allowed in the stack.
+        Outputs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Output'
+          description: A list of output structures.
+        RoleARN:
+          type: string
+          description: The Amazon Resource Name (ARN) of an IAM role.
+        Tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+          description: A list of tags associated with the stack.
+        EnableTerminationProtection:
+          type: boolean
+          description: Whether termination protection is enabled for the stack.
+        DriftInformation:
+          $ref: '#/components/schemas/StackDriftInformation'
+
+    ChangeSet:
+      type: object
+      properties:
+        ChangeSetId:
+          type: string
+          description: The ARN of the change set.
+        ChangeSetName:
+          type: string
+          description: The name of the change set.
+        StackId:
+          type: string
+          description: The ARN of the stack associated with the change set.
+        StackName:
+          type: string
+          description: The name of the stack associated with the change set.
+        Description:
+          type: string
+          description: Information about the change set.
+        ExecutionStatus:
+          type: string
+          enum:
+            - UNAVAILABLE
+            - AVAILABLE
+            - EXECUTE_IN_PROGRESS
+            - EXECUTE_COMPLETE
+            - EXECUTE_FAILED
+            - OBSOLETE
+          description: The execution status of the change set.
+        Status:
+          type: string
+          enum:
+            - CREATE_PENDING
+            - CREATE_IN_PROGRESS
+            - CREATE_COMPLETE
+            - DELETE_FAILED
+            - DELETE_COMPLETE
+            - FAILED
+          description: The current status of the change set.
+        StatusReason:
+          type: string
+          description: A description of the current status of the change set.
+        CreationTime:
+          type: string
+          format: date-time
+          description: The start time when the change set was created.
+        Changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Change'
+          description: A list of structures that describe the resources and their changes.
+
+    StackResource:
+      type: object
+      required:
+        - LogicalResourceId
+        - ResourceType
+        - ResourceStatus
+        - Timestamp
+      properties:
+        StackName:
+          type: string
+          description: The name associated with the stack.
+        StackId:
+          type: string
+          description: Unique identifier of the stack.
+        LogicalResourceId:
+          type: string
+          description: The logical name of the resource specified in the template.
+        PhysicalResourceId:
+          type: string
+          description: The name or unique identifier of the resource.
+        ResourceType:
+          type: string
+          description: Type of resource (e.g., AWS::EC2::Instance).
+        Timestamp:
+          type: string
+          format: date-time
+          description: Time the status was updated.
+        ResourceStatus:
+          type: string
+          enum:
+            - CREATE_IN_PROGRESS
+            - CREATE_FAILED
+            - CREATE_COMPLETE
+            - DELETE_IN_PROGRESS
+            - DELETE_FAILED
+            - DELETE_COMPLETE
+            - DELETE_SKIPPED
+            - UPDATE_IN_PROGRESS
+            - UPDATE_FAILED
+            - UPDATE_COMPLETE
+            - IMPORT_FAILED
+            - IMPORT_COMPLETE
+            - IMPORT_IN_PROGRESS
+            - IMPORT_ROLLBACK_IN_PROGRESS
+            - IMPORT_ROLLBACK_FAILED
+            - IMPORT_ROLLBACK_COMPLETE
+          description: Current status of the resource.
+        ResourceStatusReason:
+          type: string
+          description: Success or failure message associated with the resource.
+        Description:
+          type: string
+          description: User defined description associated with the resource.
+        DriftInformation:
+          $ref: '#/components/schemas/StackResourceDriftInformation'
+
+    Parameter:
+      type: object
+      properties:
+        ParameterKey:
+          type: string
+        ParameterValue:
+          type: string
+        UsePreviousValue:
+          type: boolean
+        ResolvedValue:
+          type: string
+
+    Output:
+      type: object
+      properties:
+        OutputKey:
+          type: string
+        OutputValue:
+          type: string
+        Description:
+          type: string
+        ExportName:
+          type: string
+
+    Tag:
+      type: object
+      required:
+        - Key
+        - Value
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
+
+    RollbackConfiguration:
+      type: object
+      properties:
+        RollbackTriggers:
+          type: array
+          items:
+            type: object
+            properties:
+              Arn:
+                type: string
+              Type:
+                type: string
+        MonitoringTimeInMinutes:
+          type: integer
+
+    StackDriftInformation:
+      type: object
+      required:
+        - StackDriftStatus
+      properties:
+        StackDriftStatus:
+          type: string
+          enum:
+            - DRIFTED
+            - IN_SYNC
+            - UNKNOWN
+            - NOT_CHECKED
+        LastCheckTimestamp:
+          type: string
+          format: date-time
+
+    StackResourceDriftInformation:
+      type: object
+      required:
+        - StackResourceDriftStatus
+      properties:
+        StackResourceDriftStatus:
+          type: string
+          enum:
+            - IN_SYNC
+            - MODIFIED
+            - DELETED
+            - NOT_CHECKED
+        LastCheckTimestamp:
+          type: string
+          format: date-time
+
+    Change:
+      type: object
+      properties:
+        Type:
+          type: string
+          enum:
+            - Resource
+        ResourceChange:
+          type: object
+          properties:
+            Action:
+              type: string
+              enum:
+                - Add
+                - Modify
+                - Remove
+                - Import
+                - Dynamic
+            LogicalResourceId:
+              type: string
+            PhysicalResourceId:
+              type: string
+            ResourceType:
+              type: string
+            Replacement:
+              type: string
+              enum:
+                - 'True'
+                - 'False'
+                - Conditional
+            Scope:
+              type: array
+              items:
+                type: string
+
+    CreateStackOutput:
+      type: object
+      properties:
+        StackId:
+          type: string
+          description: Unique identifier of the stack.
+
+    DescribeStacksOutput:
+      type: object
+      properties:
+        Stacks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stack'
+        NextToken:
+          type: string
+
+    UpdateStackOutput:
+      type: object
+      properties:
+        StackId:
+          type: string
+
+    ListStacksOutput:
+      type: object
+      properties:
+        StackSummaries:
+          type: array
+          items:
+            type: object
+            properties:
+              StackId:
+                type: string
+              StackName:
+                type: string
+              StackStatus:
+                type: string
+              CreationTime:
+                type: string
+                format: date-time
+              DeletionTime:
+                type: string
+                format: date-time
+              LastUpdatedTime:
+                type: string
+                format: date-time
+              TemplateDescription:
+                type: string
+        NextToken:
+          type: string
+
+    CreateChangeSetOutput:
+      type: object
+      properties:
+        Id:
+          type: string
+          description: The ARN of the change set.
+        StackId:
+          type: string
+          description: The unique ID of the stack.
+
+    DescribeChangeSetOutput:
+      type: object
+      properties:
+        ChangeSetName:
+          type: string
+        ChangeSetId:
+          type: string
+        StackId:
+          type: string
+        StackName:
+          type: string
+        Description:
+          type: string
+        ExecutionStatus:
+          type: string
+        Status:
+          type: string
+        StatusReason:
+          type: string
+        Changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Change'
+        NextToken:
+          type: string
+        CreationTime:
+          type: string
+          format: date-time
+
+    ValidateTemplateOutput:
+      type: object
+      properties:
+        Parameters:
+          type: array
+          items:
+            type: object
+            properties:
+              ParameterKey:
+                type: string
+              DefaultValue:
+                type: string
+              NoEcho:
+                type: boolean
+              Description:
+                type: string
+        Description:
+          type: string
+        Capabilities:
+          type: array
+          items:
+            type: string
+        CapabilitiesReason:
+          type: string
+
+    GetTemplateOutput:
+      type: object
+      properties:
+        TemplateBody:
+          type: string
+          description: Structure containing the template body.
+        StagesAvailable:
+          type: array
+          items:
+            type: string
+            enum:
+              - Original
+              - Processed
+
+    GetTemplateSummaryOutput:
+      type: object
+      properties:
+        Parameters:
+          type: array
+          items:
+            type: object
+            properties:
+              ParameterKey:
+                type: string
+              DefaultValue:
+                type: string
+              ParameterType:
+                type: string
+              NoEcho:
+                type: boolean
+              Description:
+                type: string
+              ParameterConstraints:
+                type: object
+                properties:
+                  AllowedValues:
+                    type: array
+                    items:
+                      type: string
+        Description:
+          type: string
+        Capabilities:
+          type: array
+          items:
+            type: string
+        ResourceTypes:
+          type: array
+          items:
+            type: string
+        Version:
+          type: string
+        Metadata:
+          type: string
+
+    ListStackResourcesOutput:
+      type: object
+      properties:
+        StackResourceSummaries:
+          type: array
+          items:
+            type: object
+            properties:
+              LogicalResourceId:
+                type: string
+              PhysicalResourceId:
+                type: string
+              ResourceType:
+                type: string
+              ResourceStatus:
+                type: string
+              ResourceStatusReason:
+                type: string
+              LastUpdatedTimestamp:
+                type: string
+                format: date-time
+              DriftInformation:
+                $ref: '#/components/schemas/StackResourceDriftInformation'
+        NextToken:
+          type: string
+
+    DescribeStackResourcesOutput:
+      type: object
+      properties:
+        StackResources:
+          type: array
+          items:
+            $ref: '#/components/schemas/StackResource'
+
+  securitySchemes:
+    aws_auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+
+security:
+  - aws_auth: []
+
+tags:
+  - name: Stacks
+    description: Operations for managing CloudFormation stacks
+  - name: Change Sets
+    description: Operations for managing CloudFormation change sets
+  - name: Templates
+    description: Operations for working with CloudFormation templates
+  - name: Resources
+    description: Operations for managing stack resources

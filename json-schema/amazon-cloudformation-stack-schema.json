@@ -1,0 +1,355 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/amazon-cloudformation-stack.json",
+  "title": "Amazon CloudFormation Stack",
+  "description": "Schema representing an Amazon CloudFormation stack, which is a collection of AWS resources that you can manage as a single unit.",
+  "type": "object",
+  "required": [
+    "StackName",
+    "StackStatus",
+    "CreationTime"
+  ],
+  "properties": {
+    "StackId": {
+      "type": "string",
+      "description": "Unique identifier of the stack.",
+      "pattern": "^arn:aws:cloudformation:[a-z0-9-]+:[0-9]{12}:stack/.+/.+$"
+    },
+    "StackName": {
+      "type": "string",
+      "description": "The name associated with the stack.",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[a-zA-Z][a-zA-Z0-9-]*$"
+    },
+    "ChangeSetId": {
+      "type": "string",
+      "description": "The unique ID of the change set."
+    },
+    "Description": {
+      "type": "string",
+      "description": "A user-defined description associated with the stack.",
+      "maxLength": 1024
+    },
+    "Parameters": {
+      "type": "array",
+      "description": "A list of Parameter structures that specify input parameters for the stack.",
+      "items": {
+        "$ref": "#/$defs/Parameter"
+      }
+    },
+    "CreationTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time at which the stack was created."
+    },
+    "DeletionTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time the stack was deleted."
+    },
+    "LastUpdatedTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The time the stack was last updated."
+    },
+    "RollbackConfiguration": {
+      "$ref": "#/$defs/RollbackConfiguration"
+    },
+    "StackStatus": {
+      "type": "string",
+      "description": "Current status of the stack.",
+      "enum": [
+        "CREATE_IN_PROGRESS",
+        "CREATE_FAILED",
+        "CREATE_COMPLETE",
+        "ROLLBACK_IN_PROGRESS",
+        "ROLLBACK_FAILED",
+        "ROLLBACK_COMPLETE",
+        "DELETE_IN_PROGRESS",
+        "DELETE_FAILED",
+        "DELETE_COMPLETE",
+        "UPDATE_IN_PROGRESS",
+        "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS",
+        "UPDATE_COMPLETE",
+        "UPDATE_FAILED",
+        "UPDATE_ROLLBACK_IN_PROGRESS",
+        "UPDATE_ROLLBACK_FAILED",
+        "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS",
+        "UPDATE_ROLLBACK_COMPLETE",
+        "REVIEW_IN_PROGRESS",
+        "IMPORT_IN_PROGRESS",
+        "IMPORT_COMPLETE",
+        "IMPORT_ROLLBACK_IN_PROGRESS",
+        "IMPORT_ROLLBACK_FAILED",
+        "IMPORT_ROLLBACK_COMPLETE"
+      ]
+    },
+    "StackStatusReason": {
+      "type": "string",
+      "description": "Success or failure message associated with the stack status."
+    },
+    "DisableRollback": {
+      "type": "boolean",
+      "description": "Boolean to enable or disable rollback on stack creation failures.",
+      "default": false
+    },
+    "NotificationARNs": {
+      "type": "array",
+      "description": "Amazon SNS topic ARNs to which stack related events are published.",
+      "items": {
+        "type": "string",
+        "pattern": "^arn:aws:sns:[a-z0-9-]+:[0-9]{12}:.+$"
+      },
+      "maxItems": 5
+    },
+    "TimeoutInMinutes": {
+      "type": "integer",
+      "description": "The amount of time within which stack creation should complete.",
+      "minimum": 1
+    },
+    "Capabilities": {
+      "type": "array",
+      "description": "The capabilities allowed in the stack.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "CAPABILITY_IAM",
+          "CAPABILITY_NAMED_IAM",
+          "CAPABILITY_AUTO_EXPAND"
+        ]
+      }
+    },
+    "Outputs": {
+      "type": "array",
+      "description": "A list of output structures.",
+      "items": {
+        "$ref": "#/$defs/Output"
+      }
+    },
+    "RoleARN": {
+      "type": "string",
+      "description": "The Amazon Resource Name (ARN) of an IAM role that CloudFormation assumes to create the stack.",
+      "pattern": "^arn:aws:iam::[0-9]{12}:role/.+$"
+    },
+    "Tags": {
+      "type": "array",
+      "description": "A list of tags associated with the stack.",
+      "items": {
+        "$ref": "#/$defs/Tag"
+      },
+      "maxItems": 50
+    },
+    "EnableTerminationProtection": {
+      "type": "boolean",
+      "description": "Whether termination protection is enabled for the stack.",
+      "default": false
+    },
+    "DriftInformation": {
+      "$ref": "#/$defs/StackDriftInformation"
+    },
+    "Resources": {
+      "type": "array",
+      "description": "A list of stack resources.",
+      "items": {
+        "$ref": "#/$defs/StackResource"
+      }
+    }
+  },
+  "$defs": {
+    "Parameter": {
+      "type": "object",
+      "description": "A CloudFormation stack parameter.",
+      "properties": {
+        "ParameterKey": {
+          "type": "string",
+          "description": "The key associated with the parameter."
+        },
+        "ParameterValue": {
+          "type": "string",
+          "description": "The input value associated with the parameter."
+        },
+        "UsePreviousValue": {
+          "type": "boolean",
+          "description": "During a stack update, use the existing parameter value."
+        },
+        "ResolvedValue": {
+          "type": "string",
+          "description": "Read-only. The value that corresponds to a SSM parameter key."
+        }
+      },
+      "required": [
+        "ParameterKey"
+      ]
+    },
+    "Output": {
+      "type": "object",
+      "description": "A CloudFormation stack output.",
+      "properties": {
+        "OutputKey": {
+          "type": "string",
+          "description": "The key associated with the output."
+        },
+        "OutputValue": {
+          "type": "string",
+          "description": "The value associated with the output."
+        },
+        "Description": {
+          "type": "string",
+          "description": "User defined description associated with the output."
+        },
+        "ExportName": {
+          "type": "string",
+          "description": "The name of the export associated with the output."
+        }
+      }
+    },
+    "Tag": {
+      "type": "object",
+      "description": "A key-value pair tag.",
+      "required": [
+        "Key",
+        "Value"
+      ],
+      "properties": {
+        "Key": {
+          "type": "string",
+          "description": "The tag key.",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "Value": {
+          "type": "string",
+          "description": "The tag value.",
+          "minLength": 0,
+          "maxLength": 256
+        }
+      }
+    },
+    "RollbackConfiguration": {
+      "type": "object",
+      "description": "Structure containing the rollback triggers for CloudFormation to monitor during stack creation and updating operations.",
+      "properties": {
+        "RollbackTriggers": {
+          "type": "array",
+          "description": "The triggers to monitor during stack creation or update actions.",
+          "items": {
+            "type": "object",
+            "required": [
+              "Arn",
+              "Type"
+            ],
+            "properties": {
+              "Arn": {
+                "type": "string",
+                "description": "The Amazon Resource Name (ARN) of the rollback trigger."
+              },
+              "Type": {
+                "type": "string",
+                "description": "The resource type of the rollback trigger."
+              }
+            }
+          },
+          "maxItems": 5
+        },
+        "MonitoringTimeInMinutes": {
+          "type": "integer",
+          "description": "The amount of time to monitor during rollback.",
+          "minimum": 0,
+          "maximum": 180
+        }
+      }
+    },
+    "StackDriftInformation": {
+      "type": "object",
+      "description": "Contains information about whether the stack drift detection has been performed and the status.",
+      "required": [
+        "StackDriftStatus"
+      ],
+      "properties": {
+        "StackDriftStatus": {
+          "type": "string",
+          "description": "Status of the drift detection operation.",
+          "enum": [
+            "DRIFTED",
+            "IN_SYNC",
+            "UNKNOWN",
+            "NOT_CHECKED"
+          ]
+        },
+        "LastCheckTimestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Most recent time when a drift detection operation was initiated."
+        }
+      }
+    },
+    "StackResource": {
+      "type": "object",
+      "description": "A resource that is part of a CloudFormation stack.",
+      "required": [
+        "LogicalResourceId",
+        "ResourceType",
+        "ResourceStatus",
+        "Timestamp"
+      ],
+      "properties": {
+        "StackName": {
+          "type": "string",
+          "description": "The name associated with the stack."
+        },
+        "StackId": {
+          "type": "string",
+          "description": "Unique identifier of the stack."
+        },
+        "LogicalResourceId": {
+          "type": "string",
+          "description": "The logical name of the resource specified in the template."
+        },
+        "PhysicalResourceId": {
+          "type": "string",
+          "description": "The name or unique identifier that corresponds to a physical instance ID."
+        },
+        "ResourceType": {
+          "type": "string",
+          "description": "Type of resource (e.g., AWS::EC2::Instance)."
+        },
+        "Timestamp": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Time the status was updated."
+        },
+        "ResourceStatus": {
+          "type": "string",
+          "description": "Current status of the resource.",
+          "enum": [
+            "CREATE_IN_PROGRESS",
+            "CREATE_FAILED",
+            "CREATE_COMPLETE",
+            "DELETE_IN_PROGRESS",
+            "DELETE_FAILED",
+            "DELETE_COMPLETE",
+            "DELETE_SKIPPED",
+            "UPDATE_IN_PROGRESS",
+            "UPDATE_FAILED",
+            "UPDATE_COMPLETE",
+            "IMPORT_FAILED",
+            "IMPORT_COMPLETE",
+            "IMPORT_IN_PROGRESS",
+            "IMPORT_ROLLBACK_IN_PROGRESS",
+            "IMPORT_ROLLBACK_FAILED",
+            "IMPORT_ROLLBACK_COMPLETE"
+          ]
+        },
+        "ResourceStatusReason": {
+          "type": "string",
+          "description": "Success or failure message associated with the resource."
+        },
+        "Description": {
+          "type": "string",
+          "description": "User defined description associated with the resource."
+        }
+      }
+    }
+  }
+}

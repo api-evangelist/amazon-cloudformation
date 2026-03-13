@@ -1,0 +1,215 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "cfn": "https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/",
+    "aws": "https://aws.amazon.com/",
+    "Stack": {
+      "@id": "cfn:Stack",
+      "@context": {
+        "StackId": {
+          "@id": "cfn:StackId",
+          "@type": "@id"
+        },
+        "StackName": {
+          "@id": "cfn:StackName",
+          "@type": "xsd:string"
+        },
+        "Description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "StackStatus": {
+          "@id": "cfn:StackStatus",
+          "@type": "xsd:string"
+        },
+        "StackStatusReason": {
+          "@id": "cfn:StackStatusReason",
+          "@type": "xsd:string"
+        },
+        "CreationTime": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "LastUpdatedTime": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:dateTime"
+        },
+        "DeletionTime": {
+          "@id": "cfn:DeletionTime",
+          "@type": "xsd:dateTime"
+        },
+        "DisableRollback": {
+          "@id": "cfn:DisableRollback",
+          "@type": "xsd:boolean"
+        },
+        "EnableTerminationProtection": {
+          "@id": "cfn:EnableTerminationProtection",
+          "@type": "xsd:boolean"
+        },
+        "TimeoutInMinutes": {
+          "@id": "cfn:TimeoutInMinutes",
+          "@type": "xsd:integer"
+        },
+        "RoleARN": {
+          "@id": "cfn:RoleARN",
+          "@type": "@id"
+        },
+        "Parameters": {
+          "@id": "cfn:Parameters",
+          "@container": "@list"
+        },
+        "Outputs": {
+          "@id": "cfn:Outputs",
+          "@container": "@list"
+        },
+        "Tags": {
+          "@id": "cfn:Tags",
+          "@container": "@list"
+        },
+        "Capabilities": {
+          "@id": "cfn:Capabilities",
+          "@container": "@list"
+        },
+        "NotificationARNs": {
+          "@id": "cfn:NotificationARNs",
+          "@container": "@list"
+        }
+      }
+    },
+    "ChangeSet": {
+      "@id": "cfn:ChangeSet",
+      "@context": {
+        "ChangeSetId": {
+          "@id": "cfn:ChangeSetId",
+          "@type": "@id"
+        },
+        "ChangeSetName": {
+          "@id": "cfn:ChangeSetName",
+          "@type": "xsd:string"
+        },
+        "StackId": {
+          "@id": "cfn:StackId",
+          "@type": "@id"
+        },
+        "StackName": {
+          "@id": "cfn:StackName",
+          "@type": "xsd:string"
+        },
+        "Description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "ExecutionStatus": {
+          "@id": "cfn:ExecutionStatus",
+          "@type": "xsd:string"
+        },
+        "Status": {
+          "@id": "cfn:Status",
+          "@type": "xsd:string"
+        },
+        "StatusReason": {
+          "@id": "cfn:StatusReason",
+          "@type": "xsd:string"
+        },
+        "CreationTime": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:dateTime"
+        },
+        "Changes": {
+          "@id": "cfn:Changes",
+          "@container": "@list"
+        }
+      }
+    },
+    "StackResource": {
+      "@id": "cfn:StackResource",
+      "@context": {
+        "LogicalResourceId": {
+          "@id": "cfn:LogicalResourceId",
+          "@type": "xsd:string"
+        },
+        "PhysicalResourceId": {
+          "@id": "cfn:PhysicalResourceId",
+          "@type": "xsd:string"
+        },
+        "ResourceType": {
+          "@id": "cfn:ResourceType",
+          "@type": "xsd:string"
+        },
+        "ResourceStatus": {
+          "@id": "cfn:ResourceStatus",
+          "@type": "xsd:string"
+        },
+        "ResourceStatusReason": {
+          "@id": "cfn:ResourceStatusReason",
+          "@type": "xsd:string"
+        },
+        "Timestamp": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:dateTime"
+        },
+        "Description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    "Parameter": {
+      "@id": "cfn:Parameter",
+      "@context": {
+        "ParameterKey": {
+          "@id": "cfn:ParameterKey",
+          "@type": "xsd:string"
+        },
+        "ParameterValue": {
+          "@id": "cfn:ParameterValue",
+          "@type": "xsd:string"
+        },
+        "UsePreviousValue": {
+          "@id": "cfn:UsePreviousValue",
+          "@type": "xsd:boolean"
+        },
+        "ResolvedValue": {
+          "@id": "cfn:ResolvedValue",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    "Output": {
+      "@id": "cfn:Output",
+      "@context": {
+        "OutputKey": {
+          "@id": "cfn:OutputKey",
+          "@type": "xsd:string"
+        },
+        "OutputValue": {
+          "@id": "cfn:OutputValue",
+          "@type": "xsd:string"
+        },
+        "Description": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "ExportName": {
+          "@id": "cfn:ExportName",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    "Tag": {
+      "@id": "cfn:Tag",
+      "@context": {
+        "Key": {
+          "@id": "cfn:TagKey",
+          "@type": "xsd:string"
+        },
+        "Value": {
+          "@id": "cfn:TagValue",
+          "@type": "xsd:string"
+        }
+      }
+    },
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/"
+  }
+}
