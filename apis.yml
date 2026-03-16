@@ -1,7 +1,7 @@
 aid: amazon-cloudformation
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/apis.yml
-name: Amazon CloudFormation API
+name: Amazon CloudFormation
 tags:
   - Infrastructure as Code
   - CloudFormation
