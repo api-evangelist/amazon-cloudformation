@@ -26,7 +26,7 @@ paths:
   /?Action=CreateStack:
     get:
       operationId: CreateStack
-      summary: Create a stack
+      summary: Amazon CloudFormation Create a stack
       description: >-
         Creates a stack as specified in the template. After the call completes
         successfully, the stack creation starts. You can check the status of the
@@ -91,7 +91,7 @@ paths:
   /?Action=DescribeStacks:
     get:
       operationId: DescribeStacks
-      summary: Describe stacks
+      summary: Amazon CloudFormation Describe stacks
       description: >-
         Returns the description for the specified stack; if no stack name was
         specified, then it returns the description for all the stacks created.
@@ -137,7 +137,7 @@ paths:
   /?Action=UpdateStack:
     get:
       operationId: UpdateStack
-      summary: Update a stack
+      summary: Amazon CloudFormation Update a stack
       description: >-
         Updates a stack as specified in the template. After the call completes
         successfully, the stack update starts.
@@ -194,7 +194,7 @@ paths:
   /?Action=DeleteStack:
     get:
       operationId: DeleteStack
-      summary: Delete a stack
+      summary: Amazon CloudFormation Delete a stack
       description: >-
         Deletes a specified stack. Once the call completes successfully, stack
         deletion starts. Deleted stacks do not show up in the DescribeStacks
@@ -241,7 +241,7 @@ paths:
   /?Action=ListStacks:
     get:
       operationId: ListStacks
-      summary: List stacks
+      summary: Amazon CloudFormation List stacks
       description: >-
         Returns the summary information for stacks whose status matches the
         specified StackStatusFilter.
@@ -307,7 +307,7 @@ paths:
   /?Action=CreateChangeSet:
     get:
       operationId: CreateChangeSet
-      summary: Create a change set
+      summary: Amazon CloudFormation Create a change set
       description: >-
         Creates a list of changes that will be applied to a stack so that you can
         review the changes before executing them. Change sets allow you to see
@@ -375,7 +375,7 @@ paths:
   /?Action=DescribeChangeSet:
     get:
       operationId: DescribeChangeSet
-      summary: Describe a change set
+      summary: Amazon CloudFormation Describe a change set
       description: >-
         Returns the inputs and a list of changes that CloudFormation will make
         if you execute the change set.
@@ -426,7 +426,7 @@ paths:
   /?Action=ExecuteChangeSet:
     get:
       operationId: ExecuteChangeSet
-      summary: Execute a change set
+      summary: Amazon CloudFormation Execute a change set
       description: >-
         Updates a stack using the input information that was provided when the
         specified change set was created.
@@ -473,7 +473,7 @@ paths:
   /?Action=ValidateTemplate:
     get:
       operationId: ValidateTemplate
-      summary: Validate a template
+      summary: Amazon CloudFormation Validate a template
       description: >-
         Validates a specified template. CloudFormation first checks if the
         template is valid JSON or YAML. If both checks fail, CloudFormation
@@ -520,7 +520,7 @@ paths:
   /?Action=GetTemplate:
     get:
       operationId: GetTemplate
-      summary: Get template
+      summary: Amazon CloudFormation Get template
       description: >-
         Returns the template body for a specified stack. You can get the template
         for running or deleted stacks.
@@ -573,7 +573,7 @@ paths:
   /?Action=GetTemplateSummary:
     get:
       operationId: GetTemplateSummary
-      summary: Get template summary
+      summary: Amazon CloudFormation Get template summary
       description: >-
         Returns information about a new or existing template. The
         GetTemplateSummary action is useful for viewing parameter information,
@@ -631,7 +631,7 @@ paths:
   /?Action=ListStackResources:
     get:
       operationId: ListStackResources
-      summary: List stack resources
+      summary: Amazon CloudFormation List stack resources
       description: >-
         Returns descriptions of all resources of the specified stack.
       parameters:
@@ -676,7 +676,7 @@ paths:
   /?Action=DescribeStackResources:
     get:
       operationId: DescribeStackResources
-      summary: Describe stack resources
+      summary: Amazon CloudFormation Describe stack resources
       description: >-
         Returns AWS resource descriptions for running and deleted stacks. If
         StackName is specified, all the associated resources that are part of
