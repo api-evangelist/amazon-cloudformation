@@ -1273,11 +1273,11 @@ security:
   - aws_auth: []
 
 tags:
-  - name: Stacks
-    description: Operations for managing CloudFormation stacks
   - name: Change Sets
     description: Operations for managing CloudFormation change sets
-  - name: Templates
-    description: Operations for working with CloudFormation templates
   - name: Resources
     description: Operations for managing stack resources
+  - name: Stacks
+    description: Operations for managing CloudFormation stacks
+  - name: Templates
+    description: Operations for working with CloudFormation templates

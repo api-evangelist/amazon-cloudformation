@@ -3,11 +3,11 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/apis.yml
 name: Amazon CloudFormation
 tags:
-  - Infrastructure as Code
+  - Automation
+  - AWS
   - CloudFormation
   - DevOps
-  - AWS
-  - Automation
+  - Infrastructure as Code
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 description: >-
@@ -24,8 +24,8 @@ apis:
   - aid: amazon-cloudformation:amazon-cloudformation-api
     name: Amazon CloudFormation API
     tags:
-      - Infrastructure as Code
       - AWS
+      - Infrastructure as Code
     humanURL: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/
     properties:
       - type: Documentation
