@@ -1,0 +1,32 @@
+{
+  "StackId": "abc12345",
+  "StackName": "example-resource",
+  "ChangeSetId": "abc12345",
+  "Description": "example-value",
+  "Parameters": [
+    "example-value"
+  ],
+  "CreationTime": "2025-03-15T14:30:00Z",
+  "DeletionTime": "2025-03-15T14:30:00Z",
+  "LastUpdatedTime": "2025-03-15T14:30:00Z",
+  "RollbackConfiguration": "example-value",
+  "StackStatus": "CREATE_IN_PROGRESS",
+  "StackStatusReason": "ACTIVE",
+  "DisableRollback": true,
+  "NotificationARNs": [
+    "arn:aws:::example/abc12345"
+  ],
+  "TimeoutInMinutes": 100,
+  "Capabilities": [
+    "CAPABILITY_IAM"
+  ],
+  "Outputs": [
+    "example-value"
+  ],
+  "RoleARN": "arn:aws:::example/abc12345",
+  "Tags": [
+    "example-value"
+  ],
+  "EnableTerminationProtection": true,
+  "DriftInformation": "example-value"
+}

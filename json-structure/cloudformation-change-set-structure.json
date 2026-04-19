@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/json-structure/cloudformation-change-set-structure.json",
+  "name": "ChangeSet",
+  "description": "ChangeSet schema",
+  "type": "object",
+  "properties": {
+    "ChangeSetId": {
+      "type": "string",
+      "description": "The ARN of the change set."
+    },
+    "ChangeSetName": {
+      "type": "string",
+      "description": "The name of the change set."
+    },
+    "StackId": {
+      "type": "string",
+      "description": "The ARN of the stack associated with the change set."
+    },
+    "StackName": {
+      "type": "string",
+      "description": "The name of the stack associated with the change set."
+    },
+    "Description": {
+      "type": "string",
+      "description": "Information about the change set."
+    },
+    "ExecutionStatus": {
+      "type": "string",
+      "enum": [
+        "UNAVAILABLE",
+        "AVAILABLE",
+        "EXECUTE_IN_PROGRESS",
+        "EXECUTE_COMPLETE",
+        "EXECUTE_FAILED",
+        "OBSOLETE"
+      ],
+      "description": "The execution status of the change set."
+    },
+    "Status": {
+      "type": "string",
+      "enum": [
+        "CREATE_PENDING",
+        "CREATE_IN_PROGRESS",
+        "CREATE_COMPLETE",
+        "DELETE_FAILED",
+        "DELETE_COMPLETE",
+        "FAILED"
+      ],
+      "description": "The current status of the change set."
+    },
+    "StatusReason": {
+      "type": "string",
+      "description": "A description of the current status of the change set."
+    },
+    "CreationTime": {
+      "type": "datetime",
+      "description": "The start time when the change set was created."
+    },
+    "Changes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Change"
+      },
+      "description": "A list of structures that describe the resources and their changes."
+    }
+  }
+}

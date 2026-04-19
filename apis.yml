@@ -3,62 +3,128 @@ url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/apis.yml
 name: Amazon CloudFormation
 tags:
-  - Automation
-  - AWS
-  - CloudFormation
-  - DevOps
-  - Infrastructure as Code
+- AWS
+- CloudFormation
+- Infrastructure as Code
+- DevOps
+- IaC
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 description: >-
-  Amazon CloudFormation is an infrastructure as code service that allows you to
-  model, provision, and manage AWS and third-party resources by treating
-  infrastructure as code. CloudFormation enables you to use a template file to
-  create and delete a collection of resources together as a single unit (a
-  stack), automating the provisioning and updating of your infrastructure in an
-  orderly and predictable fashion.
+  AWS CloudFormation is an infrastructure-as-code service that speeds up cloud provisioning by enabling developers to define and manage AWS resources programmatically through templates. Scale infrastructure
+  globally and manage resources across all AWS accounts and regions through a single operation.
 created: '2024-01-01'
-modified: '2026-03-16'
+modified: '2026-04-19'
 specificationVersion: '0.19'
 apis:
-  - aid: amazon-cloudformation:amazon-cloudformation-api
-    name: Amazon CloudFormation API
-    tags:
-      - AWS
-      - Infrastructure as Code
-    humanURL: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/
-      - type: OpenAPI
-        url: openapi/amazon-cloudformation-openapi.yml
-common:
-  - type: Portal
-    url: https://aws.amazon.com/
-  - type: Website
-    url: https://aws.amazon.com/cloudformation/
+- name: Amazon CloudFormation API
+  description: API for creating, updating, and managing CloudFormation stacks, stack sets, and change sets for infrastructure-as-code deployments across AWS accounts and regions.
+  image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+  humanURL: https://aws.amazon.com/cloudformation/
+  baseURL: https://cloudformation.us-east-1.amazonaws.com
+  tags:
+  - AWS
+  - CloudFormation
+  - Infrastructure as Code
+  - DevOps
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-cloudformation-openapi.yml
   - type: Documentation
-    url: https://docs.aws.amazon.com/cloudformation/
-  - type: TermsOfService
-    url: https://aws.amazon.com/service-terms/
-  - type: PrivacyPolicy
-    url: https://aws.amazon.com/privacy/
-  - type: Support
-    url: https://aws.amazon.com/support/
-  - type: Blog
-    url: https://aws.amazon.com/blogs/devops/
-  - type: GitHubOrganization
-    url: https://github.com/aws-cloudformation
-  - type: Console
-    url: https://console.aws.amazon.com/cloudformation/
-  - type: SignUp
-    url: https://portal.aws.amazon.com/billing/signup
-  - type: Login
-    url: https://signin.aws.amazon.com/
-  - type: Status
-    url: https://health.aws.amazon.com/health/status
+    url: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/
+  - type: GettingStarted
+    url: https://aws.amazon.com/cloudformation/getting-started/
   - type: Pricing
     url: https://aws.amazon.com/cloudformation/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/cloudformation/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/
+  - type: CLI
+    url: https://docs.aws.amazon.com/cli/latest/reference/cloudformation/
+  - type: JSONSchema
+    url: json-schema/cloudformation-stack-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-change-set-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-stack-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-parameter-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-output-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-cloudformation-context.jsonld
+common:
+- type: Portal
+  url: https://aws.amazon.com/
+- type: Website
+  url: https://aws.amazon.com/cloudformation/
+- type: Documentation
+  url: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/
+- type: TermsOfService
+  url: https://aws.amazon.com/service-terms/
+- type: PrivacyPolicy
+  url: https://aws.amazon.com/privacy/
+- type: Support
+  url: https://aws.amazon.com/premiumsupport/
+- type: Blog
+  url: https://aws.amazon.com/blogs/devops/
+- type: GitHubOrganization
+  url: https://github.com/aws
+- type: Console
+  url: https://console.aws.amazon.com/cloudformation/
+- type: SignUp
+  url: https://signin.aws.amazon.com/signup?request_type=register
+- type: StatusPage
+  url: https://health.aws.amazon.com/health/status
+- type: YouTube
+  url: https://www.youtube.com/user/AmazonWebServices
+- type: StackOverflow
+  url: https://stackoverflow.com/questions/tagged/aws-cloudformation
+- type: Contact
+  url: https://aws.amazon.com/contact-us/
+- type: Compliance
+  url: https://aws.amazon.com/compliance/
+- type: SpectralRules
+  url: rules/amazon-cloudformation-spectral-rules.yml
+- type: Vocabulary
+  url: vocabulary/amazon-cloudformation-vocabulary.yaml
+- type: NaftikoCapability
+  url: capabilities/infrastructure-as-code.yaml
+- type: Features
+  data:
+  - name: Infrastructure as Code
+    description: Define AWS resources in JSON or YAML templates for repeatable, version-controlled deployments.
+  - name: Multi-Account Stack Sets
+    description: Deploy stacks across multiple AWS accounts and regions with a single operation.
+  - name: Change Sets
+    description: Preview changes to running stacks before executing them to avoid unintended updates.
+  - name: Drift Detection
+    description: Detect when deployed infrastructure has drifted from the CloudFormation template definition.
+  - name: Registry Extensions
+    description: Extend CloudFormation to manage third-party and community resources through the Registry.
+- type: UseCases
+  data:
+  - name: DevOps Automation
+    description: Automate infrastructure testing and deployment through CI/CD pipelines.
+  - name: Multi-Region Deployment
+    description: Deploy consistent infrastructure across multiple AWS regions.
+  - name: Compliance Governance
+    description: Enforce organizational infrastructure standards through template guardrails.
+  - name: Disaster Recovery
+    description: Rapidly rebuild infrastructure from templates after failures.
+- type: Integrations
+  data:
+  - name: AWS CodePipeline
+    description: Automate CloudFormation deployments in CI/CD pipelines.
+  - name: AWS Config
+    description: Track infrastructure changes and detect drift with Config integration.
+  - name: AWS IAM
+    description: Control who can create and update CloudFormation stacks.
+  - name: AWS Service Catalog
+    description: Publish approved CloudFormation templates as self-service products.
+  - name: Amazon SNS
+    description: Receive stack event notifications via SNS topics.
 maintainers:
-  - FN: Kin Lane
-    email: kin@apievangelist.com
+- FN: Kin Lane
+  email: kin@apievangelist.com

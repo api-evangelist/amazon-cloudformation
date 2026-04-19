@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/json-schema/cloudformation-parameter-schema.json",
+  "title": "Parameter",
+  "description": "Parameter schema",
+  "type": "object",
+  "properties": {
+    "ParameterKey": {
+      "type": "string"
+    },
+    "ParameterValue": {
+      "type": "string"
+    },
+    "UsePreviousValue": {
+      "type": "boolean"
+    },
+    "ResolvedValue": {
+      "type": "string"
+    }
+  }
+}

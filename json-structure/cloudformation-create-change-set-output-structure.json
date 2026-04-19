@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/json-structure/cloudformation-create-change-set-output-structure.json",
+  "name": "CreateChangeSetOutput",
+  "description": "CreateChangeSetOutput schema",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "description": "The ARN of the change set."
+    },
+    "StackId": {
+      "type": "string",
+      "description": "The unique ID of the stack."
+    }
+  }
+}

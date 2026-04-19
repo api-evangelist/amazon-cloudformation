@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/json-structure/cloudformation-stack-resource-structure.json",
+  "name": "StackResource",
+  "description": "StackResource schema",
+  "type": "object",
+  "properties": {
+    "StackName": {
+      "type": "string",
+      "description": "The name associated with the stack."
+    },
+    "StackId": {
+      "type": "string",
+      "description": "Unique identifier of the stack."
+    },
+    "LogicalResourceId": {
+      "type": "string",
+      "description": "The logical name of the resource specified in the template."
+    },
+    "PhysicalResourceId": {
+      "type": "string",
+      "description": "The name or unique identifier of the resource."
+    },
+    "ResourceType": {
+      "type": "string",
+      "description": "Type of resource (e.g., AWS::EC2::Instance)."
+    },
+    "Timestamp": {
+      "type": "datetime",
+      "description": "Time the status was updated."
+    },
+    "ResourceStatus": {
+      "type": "string",
+      "enum": [
+        "CREATE_IN_PROGRESS",
+        "CREATE_FAILED",
+        "CREATE_COMPLETE",
+        "DELETE_IN_PROGRESS",
+        "DELETE_FAILED",
+        "DELETE_COMPLETE",
+        "DELETE_SKIPPED",
+        "UPDATE_IN_PROGRESS",
+        "UPDATE_FAILED",
+        "UPDATE_COMPLETE",
+        "IMPORT_FAILED",
+        "IMPORT_COMPLETE",
+        "IMPORT_IN_PROGRESS",
+        "IMPORT_ROLLBACK_IN_PROGRESS",
+        "IMPORT_ROLLBACK_FAILED",
+        "IMPORT_ROLLBACK_COMPLETE"
+      ],
+      "description": "Current status of the resource."
+    },
+    "ResourceStatusReason": {
+      "type": "string",
+      "description": "Success or failure message associated with the resource."
+    },
+    "Description": {
+      "type": "string",
+      "description": "User defined description associated with the resource."
+    },
+    "DriftInformation": {
+      "$ref": "#/components/schemas/StackResourceDriftInformation"
+    }
+  },
+  "required": [
+    "LogicalResourceId",
+    "ResourceType",
+    "ResourceStatus",
+    "Timestamp"
+  ]
+}

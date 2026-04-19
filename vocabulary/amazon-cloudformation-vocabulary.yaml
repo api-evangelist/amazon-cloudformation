@@ -1,0 +1,65 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Amazon CloudFormation"
+  description: "Vocabulary for Amazon CloudFormation APIs covering operations, schemas, and capability workflows."
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - name: "Amazon CloudFormation API"
+      namespace: cloudformation
+      baseUrl: https://cloudformation.us-east-1.amazonaws.com
+      status: active
+
+  resources: []
+  actions:
+    - name: list
+      httpMethod: GET
+      pattern: read
+    - name: create
+      httpMethod: POST
+      pattern: write
+    - name: get
+      httpMethod: GET
+      pattern: read
+    - name: delete
+      httpMethod: DELETE
+      pattern: destructive
+
+  authentication:
+    schemes:
+      - type: AWS Signature Version 4
+        apis: [cloudformation]
+
+capability:
+  workflows:
+    - name: "Infrastructure as Code Deployment"
+      file: capabilities/infrastructure-as-code.yaml
+      toolCount: 8
+      personas: [DevOps Engineer]
+
+  personas:
+    - id: devops-engineer
+      name: "DevOps Engineer"
+      workflows: ["Infrastructure as Code Deployment"]
+
+  namespaces:
+    - name: cloudformation
+      type: consumed
+      baseUri: https://cloudformation.us-east-1.amazonaws.com
+    - name: cloudformation-workflow-api
+      type: rest-exposed
+      port: 8080
+    - name: cloudformation-workflow-mcp
+      type: mcp-exposed
+      port: 9090
+
+  binds:
+    - name: AWS_ACCESS_KEY_ID
+      workflows: ["Infrastructure as Code Deployment"]
+    - name: AWS_SECRET_ACCESS_KEY
+      workflows: ["Infrastructure as Code Deployment"]
+
+crossReference: []

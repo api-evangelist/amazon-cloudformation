@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/json-schema/cloudformation-list-stacks-output-schema.json",
+  "title": "ListStacksOutput",
+  "description": "ListStacksOutput schema",
+  "type": "object",
+  "properties": {
+    "StackSummaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "StackId": {
+            "type": "string"
+          },
+          "StackName": {
+            "type": "string"
+          },
+          "StackStatus": {
+            "type": "string"
+          },
+          "CreationTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "DeletionTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "LastUpdatedTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "TemplateDescription": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "NextToken": {
+      "type": "string"
+    }
+  }
+}

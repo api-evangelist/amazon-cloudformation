@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/json-schema/cloudformation-output-schema.json",
+  "title": "Output",
+  "description": "Output schema",
+  "type": "object",
+  "properties": {
+    "OutputKey": {
+      "type": "string"
+    },
+    "OutputValue": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "string"
+    },
+    "ExportName": {
+      "type": "string"
+    }
+  }
+}

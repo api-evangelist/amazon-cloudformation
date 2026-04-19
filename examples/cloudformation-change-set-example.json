@@ -1,0 +1,14 @@
+{
+  "ChangeSetId": "abc12345",
+  "ChangeSetName": "example-resource",
+  "StackId": "abc12345",
+  "StackName": "example-resource",
+  "Description": "example-value",
+  "ExecutionStatus": "UNAVAILABLE",
+  "Status": "CREATE_PENDING",
+  "StatusReason": "ACTIVE",
+  "CreationTime": "2025-03-15T14:30:00Z",
+  "Changes": [
+    "example-value"
+  ]
+}

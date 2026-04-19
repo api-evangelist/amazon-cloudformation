@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/json-schema/cloudformation-stack-drift-information-schema.json",
+  "title": "StackDriftInformation",
+  "description": "StackDriftInformation schema",
+  "type": "object",
+  "properties": {
+    "StackDriftStatus": {
+      "type": "string",
+      "enum": [
+        "DRIFTED",
+        "IN_SYNC",
+        "UNKNOWN",
+        "NOT_CHECKED"
+      ]
+    },
+    "LastCheckTimestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "StackDriftStatus"
+  ]
+}

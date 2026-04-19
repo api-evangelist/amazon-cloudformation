@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/json-schema/cloudformation-change-schema.json",
+  "title": "Change",
+  "description": "Change schema",
+  "type": "object",
+  "properties": {
+    "Type": {
+      "type": "string",
+      "enum": [
+        "Resource"
+      ]
+    },
+    "ResourceChange": {
+      "type": "object",
+      "properties": {
+        "Action": {
+          "type": "string",
+          "enum": [
+            "Add",
+            "Modify",
+            "Remove",
+            "Import",
+            "Dynamic"
+          ]
+        },
+        "LogicalResourceId": {
+          "type": "string"
+        },
+        "PhysicalResourceId": {
+          "type": "string"
+        },
+        "ResourceType": {
+          "type": "string"
+        },
+        "Replacement": {
+          "type": "string",
+          "enum": [
+            "True",
+            "False",
+            "Conditional"
+          ]
+        },
+        "Scope": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

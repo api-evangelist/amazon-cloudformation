@@ -1,0 +1,42 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon CloudFormation"
+  description: "API for creating, updating, and managing CloudFormation stacks, stack sets, and change sets for infrastructure-as-code deployments across AWS accounts and regions."
+  tags:
+    - Amazon Web Services
+    - Amazon CloudFormation
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+      AWS_REGION: AWS_REGION
+
+capability:
+  consumes:
+    - type: http
+      namespace: cloudformation
+      baseUri: https://cloudformation.us-east-1.amazonaws.com
+      description: "Amazon CloudFormation API."
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "{{AWS_ACCESS_KEY_ID}}"
+        placement: header
+      resources: []
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: cloudformation-rest
+      resources: []
+
+    - type: mcp
+      port: 9100
+      namespace: cloudformation-mcp
+      transport: http
+      tools: []

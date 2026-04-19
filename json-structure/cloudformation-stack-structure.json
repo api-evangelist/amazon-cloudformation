@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/json-structure/cloudformation-stack-structure.json",
+  "name": "Stack",
+  "description": "Stack schema",
+  "type": "object",
+  "properties": {
+    "StackId": {
+      "type": "string",
+      "description": "Unique identifier of the stack."
+    },
+    "StackName": {
+      "type": "string",
+      "description": "The name associated with the stack."
+    },
+    "ChangeSetId": {
+      "type": "string",
+      "description": "The unique ID of the change set."
+    },
+    "Description": {
+      "type": "string",
+      "description": "A user-defined description associated with the stack."
+    },
+    "Parameters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Parameter"
+      },
+      "description": "A list of Parameter structures."
+    },
+    "CreationTime": {
+      "type": "datetime",
+      "description": "The time at which the stack was created."
+    },
+    "DeletionTime": {
+      "type": "datetime",
+      "description": "The time the stack was deleted."
+    },
+    "LastUpdatedTime": {
+      "type": "datetime",
+      "description": "The time the stack was last updated."
+    },
+    "RollbackConfiguration": {
+      "$ref": "#/components/schemas/RollbackConfiguration"
+    },
+    "StackStatus": {
+      "type": "string",
+      "description": "Current status of the stack.",
+      "enum": [
+        "CREATE_IN_PROGRESS",
+        "CREATE_FAILED",
+        "CREATE_COMPLETE",
+        "ROLLBACK_IN_PROGRESS",
+        "ROLLBACK_FAILED",
+        "ROLLBACK_COMPLETE",
+        "DELETE_IN_PROGRESS",
+        "DELETE_FAILED",
+        "DELETE_COMPLETE",
+        "UPDATE_IN_PROGRESS",
+        "UPDATE_COMPLETE_CLEANUP_IN_PROGRESS",
+        "UPDATE_COMPLETE",
+        "UPDATE_FAILED",
+        "UPDATE_ROLLBACK_IN_PROGRESS",
+        "UPDATE_ROLLBACK_FAILED",
+        "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS",
+        "UPDATE_ROLLBACK_COMPLETE",
+        "REVIEW_IN_PROGRESS",
+        "IMPORT_IN_PROGRESS",
+        "IMPORT_COMPLETE",
+        "IMPORT_ROLLBACK_IN_PROGRESS",
+        "IMPORT_ROLLBACK_FAILED",
+        "IMPORT_ROLLBACK_COMPLETE"
+      ]
+    },
+    "StackStatusReason": {
+      "type": "string",
+      "description": "Success or failure message associated with the stack status."
+    },
+    "DisableRollback": {
+      "type": "boolean",
+      "description": "Whether rollback on stack creation failures is disabled."
+    },
+    "NotificationARNs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Amazon SNS topic ARNs to which stack related events are published."
+    },
+    "TimeoutInMinutes": {
+      "type": "int32",
+      "description": "The amount of time within which stack creation should complete."
+    },
+    "Capabilities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "CAPABILITY_IAM",
+          "CAPABILITY_NAMED_IAM",
+          "CAPABILITY_AUTO_EXPAND"
+        ]
+      },
+      "description": "The capabilities allowed in the stack."
+    },
+    "Outputs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Output"
+      },
+      "description": "A list of output structures."
+    },
+    "RoleARN": {
+      "type": "string",
+      "description": "The Amazon Resource Name (ARN) of an IAM role."
+    },
+    "Tags": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Tag"
+      },
+      "description": "A list of tags associated with the stack."
+    },
+    "EnableTerminationProtection": {
+      "type": "boolean",
+      "description": "Whether termination protection is enabled for the stack."
+    },
+    "DriftInformation": {
+      "$ref": "#/components/schemas/StackDriftInformation"
+    }
+  },
+  "required": [
+    "StackName",
+    "StackStatus",
+    "CreationTime"
+  ]
+}

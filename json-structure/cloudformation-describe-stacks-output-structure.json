@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/json-structure/cloudformation-describe-stacks-output-structure.json",
+  "name": "DescribeStacksOutput",
+  "description": "DescribeStacksOutput schema",
+  "type": "object",
+  "properties": {
+    "Stacks": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Stack"
+      }
+    },
+    "NextToken": {
+      "type": "string"
+    }
+  }
+}

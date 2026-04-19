@@ -1,0 +1,9 @@
+{
+  "RollbackTriggers": [
+    {
+      "Arn": "arn:aws:::example/abc12345",
+      "Type": "example-value"
+    }
+  ],
+  "MonitoringTimeInMinutes": 100
+}

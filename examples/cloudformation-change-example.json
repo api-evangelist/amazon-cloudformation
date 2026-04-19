@@ -1,0 +1,13 @@
+{
+  "Type": "Resource",
+  "ResourceChange": {
+    "Action": "Add",
+    "LogicalResourceId": "abc12345",
+    "PhysicalResourceId": "abc12345",
+    "ResourceType": "example-value",
+    "Replacement": "True",
+    "Scope": [
+      "example-value"
+    ]
+  }
+}

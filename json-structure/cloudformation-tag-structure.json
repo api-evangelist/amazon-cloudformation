@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/json-structure/cloudformation-tag-structure.json",
+  "name": "Tag",
+  "description": "Tag schema",
+  "type": "object",
+  "properties": {
+    "Key": {
+      "type": "string"
+    },
+    "Value": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "Key",
+    "Value"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/json-structure/cloudformation-update-stack-output-structure.json",
+  "name": "UpdateStackOutput",
+  "description": "UpdateStackOutput schema",
+  "type": "object",
+  "properties": {
+    "StackId": {
+      "type": "string"
+    }
+  }
+}

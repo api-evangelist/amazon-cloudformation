@@ -1,0 +1,14 @@
+{
+  "StackSummaries": [
+    {
+      "StackId": "abc12345",
+      "StackName": "example-resource",
+      "StackStatus": "ACTIVE",
+      "CreationTime": "2025-03-15T14:30:00Z",
+      "DeletionTime": "2025-03-15T14:30:00Z",
+      "LastUpdatedTime": "2025-03-15T14:30:00Z",
+      "TemplateDescription": "example-value"
+    }
+  ],
+  "NextToken": "example-value"
+}

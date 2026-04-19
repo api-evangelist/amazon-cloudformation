@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/json-structure/cloudformation-stack-resource-drift-information-structure.json",
+  "name": "StackResourceDriftInformation",
+  "description": "StackResourceDriftInformation schema",
+  "type": "object",
+  "properties": {
+    "StackResourceDriftStatus": {
+      "type": "string",
+      "enum": [
+        "IN_SYNC",
+        "MODIFIED",
+        "DELETED",
+        "NOT_CHECKED"
+      ]
+    },
+    "LastCheckTimestamp": {
+      "type": "datetime"
+    }
+  },
+  "required": [
+    "StackResourceDriftStatus"
+  ]
+}

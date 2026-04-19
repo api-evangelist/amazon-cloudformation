@@ -1,0 +1,12 @@
+{
+  "StackName": "example-resource",
+  "StackId": "abc12345",
+  "LogicalResourceId": "abc12345",
+  "PhysicalResourceId": "abc12345",
+  "ResourceType": "example-value",
+  "Timestamp": "2025-03-15T14:30:00Z",
+  "ResourceStatus": "CREATE_IN_PROGRESS",
+  "ResourceStatusReason": "ACTIVE",
+  "Description": "example-value",
+  "DriftInformation": "example-value"
+}

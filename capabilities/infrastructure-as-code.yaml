@@ -1,0 +1,36 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "Amazon CloudFormation Infrastructure as Code Deployment"
+  description: "Workflow for infrastructure as code deployment using Amazon CloudFormation for DevOps Engineer personas."
+  tags:
+    - Amazon Web Services
+    - Amazon CloudFormation
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+      AWS_REGION: AWS_REGION
+
+capability:
+  consumes:
+    - import: cloudformation
+      location: ./shared/cloudformation.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: cloudformation-workflow-api
+      description: "Unified REST API for Amazon CloudFormation infrastructure as code deployment."
+      resources: []
+
+    - type: mcp
+      port: 9090
+      namespace: cloudformation-workflow-mcp
+      transport: http
+      description: "MCP server for AI-assisted Amazon CloudFormation infrastructure as code deployment."
+      tools: []

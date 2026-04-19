@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/json-structure/cloudformation-rollback-configuration-structure.json",
+  "name": "RollbackConfiguration",
+  "description": "RollbackConfiguration schema",
+  "type": "object",
+  "properties": {
+    "RollbackTriggers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Arn": {
+            "type": "string"
+          },
+          "Type": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "MonitoringTimeInMinutes": {
+      "type": "int32"
+    }
+  }
+}
