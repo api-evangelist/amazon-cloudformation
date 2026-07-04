@@ -1,0 +1,38 @@
+generated: '2026-06-20'
+method: derived
+source: >-
+  Derived from openapi/amazon-cloudformation-openapi.yml (securitySchemes, tags,
+  parameters) and examples/; cross-checked against AWS CloudFormation API Reference.
+standards:
+  - id: oauth2
+    conforms: false
+    evidence: Authentication is AWS Signature Version 4, not OAuth2.
+  - id: oidc
+    conforms: false
+  - id: aws-sigv4
+    conforms: true
+    evidence: securitySchemes.aws_auth documents AWS Signature Version 4 (Authorization header).
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors are returned as AWS XML ErrorResponse documents, not application/problem+json.
+  - id: pagination
+    conforms: true
+    evidence: List/Describe operations use NextToken cursor pagination (e.g. ListStacks, DescribeStacks).
+  - id: idempotency
+    conforms: true
+    evidence: Mutating operations accept a ClientRequestToken for idempotent retries (CreateStack, UpdateStack, DeleteStack).
+  - id: json-api
+    conforms: false
+  - id: odata
+    conforms: false
+  - id: scim
+    conforms: false
+  - id: fhir-r4
+    conforms: false
+  - id: fapi
+    conforms: false
+  - id: psd2
+    conforms: false
+  - id: infrastructure-as-code
+    conforms: true
+    evidence: Core service purpose - declarative JSON/YAML templates provisioned as stacks and change sets.

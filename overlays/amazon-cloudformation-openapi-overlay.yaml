@@ -1,0 +1,30 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Amazon CloudFormation API
+  version: 1.0.0
+extends: openapi/amazon-cloudformation-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-slug: amazon-cloudformation
+      x-apievangelist-provider: Amazon Web Services
+      x-apievangelist-authentication: aws-sigv4
+      x-apievangelist-artifacts:
+        packages: packages/amazon-cloudformation-packages.yml
+        mcp: mcp/amazon-cloudformation-mcp.yml
+        llms: llms/amazon-cloudformation-llms.txt
+        errors: errors/amazon-cloudformation-problem-types.yml
+        conformance: conformance/amazon-cloudformation-conformance.yml
+        lifecycle: lifecycle/amazon-cloudformation-lifecycle.yml
+        well_known: well-known/amazon-cloudformation-well-known.yml
+  - target: $.info
+    update:
+      x-apievangelist-categories:
+        - Infrastructure as Code
+        - DevOps
+        - Deployment
+  - target: $.servers
+    update:
+      - x-apievangelist-note: >-
+          CloudFormation is a regional service; replace {region} with your target
+          AWS region (e.g. cloudformation.us-east-1.amazonaws.com).

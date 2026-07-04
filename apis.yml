@@ -14,7 +14,7 @@ description: >-
   AWS CloudFormation is an infrastructure-as-code service that speeds up cloud provisioning by enabling developers to define and manage AWS resources programmatically through templates. Scale infrastructure
   globally and manage resources across all AWS accounts and regions through a single operation.
 created: '2024-01-01'
-modified: '2026-04-19'
+modified: '2026-06-20'
 specificationVersion: '0.19'
 apis:
 - name: Amazon CloudFormation API
@@ -54,7 +54,25 @@ apis:
     url: json-schema/cloudformation-output-schema.json
   - type: JSONLD
     url: json-ld/amazon-cloudformation-context.jsonld
+  - type: Packages
+    url: packages/amazon-cloudformation-packages.yml
+  - type: MCPServer
+    url: mcp/amazon-cloudformation-mcp.yml
+  - type: LLMsTxt
+    url: llms/amazon-cloudformation-llms.txt
+  - type: Overlay
+    url: overlays/amazon-cloudformation-openapi-overlay.yaml
+  - type: ErrorCatalog
+    url: errors/amazon-cloudformation-problem-types.yml
+  - type: Conformance
+    url: conformance/amazon-cloudformation-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-cloudformation-lifecycle.yml
 common:
+- type: WellKnown
+  url: well-known/amazon-cloudformation-well-known.yml
+- type: SecurityTxt
+  url: well-known/amazon-cloudformation-security.txt
 - type: Portal
   url: https://aws.amazon.com/
 - type: Website

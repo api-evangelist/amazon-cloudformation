@@ -1,0 +1,94 @@
+generated: '2026-06-20'
+method: derived
+source: >-
+  Derived from openapi/amazon-cloudformation-openapi.yml 4xx/5xx responses;
+  titles/remediation enriched from
+  https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/CommonErrors.md
+format: aws-query-error
+notes: >-
+  CloudFormation is a Query (AWS Signature v4) API. Errors are returned as XML
+  ErrorResponse documents (not RFC 9457 application/problem+json). The OpenAPI
+  captures only generic 400 "Client error" and 500 "Server error" per operation;
+  the catalog below enriches those with the documented AWS common error codes.
+openapi_responses:
+  - status: 400
+    title: Client error
+    applies_to_operations: all
+    source: openapi/amazon-cloudformation-openapi.yml
+  - status: 500
+    title: Server error
+    applies_to_operations: all
+    source: openapi/amazon-cloudformation-openapi.yml
+problems:
+  - code: IncompleteSignature
+    status: 400
+    title: Request signature does not conform to AWS standards
+    remediation: Use valid AWS credentials and ensure the request is properly signed; update your SDK if outdated.
+  - code: InvalidParameterCombination
+    status: 400
+    title: Conflicting parameters used together
+    remediation: Remove one of the conflicting parameters and retry.
+  - code: InvalidParameterValue
+    status: 400
+    title: Invalid parameter value
+    remediation: Check the parameter constraints and retry.
+  - code: InvalidQueryParameter
+    status: 400
+    title: Malformed AWS query string
+    remediation: Verify the query string format and retry.
+  - code: MissingAction
+    status: 400
+    title: Missing Action parameter
+    remediation: Add the Action parameter and retry.
+  - code: MissingParameter
+    status: 400
+    title: Required parameter missing
+    remediation: Add the missing required parameter and retry.
+  - code: RequestExpired
+    status: 400
+    title: Request expired
+    remediation: Generate a new request with a current timestamp; requests must reach the service within 15 minutes.
+  - code: ThrottlingException
+    status: 400
+    title: Request rate too high
+    remediation: Reduce request frequency; AWS SDKs retry throttled requests automatically.
+  - code: ValidationError
+    status: 400
+    title: Input fails required format or constraints
+    remediation: Ensure all required parameters are present and values are valid.
+  - code: NotAuthorized
+    status: 401
+    title: Not authorized to perform this action
+    remediation: Verify that your IAM policy includes the required permissions.
+  - code: AccessDeniedException
+    status: 403
+    title: Access denied
+    remediation: Verify that your IAM policy includes the required permissions.
+  - code: ExpiredTokenException
+    status: 403
+    title: Security token expired
+    remediation: Request a new security token and retry.
+  - code: MissingAuthenticationToken
+    status: 403
+    title: Missing authentication token
+    remediation: Include a valid AWS access key ID or X.509 certificate in the request.
+  - code: OptInRequired
+    status: 403
+    title: Service subscription required
+    remediation: Enable the service in your AWS account.
+  - code: UnrecognizedClientException
+    status: 403
+    title: Unrecognized client credentials
+    remediation: Verify your AWS access key ID / certificate exists and has not expired.
+  - code: MalformedQueryString
+    status: 404
+    title: Malformed query string
+    remediation: Verify the query string syntax and retry.
+  - code: InternalFailure
+    status: 500
+    title: Internal server error
+    remediation: Retry later; contact AWS Support if the problem persists.
+  - code: ServiceUnavailable
+    status: 503
+    title: Service temporarily unavailable
+    remediation: Retry later with exponential backoff.

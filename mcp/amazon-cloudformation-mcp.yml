@@ -1,0 +1,37 @@
+generated: '2026-06-20'
+method: searched
+status: published
+source: https://awslabs.github.io/mcp/servers/cfn-mcp-server/
+server:
+  name: awslabs.cfn-mcp-server
+  vendor: AWS Labs
+  transport: stdio
+  package:
+    registry: pypi
+    name: awslabs.cfn-mcp-server
+    url: https://pypi.org/project/awslabs.cfn-mcp-server/
+    install: uvx awslabs.cfn-mcp-server@latest
+  repository: https://github.com/awslabs/mcp
+  deprecated: true
+  superseded_by: AWS IAC MCP Server (unified CloudFormation + CDK + Terraform coverage)
+  notes: >-
+    Official AWS Labs MCP server that manages 1,100+ AWS resource types via the
+    AWS Cloud Control API and CloudFormation resource schemas. Authenticates
+    with standard AWS credentials; supports an optional read-only mode.
+tools:
+  - name: create_resource
+    description: Declaratively create an AWS resource.
+  - name: get_resource
+    description: Retrieve details for a specific AWS resource.
+  - name: update_resource
+    description: Apply changes to an existing AWS resource.
+  - name: delete_resource
+    description: Remove an AWS resource safely.
+  - name: list_resources
+    description: Enumerate resources of a specified type.
+  - name: get_resource_schema_information
+    description: Access CloudFormation resource schema details.
+  - name: get_request_status
+    description: Track the status of a mutation operation.
+  - name: create_template
+    description: Generate a CloudFormation template from existing resources.

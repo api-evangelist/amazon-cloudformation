@@ -1,0 +1,56 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  AWS SDK service clients for CloudFormation across public package registries
+  (npm, PyPI, Maven Central, NuGet, pkg.go.dev, RubyGems, crates.io)
+packages:
+  - language: javascript
+    registry: npm
+    name: "@aws-sdk/client-cloudformation"
+    url: https://www.npmjs.com/package/@aws-sdk/client-cloudformation
+    install: npm install @aws-sdk/client-cloudformation
+    official: true
+  - language: python
+    registry: pypi
+    name: boto3
+    url: https://pypi.org/project/boto3/
+    install: pip install boto3
+    official: true
+    notes: CloudFormation accessed via boto3.client('cloudformation'); low-level core is botocore.
+  - language: go
+    registry: pkg.go.dev
+    name: github.com/aws/aws-sdk-go-v2/service/cloudformation
+    url: https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/cloudformation
+    install: go get github.com/aws/aws-sdk-go-v2/service/cloudformation
+    official: true
+  - language: ruby
+    registry: rubygems
+    name: aws-sdk-cloudformation
+    url: https://rubygems.org/gems/aws-sdk-cloudformation
+    install: gem install aws-sdk-cloudformation
+    official: true
+  - language: dotnet
+    registry: nuget
+    name: AWSSDK.CloudFormation
+    url: https://www.nuget.org/packages/AWSSDK.CloudFormation
+    install: dotnet add package AWSSDK.CloudFormation
+    official: true
+  - language: rust
+    registry: crates.io
+    name: aws-sdk-cloudformation
+    url: https://crates.io/crates/aws-sdk-cloudformation
+    install: cargo add aws-sdk-cloudformation
+    official: true
+  - language: java
+    registry: maven-central
+    name: software.amazon.awssdk:cloudformation
+    url: https://central.sonatype.com/artifact/software.amazon.awssdk/cloudformation
+    install: "implementation 'software.amazon.awssdk:cloudformation'"
+    official: true
+  - language: cli
+    registry: pypi
+    name: awscli
+    url: https://docs.aws.amazon.com/cli/latest/reference/cloudformation/
+    install: pip install awscli
+    official: true
+    notes: CloudFormation commands under `aws cloudformation`.

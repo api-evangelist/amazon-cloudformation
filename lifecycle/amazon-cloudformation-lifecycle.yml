@@ -1,0 +1,28 @@
+generated: '2026-06-20'
+method: searched
+source: >-
+  AWS CloudFormation API Reference (API version 2010-05-15), AWS Health status
+  dashboard, and openapi/amazon-cloudformation-openapi.yml for deprecated operations.
+versioning:
+  scheme: dated-api-version
+  current: '2010-05-15'
+  detail: >-
+    CloudFormation is a stable Query API; the wire API version (Version=2010-05-15)
+    has been constant for years. New capabilities are added as new actions rather
+    than a new API version.
+  docs: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/Welcome.html
+deprecation:
+  policy_url: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DeregisterType.html
+  sunset_header: false
+  detail: >-
+    No RFC 8594 Sunset/Deprecation HTTP headers on this Query API. Extension
+    lifecycle deprecation is modeled in-band via DeregisterType (marks an
+    extension/version DEPRECATED in the CloudFormation registry).
+sla:
+  url: https://aws.amazon.com/cloudformation/pricing/
+  detail: >-
+    CloudFormation has no standalone published uptime SLA; there is no additional
+    charge for CloudFormation on AWS resource types, and you pay for the underlying
+    provisioned resources.
+status_page: https://health.aws.amazon.com/health/status
+deprecated_operations: []

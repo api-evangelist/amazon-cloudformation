@@ -1,0 +1,13 @@
+{
+  "repo": "amazon-cloudformation",
+  "feeds": [
+    {
+      "source": "https://aws.amazon.com/blogs/devops/",
+      "feed_url": "https://aws.amazon.com/blogs/devops/feed/",
+      "title": "AWS DevOps & Developer Productivity Blog",
+      "saved": 20
+    }
+  ],
+  "fetched": "2026-07-04T13:39:28Z",
+  "post_count": 20
+}
