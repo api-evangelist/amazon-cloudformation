@@ -69,6 +69,14 @@ apis:
   - type: Lifecycle
     url: lifecycle/amazon-cloudformation-lifecycle.yml
 common:
+- type: TrustCenter
+  url: security/amazon-cloudformation-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-cloudformation-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-cloudformation-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-cloudformation-authentication.yml
 - type: WellKnown
   url: well-known/amazon-cloudformation-well-known.yml
 - type: SecurityTxt
