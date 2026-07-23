@@ -1,0 +1,256 @@
+openapi: 3.1.0
+info:
+  title: Amazon CloudFormation Change Sets Templates API
+  description: Amazon CloudFormation is an infrastructure as code service that enables you to model, provision, and manage AWS and third-party resources by treating infrastructure as code. You use templates to define your resources and their dependencies, then deploy them as stacks.
+  version: '2010-05-15'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/cloudformation/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://cloudformation.amazonaws.com
+  description: Amazon CloudFormation regional endpoint
+- url: https://cloudformation.{region}.amazonaws.com
+  description: Amazon CloudFormation regional endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: The AWS region
+security:
+- aws_auth: []
+tags:
+- name: Templates
+  description: Operations for working with CloudFormation templates
+paths:
+  /?Action=ValidateTemplate:
+    get:
+      operationId: ValidateTemplate
+      summary: Amazon CloudFormation Validate a template
+      description: Validates a specified template. CloudFormation first checks if the template is valid JSON or YAML. If both checks fail, CloudFormation returns a template validation error.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - ValidateTemplate
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-15'
+      - name: TemplateBody
+        in: query
+        description: Structure containing the template body.
+        schema:
+          type: string
+      - name: TemplateURL
+        in: query
+        description: Location of file containing the template body.
+        schema:
+          type: string
+          format: uri
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ValidateTemplateOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+      - Templates
+  /?Action=GetTemplate:
+    get:
+      operationId: GetTemplate
+      summary: Amazon CloudFormation Get template
+      description: Returns the template body for a specified stack. You can get the template for running or deleted stacks.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - GetTemplate
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-15'
+      - name: StackName
+        in: query
+        description: The name or the unique stack ID.
+        schema:
+          type: string
+      - name: ChangeSetName
+        in: query
+        description: The name or Amazon Resource Name (ARN) of a change set.
+        schema:
+          type: string
+      - name: TemplateStage
+        in: query
+        description: The stage of the template that is returned.
+        schema:
+          type: string
+          enum:
+          - Original
+          - Processed
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/GetTemplateOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+      - Templates
+  /?Action=GetTemplateSummary:
+    get:
+      operationId: GetTemplateSummary
+      summary: Amazon CloudFormation Get template summary
+      description: Returns information about a new or existing template. The GetTemplateSummary action is useful for viewing parameter information, such as default parameter values and parameter types, before you create or update a stack or stack set.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - GetTemplateSummary
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-15'
+      - name: TemplateBody
+        in: query
+        description: Structure containing the template body.
+        schema:
+          type: string
+      - name: TemplateURL
+        in: query
+        description: Location of file containing the template body.
+        schema:
+          type: string
+          format: uri
+      - name: StackName
+        in: query
+        description: The name or the stack ID.
+        schema:
+          type: string
+      - name: StackSetName
+        in: query
+        description: The name or unique ID of the stack set.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/GetTemplateSummaryOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+      - Templates
+components:
+  schemas:
+    GetTemplateSummaryOutput:
+      type: object
+      properties:
+        Parameters:
+          type: array
+          items:
+            type: object
+            properties:
+              ParameterKey:
+                type: string
+              DefaultValue:
+                type: string
+              ParameterType:
+                type: string
+              NoEcho:
+                type: boolean
+              Description:
+                type: string
+              ParameterConstraints:
+                type: object
+                properties:
+                  AllowedValues:
+                    type: array
+                    items:
+                      type: string
+        Description:
+          type: string
+        Capabilities:
+          type: array
+          items:
+            type: string
+        ResourceTypes:
+          type: array
+          items:
+            type: string
+        Version:
+          type: string
+        Metadata:
+          type: string
+    ValidateTemplateOutput:
+      type: object
+      properties:
+        Parameters:
+          type: array
+          items:
+            type: object
+            properties:
+              ParameterKey:
+                type: string
+              DefaultValue:
+                type: string
+              NoEcho:
+                type: boolean
+              Description:
+                type: string
+        Description:
+          type: string
+        Capabilities:
+          type: array
+          items:
+            type: string
+        CapabilitiesReason:
+          type: string
+    GetTemplateOutput:
+      type: object
+      properties:
+        TemplateBody:
+          type: string
+          description: Structure containing the template body.
+        StagesAvailable:
+          type: array
+          items:
+            type: string
+            enum:
+            - Original
+            - Processed
+  securitySchemes:
+    aws_auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication

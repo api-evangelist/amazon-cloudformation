@@ -1,0 +1,226 @@
+openapi: 3.1.0
+info:
+  title: Amazon CloudFormation Change Sets Resources API
+  description: Amazon CloudFormation is an infrastructure as code service that enables you to model, provision, and manage AWS and third-party resources by treating infrastructure as code. You use templates to define your resources and their dependencies, then deploy them as stacks.
+  version: '2010-05-15'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/cloudformation/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://cloudformation.amazonaws.com
+  description: Amazon CloudFormation regional endpoint
+- url: https://cloudformation.{region}.amazonaws.com
+  description: Amazon CloudFormation regional endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: The AWS region
+security:
+- aws_auth: []
+tags:
+- name: Resources
+  description: Operations for managing stack resources
+paths:
+  /?Action=ListStackResources:
+    get:
+      operationId: ListStackResources
+      summary: Amazon CloudFormation List stack resources
+      description: Returns descriptions of all resources of the specified stack.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - ListStackResources
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-15'
+      - name: StackName
+        in: query
+        required: true
+        description: The name or the unique stack ID.
+        schema:
+          type: string
+      - name: NextToken
+        in: query
+        description: A string that identifies the next page of stack resources to retrieve.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/ListStackResourcesOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+      - Resources
+  /?Action=DescribeStackResources:
+    get:
+      operationId: DescribeStackResources
+      summary: Amazon CloudFormation Describe stack resources
+      description: Returns AWS resource descriptions for running and deleted stacks. If StackName is specified, all the associated resources that are part of the stack are returned.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DescribeStackResources
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-15'
+      - name: StackName
+        in: query
+        description: The name or the unique stack ID.
+        schema:
+          type: string
+      - name: LogicalResourceId
+        in: query
+        description: The logical name of the resource.
+        schema:
+          type: string
+      - name: PhysicalResourceId
+        in: query
+        description: The name or unique identifier that corresponds to a physical instance ID of a resource.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeStackResourcesOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+      - Resources
+components:
+  schemas:
+    StackResourceDriftInformation:
+      type: object
+      required:
+      - StackResourceDriftStatus
+      properties:
+        StackResourceDriftStatus:
+          type: string
+          enum:
+          - IN_SYNC
+          - MODIFIED
+          - DELETED
+          - NOT_CHECKED
+        LastCheckTimestamp:
+          type: string
+          format: date-time
+    StackResource:
+      type: object
+      required:
+      - LogicalResourceId
+      - ResourceType
+      - ResourceStatus
+      - Timestamp
+      properties:
+        StackName:
+          type: string
+          description: The name associated with the stack.
+        StackId:
+          type: string
+          description: Unique identifier of the stack.
+        LogicalResourceId:
+          type: string
+          description: The logical name of the resource specified in the template.
+        PhysicalResourceId:
+          type: string
+          description: The name or unique identifier of the resource.
+        ResourceType:
+          type: string
+          description: Type of resource (e.g., AWS::EC2::Instance).
+        Timestamp:
+          type: string
+          format: date-time
+          description: Time the status was updated.
+        ResourceStatus:
+          type: string
+          enum:
+          - CREATE_IN_PROGRESS
+          - CREATE_FAILED
+          - CREATE_COMPLETE
+          - DELETE_IN_PROGRESS
+          - DELETE_FAILED
+          - DELETE_COMPLETE
+          - DELETE_SKIPPED
+          - UPDATE_IN_PROGRESS
+          - UPDATE_FAILED
+          - UPDATE_COMPLETE
+          - IMPORT_FAILED
+          - IMPORT_COMPLETE
+          - IMPORT_IN_PROGRESS
+          - IMPORT_ROLLBACK_IN_PROGRESS
+          - IMPORT_ROLLBACK_FAILED
+          - IMPORT_ROLLBACK_COMPLETE
+          description: Current status of the resource.
+        ResourceStatusReason:
+          type: string
+          description: Success or failure message associated with the resource.
+        Description:
+          type: string
+          description: User defined description associated with the resource.
+        DriftInformation:
+          $ref: '#/components/schemas/StackResourceDriftInformation'
+    DescribeStackResourcesOutput:
+      type: object
+      properties:
+        StackResources:
+          type: array
+          items:
+            $ref: '#/components/schemas/StackResource'
+    ListStackResourcesOutput:
+      type: object
+      properties:
+        StackResourceSummaries:
+          type: array
+          items:
+            type: object
+            properties:
+              LogicalResourceId:
+                type: string
+              PhysicalResourceId:
+                type: string
+              ResourceType:
+                type: string
+              ResourceStatus:
+                type: string
+              ResourceStatusReason:
+                type: string
+              LastUpdatedTimestamp:
+                type: string
+                format: date-time
+              DriftInformation:
+                $ref: '#/components/schemas/StackResourceDriftInformation'
+        NextToken:
+          type: string
+  securitySchemes:
+    aws_auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication

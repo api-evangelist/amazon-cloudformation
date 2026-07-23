@@ -1,0 +1,261 @@
+openapi: 3.1.0
+info:
+  title: Amazon CloudFormation Change Sets API
+  description: Amazon CloudFormation is an infrastructure as code service that enables you to model, provision, and manage AWS and third-party resources by treating infrastructure as code. You use templates to define your resources and their dependencies, then deploy them as stacks.
+  version: '2010-05-15'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/cloudformation/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://cloudformation.amazonaws.com
+  description: Amazon CloudFormation regional endpoint
+- url: https://cloudformation.{region}.amazonaws.com
+  description: Amazon CloudFormation regional endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: The AWS region
+security:
+- aws_auth: []
+tags:
+- name: Change Sets
+  description: Operations for managing CloudFormation change sets
+paths:
+  /?Action=CreateChangeSet:
+    get:
+      operationId: CreateChangeSet
+      summary: Amazon CloudFormation Create a change set
+      description: Creates a list of changes that will be applied to a stack so that you can review the changes before executing them. Change sets allow you to see how your changes might impact your running resources before implementing them.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - CreateChangeSet
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-15'
+      - name: StackName
+        in: query
+        required: true
+        description: The name or the unique ID of the stack for which you are creating a change set.
+        schema:
+          type: string
+      - name: ChangeSetName
+        in: query
+        required: true
+        description: The name of the change set.
+        schema:
+          type: string
+      - name: TemplateBody
+        in: query
+        description: Structure containing the template body.
+        schema:
+          type: string
+      - name: TemplateURL
+        in: query
+        description: Location of file containing the template body.
+        schema:
+          type: string
+          format: uri
+      - name: ChangeSetType
+        in: query
+        description: The type of change set operation.
+        schema:
+          type: string
+          enum:
+          - CREATE
+          - UPDATE
+          - IMPORT
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/CreateChangeSetOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+      - Change Sets
+  /?Action=DescribeChangeSet:
+    get:
+      operationId: DescribeChangeSet
+      summary: Amazon CloudFormation Describe a change set
+      description: Returns the inputs and a list of changes that CloudFormation will make if you execute the change set.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - DescribeChangeSet
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-15'
+      - name: ChangeSetName
+        in: query
+        required: true
+        description: The name or Amazon Resource Name (ARN) of the change set.
+        schema:
+          type: string
+      - name: StackName
+        in: query
+        description: The name or the unique ID of the stack associated with the change set.
+        schema:
+          type: string
+      - name: NextToken
+        in: query
+        description: A string that identifies the next page of information to retrieve.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeChangeSetOutput'
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+      - Change Sets
+  /?Action=ExecuteChangeSet:
+    get:
+      operationId: ExecuteChangeSet
+      summary: Amazon CloudFormation Execute a change set
+      description: Updates a stack using the input information that was provided when the specified change set was created.
+      parameters:
+      - name: Action
+        in: query
+        required: true
+        schema:
+          type: string
+          enum:
+          - ExecuteChangeSet
+      - name: Version
+        in: query
+        required: true
+        schema:
+          type: string
+          default: '2010-05-15'
+      - name: ChangeSetName
+        in: query
+        required: true
+        description: The name or ARN of the change set to execute.
+        schema:
+          type: string
+      - name: StackName
+        in: query
+        description: The name or unique ID of the stack associated with the change set.
+        schema:
+          type: string
+      - name: DisableRollback
+        in: query
+        description: Preserves the state of previously provisioned resources when an operation fails.
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: Successful response
+        '400':
+          description: Client error
+        '500':
+          description: Server error
+      tags:
+      - Change Sets
+components:
+  schemas:
+    Change:
+      type: object
+      properties:
+        Type:
+          type: string
+          enum:
+          - Resource
+        ResourceChange:
+          type: object
+          properties:
+            Action:
+              type: string
+              enum:
+              - Add
+              - Modify
+              - Remove
+              - Import
+              - Dynamic
+            LogicalResourceId:
+              type: string
+            PhysicalResourceId:
+              type: string
+            ResourceType:
+              type: string
+            Replacement:
+              type: string
+              enum:
+              - 'True'
+              - 'False'
+              - Conditional
+            Scope:
+              type: array
+              items:
+                type: string
+    DescribeChangeSetOutput:
+      type: object
+      properties:
+        ChangeSetName:
+          type: string
+        ChangeSetId:
+          type: string
+        StackId:
+          type: string
+        StackName:
+          type: string
+        Description:
+          type: string
+        ExecutionStatus:
+          type: string
+        Status:
+          type: string
+        StatusReason:
+          type: string
+        Changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Change'
+        NextToken:
+          type: string
+        CreationTime:
+          type: string
+          format: date-time
+    CreateChangeSetOutput:
+      type: object
+      properties:
+        Id:
+          type: string
+          description: The ARN of the change set.
+        StackId:
+          type: string
+          description: The unique ID of the stack.
+  securitySchemes:
+    aws_auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
