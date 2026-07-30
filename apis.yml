@@ -9,7 +9,19 @@ tags:
 - DevOps
 - IaC
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-cloudformation.png
 description: >-
   AWS CloudFormation is an infrastructure-as-code service that speeds up cloud provisioning by enabling developers to define and manage AWS resources programmatically through templates. Scale infrastructure
   globally and manage resources across all AWS accounts and regions through a single operation.
@@ -17,19 +29,16 @@ created: '2024-01-01'
 modified: '2026-06-20'
 specificationVersion: '0.19'
 apis:
-- name: Amazon CloudFormation API
-  description: API for creating, updating, and managing CloudFormation stacks, stack sets, and change sets for infrastructure-as-code deployments across AWS accounts and regions.
-  image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
+- aid: amazon-cloudformation:amazon-cloudformation-change-sets-api
+  name: Amazon CloudFormation Change Sets API
+  description: Operations for managing CloudFormation change sets
   humanURL: https://aws.amazon.com/cloudformation/
   baseURL: https://cloudformation.us-east-1.amazonaws.com
   tags:
-  - AWS
-  - CloudFormation
-  - Infrastructure as Code
-  - DevOps
+  - Change Sets
   properties:
   - type: OpenAPI
-    url: openapi/amazon-cloudformation-openapi.yml
+    url: openapi/amazon-cloudformation-change-sets-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/
   - type: GettingStarted
@@ -56,12 +65,140 @@ apis:
     url: json-ld/amazon-cloudformation-context.jsonld
   - type: Packages
     url: packages/amazon-cloudformation-packages.yml
-  - type: MCPServer
-    url: mcp/amazon-cloudformation-mcp.yml
   - type: LLMsTxt
     url: llms/amazon-cloudformation-llms.txt
-  - type: Overlay
-    url: overlays/amazon-cloudformation-openapi-overlay.yaml
+  - type: ErrorCatalog
+    url: errors/amazon-cloudformation-problem-types.yml
+  - type: Conformance
+    url: conformance/amazon-cloudformation-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-cloudformation-lifecycle.yml
+- aid: amazon-cloudformation:amazon-cloudformation-resources-api
+  name: Amazon CloudFormation Resources API
+  description: Operations for managing stack resources
+  humanURL: https://aws.amazon.com/cloudformation/
+  baseURL: https://cloudformation.us-east-1.amazonaws.com
+  tags:
+  - Resources
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-cloudformation-resources-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/
+  - type: GettingStarted
+    url: https://aws.amazon.com/cloudformation/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/cloudformation/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/cloudformation/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/
+  - type: CLI
+    url: https://docs.aws.amazon.com/cli/latest/reference/cloudformation/
+  - type: JSONSchema
+    url: json-schema/cloudformation-stack-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-change-set-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-stack-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-parameter-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-output-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-cloudformation-context.jsonld
+  - type: Packages
+    url: packages/amazon-cloudformation-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-cloudformation-llms.txt
+  - type: ErrorCatalog
+    url: errors/amazon-cloudformation-problem-types.yml
+  - type: Conformance
+    url: conformance/amazon-cloudformation-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-cloudformation-lifecycle.yml
+- aid: amazon-cloudformation:amazon-cloudformation-stacks-api
+  name: Amazon CloudFormation Stacks API
+  description: Operations for managing CloudFormation stacks
+  humanURL: https://aws.amazon.com/cloudformation/
+  baseURL: https://cloudformation.us-east-1.amazonaws.com
+  tags:
+  - Stacks
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-cloudformation-stacks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/
+  - type: GettingStarted
+    url: https://aws.amazon.com/cloudformation/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/cloudformation/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/cloudformation/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/
+  - type: CLI
+    url: https://docs.aws.amazon.com/cli/latest/reference/cloudformation/
+  - type: JSONSchema
+    url: json-schema/cloudformation-stack-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-change-set-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-stack-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-parameter-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-output-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-cloudformation-context.jsonld
+  - type: Packages
+    url: packages/amazon-cloudformation-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-cloudformation-llms.txt
+  - type: ErrorCatalog
+    url: errors/amazon-cloudformation-problem-types.yml
+  - type: Conformance
+    url: conformance/amazon-cloudformation-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/amazon-cloudformation-lifecycle.yml
+- aid: amazon-cloudformation:amazon-cloudformation-templates-api
+  name: Amazon CloudFormation Templates API
+  description: Operations for working with CloudFormation templates
+  humanURL: https://aws.amazon.com/cloudformation/
+  baseURL: https://cloudformation.us-east-1.amazonaws.com
+  tags:
+  - Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-cloudformation-templates-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/
+  - type: GettingStarted
+    url: https://aws.amazon.com/cloudformation/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/cloudformation/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/cloudformation/faqs/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/
+  - type: CLI
+    url: https://docs.aws.amazon.com/cli/latest/reference/cloudformation/
+  - type: JSONSchema
+    url: json-schema/cloudformation-stack-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-change-set-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-stack-resource-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-parameter-schema.json
+  - type: JSONSchema
+    url: json-schema/cloudformation-output-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-cloudformation-context.jsonld
+  - type: Packages
+    url: packages/amazon-cloudformation-packages.yml
+  - type: LLMsTxt
+    url: llms/amazon-cloudformation-llms.txt
   - type: ErrorCatalog
     url: errors/amazon-cloudformation-problem-types.yml
   - type: Conformance
