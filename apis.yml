@@ -26,7 +26,7 @@ description: >-
   AWS CloudFormation is an infrastructure-as-code service that speeds up cloud provisioning by enabling developers to define and manage AWS resources programmatically through templates. Scale infrastructure
   globally and manage resources across all AWS accounts and regions through a single operation.
 created: '2024-01-01'
-modified: '2026-06-20'
+modified: '2026-08-06'
 specificationVersion: '0.19'
 apis:
 - aid: amazon-cloudformation:amazon-cloudformation-change-sets-api
@@ -206,6 +206,9 @@ apis:
   - type: Lifecycle
     url: lifecycle/amazon-cloudformation-lifecycle.yml
 common:
+- type: MCPServer
+  name: AWS IaC MCP Server
+  url: https://github.com/awslabs/mcp/tree/main/src/aws-iac-mcp-server
 - type: AgenticAccess
   url: agentic-access/amazon-cloudformation-agentic-access.yml
 - type: TrustCenter
