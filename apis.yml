@@ -206,6 +206,8 @@ apis:
   - type: Lifecycle
     url: lifecycle/amazon-cloudformation-lifecycle.yml
 common:
+- type: Overlay
+  url: overlays/amazon-cloudformation-openapi-overlay.yaml
 - type: MCPServer
   name: AWS IaC MCP Server
   url: https://github.com/awslabs/mcp/tree/main/src/aws-iac-mcp-server
