@@ -1,0 +1,1345 @@
+{
+  "item": [
+    {
+      "id": "50ecbd9c-13f5-4ed6-9908-94c5c5f326cb",
+      "name": "Stacks",
+      "description": {
+        "content": "Operations for managing CloudFormation stacks",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "05652f2b-28e1-43dd-88fd-52c6f1f792cc",
+          "name": "Amazon CloudFormation Create a stack",
+          "request": {
+            "name": "Amazon CloudFormation Create a stack",
+            "description": {
+              "content": "Creates a stack as specified in the template. After the call completes successfully, the stack creation starts. You can check the status of the stack through the DescribeStacks action.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateStack"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-15",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "StackName",
+                  "value": "<string>",
+                  "description": "(Required) The name that is associated with the stack. The name must be unique in the Region in which you are creating the stack."
+                },
+                {
+                  "disabled": false,
+                  "key": "TemplateBody",
+                  "value": "<string>",
+                  "description": "Structure containing the template body."
+                },
+                {
+                  "disabled": false,
+                  "key": "TemplateURL",
+                  "value": "<uri>",
+                  "description": "Location of file containing the template body."
+                },
+                {
+                  "disabled": false,
+                  "key": "DisableRollback",
+                  "value": "<boolean>",
+                  "description": "Set to true to disable rollback of the stack if stack creation failed."
+                },
+                {
+                  "disabled": false,
+                  "key": "TimeoutInMinutes",
+                  "value": "<integer>",
+                  "description": "The amount of time that can pass before the stack status becomes CREATE_FAILED."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d7d3ef3c-2ac2-4b51-aba7-bd04972b6846",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "DisableRollback",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "TimeoutInMinutes",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <StackId>(string)</StackId>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "75cb831f-8590-48b4-babf-9af68c2c83dd",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "DisableRollback",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "TimeoutInMinutes",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "0a835db1-a64d-4ed8-8606-faf7c9d86218",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "DisableRollback",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "TimeoutInMinutes",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "19623922-a585-46f0-9bfc-302584771dba",
+          "name": "Amazon CloudFormation Describe stacks",
+          "request": {
+            "name": "Amazon CloudFormation Describe stacks",
+            "description": {
+              "content": "Returns the description for the specified stack; if no stack name was specified, then it returns the description for all the stacks created.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeStacks"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-15",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "StackName",
+                  "value": "<string>",
+                  "description": "The name or the unique stack ID that is associated with the stack."
+                },
+                {
+                  "disabled": false,
+                  "key": "NextToken",
+                  "value": "<string>",
+                  "description": "A string that identifies the next page of stacks to retrieve."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c9ff515-ebba-4935-b590-aa8675ccaaea",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Stacks>\n    <StackId>(string)</StackId>\n    <StackName>(string)</StackName>\n    <ChangeSetId>(string)</ChangeSetId>\n    <Description>(string)</Description>\n    <Parameters>\n      <ParameterKey>(string)</ParameterKey>\n      <ParameterValue>(string)</ParameterValue>\n      <UsePreviousValue>(boolean)</UsePreviousValue>\n      <ResolvedValue>(string)</ResolvedValue>\n    </Parameters>\n    <Parameters>\n      <ParameterKey>(string)</ParameterKey>\n      <ParameterValue>(string)</ParameterValue>\n      <UsePreviousValue>(boolean)</UsePreviousValue>\n      <ResolvedValue>(string)</ResolvedValue>\n    </Parameters>\n    <CreationTime>(string)</CreationTime>\n    <DeletionTime>(string)</DeletionTime>\n    <LastUpdatedTime>(string)</LastUpdatedTime>\n    <RollbackConfiguration>\n      <RollbackTriggers>\n        <Arn>(string)</Arn>\n        <Type>(string)</Type>\n      </RollbackTriggers>\n      <RollbackTriggers>\n        <Arn>(string)</Arn>\n        <Type>(string)</Type>\n      </RollbackTriggers>\n      <MonitoringTimeInMinutes>(integer)</MonitoringTimeInMinutes>\n    </RollbackConfiguration>\n    <StackStatus>(string)</StackStatus>\n    <StackStatusReason>(string)</StackStatusReason>\n    <DisableRollback>(boolean)</DisableRollback>\n    <NotificationARNs>(string)</NotificationARNs>\n    <NotificationARNs>(string)</NotificationARNs>\n    <TimeoutInMinutes>(integer)</TimeoutInMinutes>\n    <Capabilities>(string)</Capabilities>\n    <Capabilities>(string)</Capabilities>\n    <Outputs>\n      <OutputKey>(string)</OutputKey>\n      <OutputValue>(string)</OutputValue>\n      <Description>(string)</Description>\n      <ExportName>(string)</ExportName>\n    </Outputs>\n    <Outputs>\n      <OutputKey>(string)</OutputKey>\n      <OutputValue>(string)</OutputValue>\n      <Description>(string)</Description>\n      <ExportName>(string)</ExportName>\n    </Outputs>\n    <RoleARN>(string)</RoleARN>\n    <Tags>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n    </Tags>\n    <Tags>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n    </Tags>\n    <EnableTerminationProtection>(boolean)</EnableTerminationProtection>\n    <DriftInformation>\n      <StackDriftStatus>(string)</StackDriftStatus>\n      <LastCheckTimestamp>(string)</LastCheckTimestamp>\n    </DriftInformation>\n  </Stacks>\n  <Stacks>\n    <StackId>(string)</StackId>\n    <StackName>(string)</StackName>\n    <ChangeSetId>(string)</ChangeSetId>\n    <Description>(string)</Description>\n    <Parameters>\n      <ParameterKey>(string)</ParameterKey>\n      <ParameterValue>(string)</ParameterValue>\n      <UsePreviousValue>(boolean)</UsePreviousValue>\n      <ResolvedValue>(string)</ResolvedValue>\n    </Parameters>\n    <Parameters>\n      <ParameterKey>(string)</ParameterKey>\n      <ParameterValue>(string)</ParameterValue>\n      <UsePreviousValue>(boolean)</UsePreviousValue>\n      <ResolvedValue>(string)</ResolvedValue>\n    </Parameters>\n    <CreationTime>(string)</CreationTime>\n    <DeletionTime>(string)</DeletionTime>\n    <LastUpdatedTime>(string)</LastUpdatedTime>\n    <RollbackConfiguration>\n      <RollbackTriggers>\n        <Arn>(string)</Arn>\n        <Type>(string)</Type>\n      </RollbackTriggers>\n      <RollbackTriggers>\n        <Arn>(string)</Arn>\n        <Type>(string)</Type>\n      </RollbackTriggers>\n      <MonitoringTimeInMinutes>(integer)</MonitoringTimeInMinutes>\n    </RollbackConfiguration>\n    <StackStatus>(string)</StackStatus>\n    <StackStatusReason>(string)</StackStatusReason>\n    <DisableRollback>(boolean)</DisableRollback>\n    <NotificationARNs>(string)</NotificationARNs>\n    <NotificationARNs>(string)</NotificationARNs>\n    <TimeoutInMinutes>(integer)</TimeoutInMinutes>\n    <Capabilities>(string)</Capabilities>\n    <Capabilities>(string)</Capabilities>\n    <Outputs>\n      <OutputKey>(string)</OutputKey>\n      <OutputValue>(string)</OutputValue>\n      <Description>(string)</Description>\n      <ExportName>(string)</ExportName>\n    </Outputs>\n    <Outputs>\n      <OutputKey>(string)</OutputKey>\n      <OutputValue>(string)</OutputValue>\n      <Description>(string)</Description>\n      <ExportName>(string)</ExportName>\n    </Outputs>\n    <RoleARN>(string)</RoleARN>\n    <Tags>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n    </Tags>\n    <Tags>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n    </Tags>\n    <EnableTerminationProtection>(boolean)</EnableTerminationProtection>\n    <DriftInformation>\n      <StackDriftStatus>(string)</StackDriftStatus>\n      <LastCheckTimestamp>(string)</LastCheckTimestamp>\n    </DriftInformation>\n  </Stacks>\n  <NextToken>(string)</NextToken>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "12ec0a23-58a0-40c6-a0a0-c51420019199",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "62af94e4-8841-425a-bca3-cd533296131c",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92c94aa8-c774-4bab-9acc-654b98da91e3",
+          "name": "Amazon CloudFormation Update a stack",
+          "request": {
+            "name": "Amazon CloudFormation Update a stack",
+            "description": {
+              "content": "Updates a stack as specified in the template. After the call completes successfully, the stack update starts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "UpdateStack"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-15",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "StackName",
+                  "value": "<string>",
+                  "description": "(Required) The name or unique stack ID of the stack to update."
+                },
+                {
+                  "disabled": false,
+                  "key": "TemplateBody",
+                  "value": "<string>",
+                  "description": "Structure containing the template body."
+                },
+                {
+                  "disabled": false,
+                  "key": "TemplateURL",
+                  "value": "<uri>",
+                  "description": "Location of file containing the template body."
+                },
+                {
+                  "disabled": false,
+                  "key": "UsePreviousTemplate",
+                  "value": "<boolean>",
+                  "description": "Reuse the existing template that is associated with the stack."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "779f31c8-89d4-4734-9148-ebbd1defa376",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "UsePreviousTemplate",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <StackId>(string)</StackId>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "dec7ac28-f905-40ad-9834-756be6d7a58a",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "UsePreviousTemplate",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aaed6424-7dbd-4858-b7d3-cc93f7345a91",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "UsePreviousTemplate",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "91aba816-506d-47a2-917f-f8ca17044463",
+          "name": "Amazon CloudFormation Delete a stack",
+          "request": {
+            "name": "Amazon CloudFormation Delete a stack",
+            "description": {
+              "content": "Deletes a specified stack. Once the call completes successfully, stack deletion starts. Deleted stacks do not show up in the DescribeStacks action if the deletion has been completed successfully.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteStack"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-15",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "StackName",
+                  "value": "<string>",
+                  "description": "(Required) The name or the unique stack ID that is associated with the stack."
+                },
+                {
+                  "disabled": false,
+                  "key": "RetainResources",
+                  "value": "<string>",
+                  "description": "For stacks in the DELETE_FAILED state, a list of resource logical IDs that are associated with the resources you want to retain."
+                },
+                {
+                  "disabled": false,
+                  "key": "RetainResources",
+                  "value": "<string>",
+                  "description": "For stacks in the DELETE_FAILED state, a list of resource logical IDs that are associated with the resources you want to retain."
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f9e140ea-1e33-47e0-ba19-67f69d1d7cf0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RetainResources",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RetainResources",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "20bc4b0a-db9f-48a9-a841-49aae97af899",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RetainResources",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RetainResources",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "66c3c74d-e16e-4cc3-9432-3d037865bada",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RetainResources",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RetainResources",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1ab7de3e-3189-4aa1-8ba5-9ac62c2e69f8",
+          "name": "Amazon CloudFormation List stacks",
+          "request": {
+            "name": "Amazon CloudFormation List stacks",
+            "description": {
+              "content": "Returns the summary information for stacks whose status matches the specified StackStatusFilter.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ListStacks"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-15",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "NextToken",
+                  "value": "<string>",
+                  "description": "A string that identifies the next page of stacks to retrieve."
+                },
+                {
+                  "disabled": false,
+                  "key": "StackStatusFilter",
+                  "value": "<string>",
+                  "description": "Stack status to use as a filter."
+                },
+                {
+                  "disabled": false,
+                  "key": "StackStatusFilter",
+                  "value": "<string>",
+                  "description": "Stack status to use as a filter."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e93b3534-9524-47f7-96e1-00d95e0c8ca3",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StackStatusFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StackStatusFilter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <StackSummaries>\n    <StackId>(string)</StackId>\n    <StackName>(string)</StackName>\n    <StackStatus>(string)</StackStatus>\n    <CreationTime>(string)</CreationTime>\n    <DeletionTime>(string)</DeletionTime>\n    <LastUpdatedTime>(string)</LastUpdatedTime>\n    <TemplateDescription>(string)</TemplateDescription>\n  </StackSummaries>\n  <StackSummaries>\n    <StackId>(string)</StackId>\n    <StackName>(string)</StackName>\n    <StackStatus>(string)</StackStatus>\n    <CreationTime>(string)</CreationTime>\n    <DeletionTime>(string)</DeletionTime>\n    <LastUpdatedTime>(string)</LastUpdatedTime>\n    <TemplateDescription>(string)</TemplateDescription>\n  </StackSummaries>\n  <NextToken>(string)</NextToken>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "fd3a71af-6feb-4b06-b8a2-6be499841d85",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StackStatusFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StackStatusFilter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "6de38fc7-7d40-4a78-bdde-45a2dc4708a7",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StackStatusFilter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StackStatusFilter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cloudformation.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2075d28b-6a25-4a7f-8f7c-cf47f7202204",
+    "name": "Amazon CloudFormation Change Sets Stacks API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon CloudFormation is an infrastructure as code service that enables you to model, provision, and manage AWS and third-party resources by treating infrastructure as code. You use templates to define your resources and their dependencies, then deploy them as stacks.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}

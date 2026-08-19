@@ -1,0 +1,161 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon CloudFormation Change Sets API",
+    "version": "2010-05-15"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Change Sets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon CloudFormation Create a change set",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudformation.amazonaws.com/?Action=CreateChangeSet",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "StackName",
+                "value": "",
+                "type": "query",
+                "description": "The name or the unique ID of the stack for which you are creating a change set."
+              },
+              {
+                "name": "ChangeSetName",
+                "value": "",
+                "type": "query",
+                "description": "The name of the change set."
+              },
+              {
+                "name": "TemplateBody",
+                "value": "",
+                "type": "query",
+                "description": "Structure containing the template body."
+              },
+              {
+                "name": "TemplateURL",
+                "value": "",
+                "type": "query",
+                "description": "Location of file containing the template body."
+              },
+              {
+                "name": "ChangeSetType",
+                "value": "",
+                "type": "query",
+                "description": "The type of change set operation."
+              }
+            ]
+          },
+          "docs": "Creates a list of changes that will be applied to a stack so that you can review the changes before executing them. Change sets allow you to see how your changes might impact your running resources before implementing them."
+        },
+        {
+          "info": {
+            "name": "Amazon CloudFormation Describe a change set",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudformation.amazonaws.com/?Action=DescribeChangeSet",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ChangeSetName",
+                "value": "",
+                "type": "query",
+                "description": "The name or Amazon Resource Name (ARN) of the change set."
+              },
+              {
+                "name": "StackName",
+                "value": "",
+                "type": "query",
+                "description": "The name or the unique ID of the stack associated with the change set."
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "A string that identifies the next page of information to retrieve."
+              }
+            ]
+          },
+          "docs": "Returns the inputs and a list of changes that CloudFormation will make if you execute the change set."
+        },
+        {
+          "info": {
+            "name": "Amazon CloudFormation Execute a change set",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudformation.amazonaws.com/?Action=ExecuteChangeSet",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "ChangeSetName",
+                "value": "",
+                "type": "query",
+                "description": "The name or ARN of the change set to execute."
+              },
+              {
+                "name": "StackName",
+                "value": "",
+                "type": "query",
+                "description": "The name or unique ID of the stack associated with the change set."
+              },
+              {
+                "name": "DisableRollback",
+                "value": "",
+                "type": "query",
+                "description": "Preserves the state of previously provisioned resources when an operation fails."
+              }
+            ]
+          },
+          "docs": "Updates a stack using the input information that was provided when the specified change set was created."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

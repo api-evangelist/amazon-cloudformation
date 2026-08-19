@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon CloudFormation Change Sets Templates API",
+    "version": "2010-05-15"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon CloudFormation Validate a template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudformation.amazonaws.com/?Action=ValidateTemplate",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "TemplateBody",
+                "value": "",
+                "type": "query",
+                "description": "Structure containing the template body."
+              },
+              {
+                "name": "TemplateURL",
+                "value": "",
+                "type": "query",
+                "description": "Location of file containing the template body."
+              }
+            ]
+          },
+          "docs": "Validates a specified template. CloudFormation first checks if the template is valid JSON or YAML. If both checks fail, CloudFormation returns a template validation error."
+        },
+        {
+          "info": {
+            "name": "Amazon CloudFormation Get template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudformation.amazonaws.com/?Action=GetTemplate",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "StackName",
+                "value": "",
+                "type": "query",
+                "description": "The name or the unique stack ID."
+              },
+              {
+                "name": "ChangeSetName",
+                "value": "",
+                "type": "query",
+                "description": "The name or Amazon Resource Name (ARN) of a change set."
+              },
+              {
+                "name": "TemplateStage",
+                "value": "",
+                "type": "query",
+                "description": "The stage of the template that is returned."
+              }
+            ]
+          },
+          "docs": "Returns the template body for a specified stack. You can get the template for running or deleted stacks."
+        },
+        {
+          "info": {
+            "name": "Amazon CloudFormation Get template summary",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://cloudformation.amazonaws.com/?Action=GetTemplateSummary",
+            "params": [
+              {
+                "name": "Action",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "Version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "TemplateBody",
+                "value": "",
+                "type": "query",
+                "description": "Structure containing the template body."
+              },
+              {
+                "name": "TemplateURL",
+                "value": "",
+                "type": "query",
+                "description": "Location of file containing the template body."
+              },
+              {
+                "name": "StackName",
+                "value": "",
+                "type": "query",
+                "description": "The name or the stack ID."
+              },
+              {
+                "name": "StackSetName",
+                "value": "",
+                "type": "query",
+                "description": "The name or unique ID of the stack set."
+              }
+            ]
+          },
+          "docs": "Returns information about a new or existing template. The GetTemplateSummary action is useful for viewing parameter information, such as default parameter values and parameter types, before you create or update a stack or stack set."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

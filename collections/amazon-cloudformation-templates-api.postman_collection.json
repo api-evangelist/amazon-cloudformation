@@ -1,0 +1,811 @@
+{
+  "item": [
+    {
+      "id": "aa6b6130-4625-40bc-a0a4-ab3569e14e40",
+      "name": "Templates",
+      "description": {
+        "content": "Operations for working with CloudFormation templates",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3fac3017-034d-40fb-bde4-b741555a6d7a",
+          "name": "Amazon CloudFormation Validate a template",
+          "request": {
+            "name": "Amazon CloudFormation Validate a template",
+            "description": {
+              "content": "Validates a specified template. CloudFormation first checks if the template is valid JSON or YAML. If both checks fail, CloudFormation returns a template validation error.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ValidateTemplate"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-15",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "TemplateBody",
+                  "value": "<string>",
+                  "description": "Structure containing the template body."
+                },
+                {
+                  "disabled": false,
+                  "key": "TemplateURL",
+                  "value": "<uri>",
+                  "description": "Location of file containing the template body."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b11a4977-82bd-4941-94c5-1cfc07e9525c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Parameters>\n    <ParameterKey>(string)</ParameterKey>\n    <DefaultValue>(string)</DefaultValue>\n    <NoEcho>(boolean)</NoEcho>\n    <Description>(string)</Description>\n  </Parameters>\n  <Parameters>\n    <ParameterKey>(string)</ParameterKey>\n    <DefaultValue>(string)</DefaultValue>\n    <NoEcho>(boolean)</NoEcho>\n    <Description>(string)</Description>\n  </Parameters>\n  <Description>(string)</Description>\n  <Capabilities>(string)</Capabilities>\n  <Capabilities>(string)</Capabilities>\n  <CapabilitiesReason>(string)</CapabilitiesReason>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "171e7766-f8c5-4b06-8147-754fbd341819",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2597d83e-9f09-4cf6-b7f9-7198f24b701e",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "79f50505-c84b-41ac-b15f-be1da82836d1",
+          "name": "Amazon CloudFormation Get template",
+          "request": {
+            "name": "Amazon CloudFormation Get template",
+            "description": {
+              "content": "Returns the template body for a specified stack. You can get the template for running or deleted stacks.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "GetTemplate"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-15",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "StackName",
+                  "value": "<string>",
+                  "description": "The name or the unique stack ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "ChangeSetName",
+                  "value": "<string>",
+                  "description": "The name or Amazon Resource Name (ARN) of a change set."
+                },
+                {
+                  "disabled": false,
+                  "key": "TemplateStage",
+                  "value": "<string>",
+                  "description": "The stage of the template that is returned."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c9c194f2-8345-4e7f-ba25-dbc52beb0fd0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ChangeSetName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateStage",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <TemplateBody>(string)</TemplateBody>\n  <StagesAvailable>(string)</StagesAvailable>\n  <StagesAvailable>(string)</StagesAvailable>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "eb91d64a-5bce-41ff-bb7f-325f6fe69f6c",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ChangeSetName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateStage",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a971938c-ae1e-4d95-b5ab-d535293909a3",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ChangeSetName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateStage",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd72c9cb-4417-429e-b369-478a32bdb704",
+          "name": "Amazon CloudFormation Get template summary",
+          "request": {
+            "name": "Amazon CloudFormation Get template summary",
+            "description": {
+              "content": "Returns information about a new or existing template. The GetTemplateSummary action is useful for viewing parameter information, such as default parameter values and parameter types, before you create or update a stack or stack set.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "GetTemplateSummary"
+                },
+                {
+                  "disabled": false,
+                  "key": "Action",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "Version",
+                  "value": "2010-05-15",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "TemplateBody",
+                  "value": "<string>",
+                  "description": "Structure containing the template body."
+                },
+                {
+                  "disabled": false,
+                  "key": "TemplateURL",
+                  "value": "<uri>",
+                  "description": "Location of file containing the template body."
+                },
+                {
+                  "disabled": false,
+                  "key": "StackName",
+                  "value": "<string>",
+                  "description": "The name or the stack ID."
+                },
+                {
+                  "disabled": false,
+                  "key": "StackSetName",
+                  "value": "<string>",
+                  "description": "The name or unique ID of the stack set."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "85cce1db-936c-4e0e-9c24-a34832c4b46e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StackSetName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Parameters>\n    <ParameterKey>(string)</ParameterKey>\n    <DefaultValue>(string)</DefaultValue>\n    <ParameterType>(string)</ParameterType>\n    <NoEcho>(boolean)</NoEcho>\n    <Description>(string)</Description>\n    <ParameterConstraints>\n      <AllowedValues>(string)</AllowedValues>\n      <AllowedValues>(string)</AllowedValues>\n    </ParameterConstraints>\n  </Parameters>\n  <Parameters>\n    <ParameterKey>(string)</ParameterKey>\n    <DefaultValue>(string)</DefaultValue>\n    <ParameterType>(string)</ParameterType>\n    <NoEcho>(boolean)</NoEcho>\n    <Description>(string)</Description>\n    <ParameterConstraints>\n      <AllowedValues>(string)</AllowedValues>\n      <AllowedValues>(string)</AllowedValues>\n    </ParameterConstraints>\n  </Parameters>\n  <Description>(string)</Description>\n  <Capabilities>(string)</Capabilities>\n  <Capabilities>(string)</Capabilities>\n  <ResourceTypes>(string)</ResourceTypes>\n  <ResourceTypes>(string)</ResourceTypes>\n  <Version>(string)</Version>\n  <Metadata>(string)</Metadata>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "4c72471c-de7c-40f5-b802-9e939f833f40",
+              "name": "Client error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StackSetName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "68f709b6-6fe4-4e52-98d7-068160708b1e",
+              "name": "Server error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Action",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "StackSetName",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://cloudformation.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "73f225ba-274f-43a2-be66-5e5a8fdddc19",
+    "name": "Amazon CloudFormation Change Sets Templates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon CloudFormation is an infrastructure as code service that enables you to model, provision, and manage AWS and third-party resources by treating infrastructure as code. You use templates to define your resources and their dependencies, then deploy them as stacks.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}
