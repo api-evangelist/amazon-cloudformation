@@ -27,7 +27,7 @@ description: >-
   across all AWS accounts and regions through a single operation.
 created: '2024-01-01'
 modified: '2026-08-06'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
   - aid: amazon-cloudformation:amazon-cloudformation-change-sets-api
     name: Amazon CloudFormation Change Sets API
