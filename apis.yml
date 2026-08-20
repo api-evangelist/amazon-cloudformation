@@ -35,6 +35,8 @@ apis:
     humanURL: https://aws.amazon.com/cloudformation/
     baseURL: https://cloudformation.us-east-1.amazonaws.com
     tags:
+      - Changesets
+    tags_raw:
       - Change Sets
     properties:
       - type: OpenAPI
