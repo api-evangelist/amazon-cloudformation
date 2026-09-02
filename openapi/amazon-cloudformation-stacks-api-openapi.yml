@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Amazon CloudFormation Change Sets Stacks API
   description: Amazon CloudFormation is an infrastructure as code service that enables you to model, provision, and manage AWS and third-party resources by treating infrastructure as code. You use templates to define your resources and their dependencies, then deploy them as stacks.
@@ -285,14 +285,21 @@ paths:
       - Stacks
 components:
   schemas:
-    DescribeStacksOutput:
+    UpdateStackOutput:
       type: object
       properties:
-        Stacks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Stack'
-        NextToken:
+        StackId:
+          type: string
+    Parameter:
+      type: object
+      properties:
+        ParameterKey:
+          type: string
+        ParameterValue:
+          type: string
+        UsePreviousValue:
+          type: boolean
+        ResolvedValue:
           type: string
     StackDriftInformation:
       type: object
@@ -309,6 +316,20 @@ components:
         LastCheckTimestamp:
           type: string
           format: date-time
+    RollbackConfiguration:
+      type: object
+      properties:
+        RollbackTriggers:
+          type: array
+          items:
+            type: object
+            properties:
+              Arn:
+                type: string
+              Type:
+                type: string
+        MonitoringTimeInMinutes:
+          type: integer
     Tag:
       type: object
       required:
@@ -325,16 +346,52 @@ components:
         StackId:
           type: string
           description: Unique identifier of the stack.
-    Parameter:
+    Output:
       type: object
       properties:
-        ParameterKey:
+        OutputKey:
           type: string
-        ParameterValue:
+        OutputValue:
           type: string
-        UsePreviousValue:
-          type: boolean
-        ResolvedValue:
+        Description:
+          type: string
+        ExportName:
+          type: string
+    DescribeStacksOutput:
+      type: object
+      properties:
+        Stacks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stack'
+        NextToken:
+          type: string
+    ListStacksOutput:
+      type: object
+      properties:
+        StackSummaries:
+          type: array
+          items:
+            type: object
+            properties:
+              StackId:
+                type: string
+              StackName:
+                type: string
+              StackStatus:
+                type: string
+              CreationTime:
+                type: string
+                format: date-time
+              DeletionTime:
+                type: string
+                format: date-time
+              LastUpdatedTime:
+                type: string
+                format: date-time
+              TemplateDescription:
+                type: string
+        NextToken:
           type: string
     Stack:
       type: object
@@ -442,63 +499,6 @@ components:
           description: Whether termination protection is enabled for the stack.
         DriftInformation:
           $ref: '#/components/schemas/StackDriftInformation'
-    ListStacksOutput:
-      type: object
-      properties:
-        StackSummaries:
-          type: array
-          items:
-            type: object
-            properties:
-              StackId:
-                type: string
-              StackName:
-                type: string
-              StackStatus:
-                type: string
-              CreationTime:
-                type: string
-                format: date-time
-              DeletionTime:
-                type: string
-                format: date-time
-              LastUpdatedTime:
-                type: string
-                format: date-time
-              TemplateDescription:
-                type: string
-        NextToken:
-          type: string
-    UpdateStackOutput:
-      type: object
-      properties:
-        StackId:
-          type: string
-    RollbackConfiguration:
-      type: object
-      properties:
-        RollbackTriggers:
-          type: array
-          items:
-            type: object
-            properties:
-              Arn:
-                type: string
-              Type:
-                type: string
-        MonitoringTimeInMinutes:
-          type: integer
-    Output:
-      type: object
-      properties:
-        OutputKey:
-          type: string
-        OutputValue:
-          type: string
-        Description:
-          type: string
-        ExportName:
-          type: string
   securitySchemes:
     aws_auth:
       type: apiKey

@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Amazon CloudFormation Change Sets API
   description: Amazon CloudFormation is an infrastructure as code service that enables you to model, provision, and manage AWS and third-party resources by treating infrastructure as code. You use templates to define your resources and their dependencies, then deploy them as stacks.
@@ -182,6 +182,43 @@ paths:
       - Change Sets
 components:
   schemas:
+    CreateChangeSetOutput:
+      type: object
+      properties:
+        Id:
+          type: string
+          description: The ARN of the change set.
+        StackId:
+          type: string
+          description: The unique ID of the stack.
+    DescribeChangeSetOutput:
+      type: object
+      properties:
+        ChangeSetName:
+          type: string
+        ChangeSetId:
+          type: string
+        StackId:
+          type: string
+        StackName:
+          type: string
+        Description:
+          type: string
+        ExecutionStatus:
+          type: string
+        Status:
+          type: string
+        StatusReason:
+          type: string
+        Changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Change'
+        NextToken:
+          type: string
+        CreationTime:
+          type: string
+          format: date-time
     Change:
       type: object
       properties:
@@ -216,43 +253,6 @@ components:
               type: array
               items:
                 type: string
-    DescribeChangeSetOutput:
-      type: object
-      properties:
-        ChangeSetName:
-          type: string
-        ChangeSetId:
-          type: string
-        StackId:
-          type: string
-        StackName:
-          type: string
-        Description:
-          type: string
-        ExecutionStatus:
-          type: string
-        Status:
-          type: string
-        StatusReason:
-          type: string
-        Changes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Change'
-        NextToken:
-          type: string
-        CreationTime:
-          type: string
-          format: date-time
-    CreateChangeSetOutput:
-      type: object
-      properties:
-        Id:
-          type: string
-          description: The ARN of the change set.
-        StackId:
-          type: string
-          description: The unique ID of the stack.
   securitySchemes:
     aws_auth:
       type: apiKey
