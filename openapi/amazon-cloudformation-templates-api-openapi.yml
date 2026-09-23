@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon CloudFormation Change Sets Templates API
+  title: Amazon CloudFormation Templates API
   description: Amazon CloudFormation is an infrastructure as code service that enables you to model, provision, and manage AWS and third-party resources by treating infrastructure as code. You use templates to define your resources and their dependencies, then deploy them as stacks.
   version: '2010-05-15'
   contact:

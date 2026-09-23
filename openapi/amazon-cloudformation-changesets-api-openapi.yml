@@ -21,7 +21,7 @@ servers:
 security:
 - aws_auth: []
 tags:
-- name: Change Sets
+- name: Changesets
   description: Operations for managing CloudFormation change sets
 paths:
   /?Action=CreateChangeSet:
@@ -87,7 +87,7 @@ paths:
         '500':
           description: Server error
       tags:
-      - Change Sets
+      - Changesets
   /?Action=DescribeChangeSet:
     get:
       operationId: DescribeChangeSet
@@ -135,7 +135,7 @@ paths:
         '500':
           description: Server error
       tags:
-      - Change Sets
+      - Changesets
   /?Action=ExecuteChangeSet:
     get:
       operationId: ExecuteChangeSet
@@ -179,46 +179,9 @@ paths:
         '500':
           description: Server error
       tags:
-      - Change Sets
+      - Changesets
 components:
   schemas:
-    CreateChangeSetOutput:
-      type: object
-      properties:
-        Id:
-          type: string
-          description: The ARN of the change set.
-        StackId:
-          type: string
-          description: The unique ID of the stack.
-    DescribeChangeSetOutput:
-      type: object
-      properties:
-        ChangeSetName:
-          type: string
-        ChangeSetId:
-          type: string
-        StackId:
-          type: string
-        StackName:
-          type: string
-        Description:
-          type: string
-        ExecutionStatus:
-          type: string
-        Status:
-          type: string
-        StatusReason:
-          type: string
-        Changes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Change'
-        NextToken:
-          type: string
-        CreationTime:
-          type: string
-          format: date-time
     Change:
       type: object
       properties:
@@ -253,6 +216,43 @@ components:
               type: array
               items:
                 type: string
+    DescribeChangeSetOutput:
+      type: object
+      properties:
+        ChangeSetName:
+          type: string
+        ChangeSetId:
+          type: string
+        StackId:
+          type: string
+        StackName:
+          type: string
+        Description:
+          type: string
+        ExecutionStatus:
+          type: string
+        Status:
+          type: string
+        StatusReason:
+          type: string
+        Changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Change'
+        NextToken:
+          type: string
+        CreationTime:
+          type: string
+          format: date-time
+    CreateChangeSetOutput:
+      type: object
+      properties:
+        Id:
+          type: string
+          description: The ARN of the change set.
+        StackId:
+          type: string
+          description: The unique ID of the stack.
   securitySchemes:
     aws_auth:
       type: apiKey

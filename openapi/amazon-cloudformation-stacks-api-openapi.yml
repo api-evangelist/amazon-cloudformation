@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon CloudFormation Change Sets Stacks API
+  title: Amazon CloudFormation Stacks API
   description: Amazon CloudFormation is an infrastructure as code service that enables you to model, provision, and manage AWS and third-party resources by treating infrastructure as code. You use templates to define your resources and their dependencies, then deploy them as stacks.
   version: '2010-05-15'
   contact:
@@ -285,6 +285,23 @@ paths:
       - Stacks
 components:
   schemas:
+    Output:
+      type: object
+      properties:
+        OutputKey:
+          type: string
+        OutputValue:
+          type: string
+        Description:
+          type: string
+        ExportName:
+          type: string
+    CreateStackOutput:
+      type: object
+      properties:
+        StackId:
+          type: string
+          description: Unique identifier of the stack.
     UpdateStackOutput:
       type: object
       properties:
@@ -300,98 +317,6 @@ components:
         UsePreviousValue:
           type: boolean
         ResolvedValue:
-          type: string
-    StackDriftInformation:
-      type: object
-      required:
-      - StackDriftStatus
-      properties:
-        StackDriftStatus:
-          type: string
-          enum:
-          - DRIFTED
-          - IN_SYNC
-          - UNKNOWN
-          - NOT_CHECKED
-        LastCheckTimestamp:
-          type: string
-          format: date-time
-    RollbackConfiguration:
-      type: object
-      properties:
-        RollbackTriggers:
-          type: array
-          items:
-            type: object
-            properties:
-              Arn:
-                type: string
-              Type:
-                type: string
-        MonitoringTimeInMinutes:
-          type: integer
-    Tag:
-      type: object
-      required:
-      - Key
-      - Value
-      properties:
-        Key:
-          type: string
-        Value:
-          type: string
-    CreateStackOutput:
-      type: object
-      properties:
-        StackId:
-          type: string
-          description: Unique identifier of the stack.
-    Output:
-      type: object
-      properties:
-        OutputKey:
-          type: string
-        OutputValue:
-          type: string
-        Description:
-          type: string
-        ExportName:
-          type: string
-    DescribeStacksOutput:
-      type: object
-      properties:
-        Stacks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Stack'
-        NextToken:
-          type: string
-    ListStacksOutput:
-      type: object
-      properties:
-        StackSummaries:
-          type: array
-          items:
-            type: object
-            properties:
-              StackId:
-                type: string
-              StackName:
-                type: string
-              StackStatus:
-                type: string
-              CreationTime:
-                type: string
-                format: date-time
-              DeletionTime:
-                type: string
-                format: date-time
-              LastUpdatedTime:
-                type: string
-                format: date-time
-              TemplateDescription:
-                type: string
-        NextToken:
           type: string
     Stack:
       type: object
@@ -499,6 +424,81 @@ components:
           description: Whether termination protection is enabled for the stack.
         DriftInformation:
           $ref: '#/components/schemas/StackDriftInformation'
+    StackDriftInformation:
+      type: object
+      required:
+      - StackDriftStatus
+      properties:
+        StackDriftStatus:
+          type: string
+          enum:
+          - DRIFTED
+          - IN_SYNC
+          - UNKNOWN
+          - NOT_CHECKED
+        LastCheckTimestamp:
+          type: string
+          format: date-time
+    RollbackConfiguration:
+      type: object
+      properties:
+        RollbackTriggers:
+          type: array
+          items:
+            type: object
+            properties:
+              Arn:
+                type: string
+              Type:
+                type: string
+        MonitoringTimeInMinutes:
+          type: integer
+    DescribeStacksOutput:
+      type: object
+      properties:
+        Stacks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stack'
+        NextToken:
+          type: string
+    Tag:
+      type: object
+      required:
+      - Key
+      - Value
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
+    ListStacksOutput:
+      type: object
+      properties:
+        StackSummaries:
+          type: array
+          items:
+            type: object
+            properties:
+              StackId:
+                type: string
+              StackName:
+                type: string
+              StackStatus:
+                type: string
+              CreationTime:
+                type: string
+                format: date-time
+              DeletionTime:
+                type: string
+                format: date-time
+              LastUpdatedTime:
+                type: string
+                format: date-time
+              TemplateDescription:
+                type: string
+        NextToken:
+          type: string
   securitySchemes:
     aws_auth:
       type: apiKey
