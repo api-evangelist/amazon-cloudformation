@@ -285,6 +285,65 @@ paths:
       - Stacks
 components:
   schemas:
+    StackDriftInformation:
+      type: object
+      required:
+      - StackDriftStatus
+      properties:
+        StackDriftStatus:
+          type: string
+          enum:
+          - DRIFTED
+          - IN_SYNC
+          - UNKNOWN
+          - NOT_CHECKED
+        LastCheckTimestamp:
+          type: string
+          format: date-time
+    UpdateStackOutput:
+      type: object
+      properties:
+        StackId:
+          type: string
+    CreateStackOutput:
+      type: object
+      properties:
+        StackId:
+          type: string
+          description: Unique identifier of the stack.
+    DescribeStacksOutput:
+      type: object
+      properties:
+        Stacks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stack'
+        NextToken:
+          type: string
+    RollbackConfiguration:
+      type: object
+      properties:
+        RollbackTriggers:
+          type: array
+          items:
+            type: object
+            properties:
+              Arn:
+                type: string
+              Type:
+                type: string
+        MonitoringTimeInMinutes:
+          type: integer
+    Tag:
+      type: object
+      required:
+      - Key
+      - Value
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
     Output:
       type: object
       properties:
@@ -295,17 +354,6 @@ components:
         Description:
           type: string
         ExportName:
-          type: string
-    CreateStackOutput:
-      type: object
-      properties:
-        StackId:
-          type: string
-          description: Unique identifier of the stack.
-    UpdateStackOutput:
-      type: object
-      properties:
-        StackId:
           type: string
     Parameter:
       type: object
@@ -424,54 +472,6 @@ components:
           description: Whether termination protection is enabled for the stack.
         DriftInformation:
           $ref: '#/components/schemas/StackDriftInformation'
-    StackDriftInformation:
-      type: object
-      required:
-      - StackDriftStatus
-      properties:
-        StackDriftStatus:
-          type: string
-          enum:
-          - DRIFTED
-          - IN_SYNC
-          - UNKNOWN
-          - NOT_CHECKED
-        LastCheckTimestamp:
-          type: string
-          format: date-time
-    RollbackConfiguration:
-      type: object
-      properties:
-        RollbackTriggers:
-          type: array
-          items:
-            type: object
-            properties:
-              Arn:
-                type: string
-              Type:
-                type: string
-        MonitoringTimeInMinutes:
-          type: integer
-    DescribeStacksOutput:
-      type: object
-      properties:
-        Stacks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Stack'
-        NextToken:
-          type: string
-    Tag:
-      type: object
-      required:
-      - Key
-      - Value
-      properties:
-        Key:
-          type: string
-        Value:
-          type: string
     ListStacksOutput:
       type: object
       properties:
