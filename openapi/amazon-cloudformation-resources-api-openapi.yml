@@ -116,6 +116,31 @@ paths:
       - Resources
 components:
   schemas:
+    ListStackResourcesOutput:
+      type: object
+      properties:
+        StackResourceSummaries:
+          type: array
+          items:
+            type: object
+            properties:
+              LogicalResourceId:
+                type: string
+              PhysicalResourceId:
+                type: string
+              ResourceType:
+                type: string
+              ResourceStatus:
+                type: string
+              ResourceStatusReason:
+                type: string
+              LastUpdatedTimestamp:
+                type: string
+                format: date-time
+              DriftInformation:
+                $ref: '#/components/schemas/StackResourceDriftInformation'
+        NextToken:
+          type: string
     StackResource:
       type: object
       required:
@@ -171,31 +196,6 @@ components:
           description: User defined description associated with the resource.
         DriftInformation:
           $ref: '#/components/schemas/StackResourceDriftInformation'
-    ListStackResourcesOutput:
-      type: object
-      properties:
-        StackResourceSummaries:
-          type: array
-          items:
-            type: object
-            properties:
-              LogicalResourceId:
-                type: string
-              PhysicalResourceId:
-                type: string
-              ResourceType:
-                type: string
-              ResourceStatus:
-                type: string
-              ResourceStatusReason:
-                type: string
-              LastUpdatedTimestamp:
-                type: string
-                format: date-time
-              DriftInformation:
-                $ref: '#/components/schemas/StackResourceDriftInformation'
-        NextToken:
-          type: string
     StackResourceDriftInformation:
       type: object
       required:

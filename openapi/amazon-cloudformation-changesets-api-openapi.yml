@@ -182,40 +182,6 @@ paths:
       - Changesets
 components:
   schemas:
-    Change:
-      type: object
-      properties:
-        Type:
-          type: string
-          enum:
-          - Resource
-        ResourceChange:
-          type: object
-          properties:
-            Action:
-              type: string
-              enum:
-              - Add
-              - Modify
-              - Remove
-              - Import
-              - Dynamic
-            LogicalResourceId:
-              type: string
-            PhysicalResourceId:
-              type: string
-            ResourceType:
-              type: string
-            Replacement:
-              type: string
-              enum:
-              - 'True'
-              - 'False'
-              - Conditional
-            Scope:
-              type: array
-              items:
-                type: string
     DescribeChangeSetOutput:
       type: object
       properties:
@@ -253,6 +219,40 @@ components:
         StackId:
           type: string
           description: The unique ID of the stack.
+    Change:
+      type: object
+      properties:
+        Type:
+          type: string
+          enum:
+          - Resource
+        ResourceChange:
+          type: object
+          properties:
+            Action:
+              type: string
+              enum:
+              - Add
+              - Modify
+              - Remove
+              - Import
+              - Dynamic
+            LogicalResourceId:
+              type: string
+            PhysicalResourceId:
+              type: string
+            ResourceType:
+              type: string
+            Replacement:
+              type: string
+              enum:
+              - 'True'
+              - 'False'
+              - Conditional
+            Scope:
+              type: array
+              items:
+                type: string
   securitySchemes:
     aws_auth:
       type: apiKey

@@ -285,25 +285,21 @@ paths:
       - Stacks
 components:
   schemas:
-    StackDriftInformation:
-      type: object
-      required:
-      - StackDriftStatus
-      properties:
-        StackDriftStatus:
-          type: string
-          enum:
-          - DRIFTED
-          - IN_SYNC
-          - UNKNOWN
-          - NOT_CHECKED
-        LastCheckTimestamp:
-          type: string
-          format: date-time
     UpdateStackOutput:
       type: object
       properties:
         StackId:
+          type: string
+    Parameter:
+      type: object
+      properties:
+        ParameterKey:
+          type: string
+        ParameterValue:
+          type: string
+        UsePreviousValue:
+          type: boolean
+        ResolvedValue:
           type: string
     CreateStackOutput:
       type: object
@@ -311,14 +307,43 @@ components:
         StackId:
           type: string
           description: Unique identifier of the stack.
-    DescribeStacksOutput:
+    ListStacksOutput:
       type: object
       properties:
-        Stacks:
+        StackSummaries:
           type: array
           items:
-            $ref: '#/components/schemas/Stack'
+            type: object
+            properties:
+              StackId:
+                type: string
+              StackName:
+                type: string
+              StackStatus:
+                type: string
+              CreationTime:
+                type: string
+                format: date-time
+              DeletionTime:
+                type: string
+                format: date-time
+              LastUpdatedTime:
+                type: string
+                format: date-time
+              TemplateDescription:
+                type: string
         NextToken:
+          type: string
+    Output:
+      type: object
+      properties:
+        OutputKey:
+          type: string
+        OutputValue:
+          type: string
+        Description:
+          type: string
+        ExportName:
           type: string
     RollbackConfiguration:
       type: object
@@ -334,37 +359,29 @@ components:
                 type: string
         MonitoringTimeInMinutes:
           type: integer
-    Tag:
+    StackDriftInformation:
       type: object
       required:
-      - Key
-      - Value
+      - StackDriftStatus
       properties:
-        Key:
+        StackDriftStatus:
           type: string
-        Value:
+          enum:
+          - DRIFTED
+          - IN_SYNC
+          - UNKNOWN
+          - NOT_CHECKED
+        LastCheckTimestamp:
           type: string
-    Output:
+          format: date-time
+    DescribeStacksOutput:
       type: object
       properties:
-        OutputKey:
-          type: string
-        OutputValue:
-          type: string
-        Description:
-          type: string
-        ExportName:
-          type: string
-    Parameter:
-      type: object
-      properties:
-        ParameterKey:
-          type: string
-        ParameterValue:
-          type: string
-        UsePreviousValue:
-          type: boolean
-        ResolvedValue:
+        Stacks:
+          type: array
+          items:
+            $ref: '#/components/schemas/Stack'
+        NextToken:
           type: string
     Stack:
       type: object
@@ -472,32 +489,15 @@ components:
           description: Whether termination protection is enabled for the stack.
         DriftInformation:
           $ref: '#/components/schemas/StackDriftInformation'
-    ListStacksOutput:
+    Tag:
       type: object
+      required:
+      - Key
+      - Value
       properties:
-        StackSummaries:
-          type: array
-          items:
-            type: object
-            properties:
-              StackId:
-                type: string
-              StackName:
-                type: string
-              StackStatus:
-                type: string
-              CreationTime:
-                type: string
-                format: date-time
-              DeletionTime:
-                type: string
-                format: date-time
-              LastUpdatedTime:
-                type: string
-                format: date-time
-              TemplateDescription:
-                type: string
-        NextToken:
+        Key:
+          type: string
+        Value:
           type: string
   securitySchemes:
     aws_auth:
