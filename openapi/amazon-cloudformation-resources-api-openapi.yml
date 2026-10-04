@@ -116,6 +116,13 @@ paths:
       - Resources
 components:
   schemas:
+    DescribeStackResourcesOutput:
+      type: object
+      properties:
+        StackResources:
+          type: array
+          items:
+            $ref: '#/components/schemas/StackResource'
     ListStackResourcesOutput:
       type: object
       properties:
@@ -141,6 +148,21 @@ components:
                 $ref: '#/components/schemas/StackResourceDriftInformation'
         NextToken:
           type: string
+    StackResourceDriftInformation:
+      type: object
+      required:
+      - StackResourceDriftStatus
+      properties:
+        StackResourceDriftStatus:
+          type: string
+          enum:
+          - IN_SYNC
+          - MODIFIED
+          - DELETED
+          - NOT_CHECKED
+        LastCheckTimestamp:
+          type: string
+          format: date-time
     StackResource:
       type: object
       required:
@@ -196,28 +218,6 @@ components:
           description: User defined description associated with the resource.
         DriftInformation:
           $ref: '#/components/schemas/StackResourceDriftInformation'
-    StackResourceDriftInformation:
-      type: object
-      required:
-      - StackResourceDriftStatus
-      properties:
-        StackResourceDriftStatus:
-          type: string
-          enum:
-          - IN_SYNC
-          - MODIFIED
-          - DELETED
-          - NOT_CHECKED
-        LastCheckTimestamp:
-          type: string
-          format: date-time
-    DescribeStackResourcesOutput:
-      type: object
-      properties:
-        StackResources:
-          type: array
-          items:
-            $ref: '#/components/schemas/StackResource'
   securitySchemes:
     aws_auth:
       type: apiKey

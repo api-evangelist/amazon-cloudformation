@@ -210,15 +210,6 @@ components:
         CreationTime:
           type: string
           format: date-time
-    CreateChangeSetOutput:
-      type: object
-      properties:
-        Id:
-          type: string
-          description: The ARN of the change set.
-        StackId:
-          type: string
-          description: The unique ID of the stack.
     Change:
       type: object
       properties:
@@ -253,6 +244,15 @@ components:
               type: array
               items:
                 type: string
+    CreateChangeSetOutput:
+      type: object
+      properties:
+        Id:
+          type: string
+          description: The ARN of the change set.
+        StackId:
+          type: string
+          description: The unique ID of the stack.
   securitySchemes:
     aws_auth:
       type: apiKey
