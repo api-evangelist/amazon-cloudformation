@@ -218,6 +218,9 @@ apis:
   - type: Lifecycle
     url: lifecycle/amazon-cloudformation-lifecycle.yml
 common:
+- type: CapabilityMap
+  url: capabilities/amazon-cloudformation-capability-edges.yml
+  name: Amazon CloudFormation Business Capability Map
 - type: Overlay
   url: overlays/amazon-cloudformation-openapi-overlay.yaml
 - type: MCPServer
