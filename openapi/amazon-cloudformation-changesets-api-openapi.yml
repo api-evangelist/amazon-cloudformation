@@ -182,34 +182,6 @@ paths:
       - Changesets
 components:
   schemas:
-    DescribeChangeSetOutput:
-      type: object
-      properties:
-        ChangeSetName:
-          type: string
-        ChangeSetId:
-          type: string
-        StackId:
-          type: string
-        StackName:
-          type: string
-        Description:
-          type: string
-        ExecutionStatus:
-          type: string
-        Status:
-          type: string
-        StatusReason:
-          type: string
-        Changes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Change'
-        NextToken:
-          type: string
-        CreationTime:
-          type: string
-          format: date-time
     Change:
       type: object
       properties:
@@ -253,6 +225,34 @@ components:
         StackId:
           type: string
           description: The unique ID of the stack.
+    DescribeChangeSetOutput:
+      type: object
+      properties:
+        ChangeSetName:
+          type: string
+        ChangeSetId:
+          type: string
+        StackId:
+          type: string
+        StackName:
+          type: string
+        Description:
+          type: string
+        ExecutionStatus:
+          type: string
+        Status:
+          type: string
+        StatusReason:
+          type: string
+        Changes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Change'
+        NextToken:
+          type: string
+        CreationTime:
+          type: string
+          format: date-time
   securitySchemes:
     aws_auth:
       type: apiKey

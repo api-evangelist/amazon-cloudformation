@@ -116,53 +116,6 @@ paths:
       - Resources
 components:
   schemas:
-    DescribeStackResourcesOutput:
-      type: object
-      properties:
-        StackResources:
-          type: array
-          items:
-            $ref: '#/components/schemas/StackResource'
-    ListStackResourcesOutput:
-      type: object
-      properties:
-        StackResourceSummaries:
-          type: array
-          items:
-            type: object
-            properties:
-              LogicalResourceId:
-                type: string
-              PhysicalResourceId:
-                type: string
-              ResourceType:
-                type: string
-              ResourceStatus:
-                type: string
-              ResourceStatusReason:
-                type: string
-              LastUpdatedTimestamp:
-                type: string
-                format: date-time
-              DriftInformation:
-                $ref: '#/components/schemas/StackResourceDriftInformation'
-        NextToken:
-          type: string
-    StackResourceDriftInformation:
-      type: object
-      required:
-      - StackResourceDriftStatus
-      properties:
-        StackResourceDriftStatus:
-          type: string
-          enum:
-          - IN_SYNC
-          - MODIFIED
-          - DELETED
-          - NOT_CHECKED
-        LastCheckTimestamp:
-          type: string
-          format: date-time
     StackResource:
       type: object
       required:
@@ -218,6 +171,53 @@ components:
           description: User defined description associated with the resource.
         DriftInformation:
           $ref: '#/components/schemas/StackResourceDriftInformation'
+    DescribeStackResourcesOutput:
+      type: object
+      properties:
+        StackResources:
+          type: array
+          items:
+            $ref: '#/components/schemas/StackResource'
+    ListStackResourcesOutput:
+      type: object
+      properties:
+        StackResourceSummaries:
+          type: array
+          items:
+            type: object
+            properties:
+              LogicalResourceId:
+                type: string
+              PhysicalResourceId:
+                type: string
+              ResourceType:
+                type: string
+              ResourceStatus:
+                type: string
+              ResourceStatusReason:
+                type: string
+              LastUpdatedTimestamp:
+                type: string
+                format: date-time
+              DriftInformation:
+                $ref: '#/components/schemas/StackResourceDriftInformation'
+        NextToken:
+          type: string
+    StackResourceDriftInformation:
+      type: object
+      required:
+      - StackResourceDriftStatus
+      properties:
+        StackResourceDriftStatus:
+          type: string
+          enum:
+          - IN_SYNC
+          - MODIFIED
+          - DELETED
+          - NOT_CHECKED
+        LastCheckTimestamp:
+          type: string
+          format: date-time
   securitySchemes:
     aws_auth:
       type: apiKey

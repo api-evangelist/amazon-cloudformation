@@ -285,6 +285,44 @@ paths:
       - Stacks
 components:
   schemas:
+    CreateStackOutput:
+      type: object
+      properties:
+        StackId:
+          type: string
+          description: Unique identifier of the stack.
+    UpdateStackOutput:
+      type: object
+      properties:
+        StackId:
+          type: string
+    ListStacksOutput:
+      type: object
+      properties:
+        StackSummaries:
+          type: array
+          items:
+            type: object
+            properties:
+              StackId:
+                type: string
+              StackName:
+                type: string
+              StackStatus:
+                type: string
+              CreationTime:
+                type: string
+                format: date-time
+              DeletionTime:
+                type: string
+                format: date-time
+              LastUpdatedTime:
+                type: string
+                format: date-time
+              TemplateDescription:
+                type: string
+        NextToken:
+          type: string
     StackDriftInformation:
       type: object
       required:
@@ -300,26 +338,6 @@ components:
         LastCheckTimestamp:
           type: string
           format: date-time
-    DescribeStacksOutput:
-      type: object
-      properties:
-        Stacks:
-          type: array
-          items:
-            $ref: '#/components/schemas/Stack'
-        NextToken:
-          type: string
-    CreateStackOutput:
-      type: object
-      properties:
-        StackId:
-          type: string
-          description: Unique identifier of the stack.
-    UpdateStackOutput:
-      type: object
-      properties:
-        StackId:
-          type: string
     Stack:
       type: object
       required:
@@ -426,53 +444,25 @@ components:
           description: Whether termination protection is enabled for the stack.
         DriftInformation:
           $ref: '#/components/schemas/StackDriftInformation'
-    ListStacksOutput:
+    Parameter:
       type: object
       properties:
-        StackSummaries:
+        ParameterKey:
+          type: string
+        ParameterValue:
+          type: string
+        UsePreviousValue:
+          type: boolean
+        ResolvedValue:
+          type: string
+    DescribeStacksOutput:
+      type: object
+      properties:
+        Stacks:
           type: array
           items:
-            type: object
-            properties:
-              StackId:
-                type: string
-              StackName:
-                type: string
-              StackStatus:
-                type: string
-              CreationTime:
-                type: string
-                format: date-time
-              DeletionTime:
-                type: string
-                format: date-time
-              LastUpdatedTime:
-                type: string
-                format: date-time
-              TemplateDescription:
-                type: string
+            $ref: '#/components/schemas/Stack'
         NextToken:
-          type: string
-    Tag:
-      type: object
-      required:
-      - Key
-      - Value
-      properties:
-        Key:
-          type: string
-        Value:
-          type: string
-    Output:
-      type: object
-      properties:
-        OutputKey:
-          type: string
-        OutputValue:
-          type: string
-        Description:
-          type: string
-        ExportName:
           type: string
     RollbackConfiguration:
       type: object
@@ -488,16 +478,26 @@ components:
                 type: string
         MonitoringTimeInMinutes:
           type: integer
-    Parameter:
+    Output:
       type: object
       properties:
-        ParameterKey:
+        OutputKey:
           type: string
-        ParameterValue:
+        OutputValue:
           type: string
-        UsePreviousValue:
-          type: boolean
-        ResolvedValue:
+        Description:
+          type: string
+        ExportName:
+          type: string
+    Tag:
+      type: object
+      required:
+      - Key
+      - Value
+      properties:
+        Key:
+          type: string
+        Value:
           type: string
   securitySchemes:
     aws_auth:

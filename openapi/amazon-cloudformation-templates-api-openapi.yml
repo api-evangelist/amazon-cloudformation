@@ -172,6 +172,43 @@ paths:
       - Templates
 components:
   schemas:
+    ValidateTemplateOutput:
+      type: object
+      properties:
+        Parameters:
+          type: array
+          items:
+            type: object
+            properties:
+              ParameterKey:
+                type: string
+              DefaultValue:
+                type: string
+              NoEcho:
+                type: boolean
+              Description:
+                type: string
+        Description:
+          type: string
+        Capabilities:
+          type: array
+          items:
+            type: string
+        CapabilitiesReason:
+          type: string
+    GetTemplateOutput:
+      type: object
+      properties:
+        TemplateBody:
+          type: string
+          description: Structure containing the template body.
+        StagesAvailable:
+          type: array
+          items:
+            type: string
+            enum:
+            - Original
+            - Processed
     GetTemplateSummaryOutput:
       type: object
       properties:
@@ -211,43 +248,6 @@ components:
           type: string
         Metadata:
           type: string
-    ValidateTemplateOutput:
-      type: object
-      properties:
-        Parameters:
-          type: array
-          items:
-            type: object
-            properties:
-              ParameterKey:
-                type: string
-              DefaultValue:
-                type: string
-              NoEcho:
-                type: boolean
-              Description:
-                type: string
-        Description:
-          type: string
-        Capabilities:
-          type: array
-          items:
-            type: string
-        CapabilitiesReason:
-          type: string
-    GetTemplateOutput:
-      type: object
-      properties:
-        TemplateBody:
-          type: string
-          description: Structure containing the template body.
-        StagesAvailable:
-          type: array
-          items:
-            type: string
-            enum:
-            - Original
-            - Processed
   securitySchemes:
     aws_auth:
       type: apiKey
