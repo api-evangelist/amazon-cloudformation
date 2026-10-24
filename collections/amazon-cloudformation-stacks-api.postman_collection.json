@@ -1,28 +1,39 @@
 {
+  "info": {
+    "_postman_id": "e4bdc505-6fa7-4517-9cd1-574d11ef3ee6",
+    "name": "Amazon CloudFormation Stacks API",
+    "description": "Amazon CloudFormation is an infrastructure as code service that enables you to model, provision, and manage AWS and third-party resources by treating infrastructure as code. You use templates to define your resources and their dependencies, then deploy them as stacks.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:51:16.000Z",
+    "updatedAt": "2026-10-21T19:51:16.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e4bdc505-6fa7-4517-9cd1-574d11ef3ee6"
+  },
   "item": [
     {
-      "id": "50ecbd9c-13f5-4ed6-9908-94c5c5f326cb",
-      "name": "Stacks",
-      "description": {
-        "content": "Operations for managing CloudFormation stacks",
-        "type": "text/plain"
-      },
+      "name": "?Action=CreateStack",
       "item": [
         {
-          "id": "05652f2b-28e1-43dd-88fd-52c6f1f792cc",
           "name": "Amazon CloudFormation Create a stack",
+          "id": "f17be45e-d6b9-4f17-a772-d9794e50b3da",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Amazon CloudFormation Create a stack",
-            "description": {
-              "content": "Creates a stack as specified in the template. After the call completes successfully, the stack creation starts. You can check the status of the stack through the DescribeStacks action.",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
             "url": {
-              "path": [
-                ""
-              ],
+              "raw": "{{baseUrl}}/?Action=CreateStack&Action=CreateStack&Version=2010-05-15&StackName=<string>&TemplateBody=<string>&TemplateURL=<uri>&DisableRollback=<boolean>&TimeoutInMinutes=<integer>",
               "host": [
                 "{{baseUrl}}"
+              ],
+              "path": [
+                ""
               ],
               "query": [
                 {
@@ -30,289 +41,299 @@
                   "value": "CreateStack"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) ",
                   "key": "Action",
-                  "value": "<string>",
-                  "description": "(Required) "
+                  "value": "CreateStack"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) ",
                   "key": "Version",
-                  "value": "2010-05-15",
-                  "description": "(Required) "
+                  "value": "2010-05-15"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) The name that is associated with the stack. The name must be unique in the Region in which you are creating the stack.",
                   "key": "StackName",
-                  "value": "<string>",
-                  "description": "(Required) The name that is associated with the stack. The name must be unique in the Region in which you are creating the stack."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "Structure containing the template body.",
                   "key": "TemplateBody",
-                  "value": "<string>",
-                  "description": "Structure containing the template body."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "Location of file containing the template body.",
                   "key": "TemplateURL",
-                  "value": "<uri>",
-                  "description": "Location of file containing the template body."
+                  "value": "<uri>"
                 },
                 {
-                  "disabled": false,
+                  "description": "Set to true to disable rollback of the stack if stack creation failed.",
                   "key": "DisableRollback",
-                  "value": "<boolean>",
-                  "description": "Set to true to disable rollback of the stack if stack creation failed."
+                  "value": "<boolean>"
                 },
                 {
-                  "disabled": false,
+                  "description": "The amount of time that can pass before the stack status becomes CREATE_FAILED.",
                   "key": "TimeoutInMinutes",
-                  "value": "<integer>",
-                  "description": "The amount of time that can pass before the stack status becomes CREATE_FAILED."
+                  "value": "<integer>"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "text/xml"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Creates a stack as specified in the template. After the call completes successfully, the stack creation starts. You can check the status of the stack through the DescribeStacks action."
           },
           "response": [
             {
-              "id": "d7d3ef3c-2ac2-4b51-aba7-bd04972b6846",
+              "id": "c7310f31-4d5a-46d4-bdab-9431ebf0b3f1",
               "name": "Successful response",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    ""
-                  ],
+                  "raw": "{{baseUrl}}/?Action=CreateStack&Version=2010-05-15&StackName=<string>&TemplateBody=<string>&TemplateURL=<uri>&DisableRollback=<boolean>&TimeoutInMinutes=<integer>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    ""
+                  ],
                   "query": [
                     {
+                      "description": "(Required) ",
                       "key": "Action",
-                      "value": "<string>"
+                      "value": "CreateStack"
                     },
                     {
+                      "description": "(Required) ",
                       "key": "Version",
                       "value": "2010-05-15"
                     },
                     {
+                      "description": "(Required) The name that is associated with the stack. The name must be unique in the Region in which you are creating the stack.",
                       "key": "StackName",
                       "value": "<string>"
                     },
                     {
+                      "description": "Structure containing the template body.",
                       "key": "TemplateBody",
                       "value": "<string>"
                     },
                     {
+                      "description": "Location of file containing the template body.",
                       "key": "TemplateURL",
                       "value": "<uri>"
                     },
                     {
+                      "description": "Set to true to disable rollback of the stack if stack creation failed.",
                       "key": "DisableRollback",
                       "value": "<boolean>"
                     },
                     {
+                      "description": "The amount of time that can pass before the stack status becomes CREATE_FAILED.",
                       "key": "TimeoutInMinutes",
                       "value": "<integer>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "text/xml"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "xml",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "text/xml"
                 }
               ],
-              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <StackId>(string)</StackId>\n</element>",
               "cookie": [],
-              "_postman_previewlanguage": "xml"
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <StackId>(string)</StackId>\n</element>",
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-c7310f31-4d5a-46d4-bdab-9431ebf0b3f1"
             },
             {
-              "id": "75cb831f-8590-48b4-babf-9af68c2c83dd",
+              "id": "b94ca2b2-65a7-4aab-b7f5-65582fb15338",
               "name": "Client error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "StackName",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "TemplateBody",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "TemplateURL",
-                      "value": "<uri>"
-                    },
-                    {
-                      "key": "DisableRollback",
-                      "value": "<boolean>"
-                    },
-                    {
-                      "key": "TimeoutInMinutes",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateStack&Version=2010-05-15&StackName=<string>&TemplateBody=<string>&TemplateURL=<uri>&DisableRollback=<boolean>&TimeoutInMinutes=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateStack"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name that is associated with the stack. The name must be unique in the Region in which you are creating the stack.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Structure containing the template body.",
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Location of file containing the template body.",
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "Set to true to disable rollback of the stack if stack creation failed.",
+                      "key": "DisableRollback",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The amount of time that can pass before the stack status becomes CREATE_FAILED.",
+                      "key": "TimeoutInMinutes",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
               },
               "status": "Bad Request",
               "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-b94ca2b2-65a7-4aab-b7f5-65582fb15338"
             },
             {
-              "id": "0a835db1-a64d-4ed8-8606-faf7c9d86218",
+              "id": "2104ee50-d171-4afd-a4eb-a10f971e3b12",
               "name": "Server error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "StackName",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "TemplateBody",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "TemplateURL",
-                      "value": "<uri>"
-                    },
-                    {
-                      "key": "DisableRollback",
-                      "value": "<boolean>"
-                    },
-                    {
-                      "key": "TimeoutInMinutes",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateStack&Version=2010-05-15&StackName=<string>&TemplateBody=<string>&TemplateURL=<uri>&DisableRollback=<boolean>&TimeoutInMinutes=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateStack"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name that is associated with the stack. The name must be unique in the Region in which you are creating the stack.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Structure containing the template body.",
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Location of file containing the template body.",
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "Set to true to disable rollback of the stack if stack creation failed.",
+                      "key": "DisableRollback",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The amount of time that can pass before the stack status becomes CREATE_FAILED.",
+                      "key": "TimeoutInMinutes",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
               },
               "status": "Internal Server Error",
               "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-2104ee50-d171-4afd-a4eb-a10f971e3b12"
             }
           ],
-          "event": [],
+          "createdAt": "2026-10-21T19:51:16.000Z",
+          "updatedAt": "2026-10-21T19:51:16.000Z",
+          "uid": "35240-f17be45e-d6b9-4f17-a772-d9794e50b3da"
+        }
+      ],
+      "id": "47f8763c-94e2-4c47-b8db-6cdbd06abdbd",
+      "createdAt": "2026-10-21T19:51:16.000Z",
+      "updatedAt": "2026-10-21T19:51:16.000Z",
+      "uid": "35240-47f8763c-94e2-4c47-b8db-6cdbd06abdbd"
+    },
+    {
+      "name": "?Action=DescribeStacks",
+      "item": [
+        {
+          "name": "Amazon CloudFormation Describe stacks",
+          "id": "f2b68b88-bb9d-4303-80b9-4e874f4d824a",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "19623922-a585-46f0-9bfc-302584771dba",
-          "name": "Amazon CloudFormation Describe stacks",
+          },
           "request": {
-            "name": "Amazon CloudFormation Describe stacks",
-            "description": {
-              "content": "Returns the description for the specified stack; if no stack name was specified, then it returns the description for all the stacks created.",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
             "url": {
-              "path": [
-                ""
-              ],
+              "raw": "{{baseUrl}}/?Action=DescribeStacks&Action=DescribeStacks&Version=2010-05-15&StackName=<string>&NextToken=<string>",
               "host": [
                 "{{baseUrl}}"
+              ],
+              "path": [
+                ""
               ],
               "query": [
                 {
@@ -320,235 +341,239 @@
                   "value": "DescribeStacks"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) ",
                   "key": "Action",
-                  "value": "<string>",
-                  "description": "(Required) "
+                  "value": "DescribeStacks"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) ",
                   "key": "Version",
-                  "value": "2010-05-15",
-                  "description": "(Required) "
+                  "value": "2010-05-15"
                 },
                 {
-                  "disabled": false,
+                  "description": "The name or the unique stack ID that is associated with the stack.",
                   "key": "StackName",
-                  "value": "<string>",
-                  "description": "The name or the unique stack ID that is associated with the stack."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "A string that identifies the next page of stacks to retrieve.",
                   "key": "NextToken",
-                  "value": "<string>",
-                  "description": "A string that identifies the next page of stacks to retrieve."
+                  "value": "<string>"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "text/xml"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Returns the description for the specified stack; if no stack name was specified, then it returns the description for all the stacks created."
           },
           "response": [
             {
-              "id": "2c9ff515-ebba-4935-b590-aa8675ccaaea",
+              "id": "9a9101eb-4846-4fbf-8845-cbe5254e8e80",
               "name": "Successful response",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    ""
-                  ],
+                  "raw": "{{baseUrl}}/?Action=DescribeStacks&Version=2010-05-15&StackName=<string>&NextToken=<string>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    ""
+                  ],
                   "query": [
                     {
+                      "description": "(Required) ",
                       "key": "Action",
-                      "value": "<string>"
+                      "value": "DescribeStacks"
                     },
                     {
+                      "description": "(Required) ",
                       "key": "Version",
                       "value": "2010-05-15"
                     },
                     {
+                      "description": "The name or the unique stack ID that is associated with the stack.",
                       "key": "StackName",
                       "value": "<string>"
                     },
                     {
+                      "description": "A string that identifies the next page of stacks to retrieve.",
                       "key": "NextToken",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "text/xml"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "xml",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "text/xml"
                 }
               ],
-              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Stacks>\n    <StackId>(string)</StackId>\n    <StackName>(string)</StackName>\n    <ChangeSetId>(string)</ChangeSetId>\n    <Description>(string)</Description>\n    <Parameters>\n      <ParameterKey>(string)</ParameterKey>\n      <ParameterValue>(string)</ParameterValue>\n      <UsePreviousValue>(boolean)</UsePreviousValue>\n      <ResolvedValue>(string)</ResolvedValue>\n    </Parameters>\n    <Parameters>\n      <ParameterKey>(string)</ParameterKey>\n      <ParameterValue>(string)</ParameterValue>\n      <UsePreviousValue>(boolean)</UsePreviousValue>\n      <ResolvedValue>(string)</ResolvedValue>\n    </Parameters>\n    <CreationTime>(string)</CreationTime>\n    <DeletionTime>(string)</DeletionTime>\n    <LastUpdatedTime>(string)</LastUpdatedTime>\n    <RollbackConfiguration>\n      <RollbackTriggers>\n        <Arn>(string)</Arn>\n        <Type>(string)</Type>\n      </RollbackTriggers>\n      <RollbackTriggers>\n        <Arn>(string)</Arn>\n        <Type>(string)</Type>\n      </RollbackTriggers>\n      <MonitoringTimeInMinutes>(integer)</MonitoringTimeInMinutes>\n    </RollbackConfiguration>\n    <StackStatus>(string)</StackStatus>\n    <StackStatusReason>(string)</StackStatusReason>\n    <DisableRollback>(boolean)</DisableRollback>\n    <NotificationARNs>(string)</NotificationARNs>\n    <NotificationARNs>(string)</NotificationARNs>\n    <TimeoutInMinutes>(integer)</TimeoutInMinutes>\n    <Capabilities>(string)</Capabilities>\n    <Capabilities>(string)</Capabilities>\n    <Outputs>\n      <OutputKey>(string)</OutputKey>\n      <OutputValue>(string)</OutputValue>\n      <Description>(string)</Description>\n      <ExportName>(string)</ExportName>\n    </Outputs>\n    <Outputs>\n      <OutputKey>(string)</OutputKey>\n      <OutputValue>(string)</OutputValue>\n      <Description>(string)</Description>\n      <ExportName>(string)</ExportName>\n    </Outputs>\n    <RoleARN>(string)</RoleARN>\n    <Tags>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n    </Tags>\n    <Tags>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n    </Tags>\n    <EnableTerminationProtection>(boolean)</EnableTerminationProtection>\n    <DriftInformation>\n      <StackDriftStatus>(string)</StackDriftStatus>\n      <LastCheckTimestamp>(string)</LastCheckTimestamp>\n    </DriftInformation>\n  </Stacks>\n  <Stacks>\n    <StackId>(string)</StackId>\n    <StackName>(string)</StackName>\n    <ChangeSetId>(string)</ChangeSetId>\n    <Description>(string)</Description>\n    <Parameters>\n      <ParameterKey>(string)</ParameterKey>\n      <ParameterValue>(string)</ParameterValue>\n      <UsePreviousValue>(boolean)</UsePreviousValue>\n      <ResolvedValue>(string)</ResolvedValue>\n    </Parameters>\n    <Parameters>\n      <ParameterKey>(string)</ParameterKey>\n      <ParameterValue>(string)</ParameterValue>\n      <UsePreviousValue>(boolean)</UsePreviousValue>\n      <ResolvedValue>(string)</ResolvedValue>\n    </Parameters>\n    <CreationTime>(string)</CreationTime>\n    <DeletionTime>(string)</DeletionTime>\n    <LastUpdatedTime>(string)</LastUpdatedTime>\n    <RollbackConfiguration>\n      <RollbackTriggers>\n        <Arn>(string)</Arn>\n        <Type>(string)</Type>\n      </RollbackTriggers>\n      <RollbackTriggers>\n        <Arn>(string)</Arn>\n        <Type>(string)</Type>\n      </RollbackTriggers>\n      <MonitoringTimeInMinutes>(integer)</MonitoringTimeInMinutes>\n    </RollbackConfiguration>\n    <StackStatus>(string)</StackStatus>\n    <StackStatusReason>(string)</StackStatusReason>\n    <DisableRollback>(boolean)</DisableRollback>\n    <NotificationARNs>(string)</NotificationARNs>\n    <NotificationARNs>(string)</NotificationARNs>\n    <TimeoutInMinutes>(integer)</TimeoutInMinutes>\n    <Capabilities>(string)</Capabilities>\n    <Capabilities>(string)</Capabilities>\n    <Outputs>\n      <OutputKey>(string)</OutputKey>\n      <OutputValue>(string)</OutputValue>\n      <Description>(string)</Description>\n      <ExportName>(string)</ExportName>\n    </Outputs>\n    <Outputs>\n      <OutputKey>(string)</OutputKey>\n      <OutputValue>(string)</OutputValue>\n      <Description>(string)</Description>\n      <ExportName>(string)</ExportName>\n    </Outputs>\n    <RoleARN>(string)</RoleARN>\n    <Tags>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n    </Tags>\n    <Tags>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n    </Tags>\n    <EnableTerminationProtection>(boolean)</EnableTerminationProtection>\n    <DriftInformation>\n      <StackDriftStatus>(string)</StackDriftStatus>\n      <LastCheckTimestamp>(string)</LastCheckTimestamp>\n    </DriftInformation>\n  </Stacks>\n  <NextToken>(string)</NextToken>\n</element>",
               "cookie": [],
-              "_postman_previewlanguage": "xml"
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Stacks>\n    <StackId>(string)</StackId>\n    <StackName>(string)</StackName>\n    <ChangeSetId>(string)</ChangeSetId>\n    <Description>(string)</Description>\n    <Parameters>\n      <ParameterKey>(string)</ParameterKey>\n      <ParameterValue>(string)</ParameterValue>\n      <UsePreviousValue>(boolean)</UsePreviousValue>\n      <ResolvedValue>(string)</ResolvedValue>\n    </Parameters>\n    <Parameters>\n      <ParameterKey>(string)</ParameterKey>\n      <ParameterValue>(string)</ParameterValue>\n      <UsePreviousValue>(boolean)</UsePreviousValue>\n      <ResolvedValue>(string)</ResolvedValue>\n    </Parameters>\n    <CreationTime>(string)</CreationTime>\n    <DeletionTime>(string)</DeletionTime>\n    <LastUpdatedTime>(string)</LastUpdatedTime>\n    <RollbackConfiguration>\n      <RollbackTriggers>\n        <Arn>(string)</Arn>\n        <Type>(string)</Type>\n      </RollbackTriggers>\n      <RollbackTriggers>\n        <Arn>(string)</Arn>\n        <Type>(string)</Type>\n      </RollbackTriggers>\n      <MonitoringTimeInMinutes>(integer)</MonitoringTimeInMinutes>\n    </RollbackConfiguration>\n    <StackStatus>(string)</StackStatus>\n    <StackStatusReason>(string)</StackStatusReason>\n    <DisableRollback>(boolean)</DisableRollback>\n    <NotificationARNs>(string)</NotificationARNs>\n    <NotificationARNs>(string)</NotificationARNs>\n    <TimeoutInMinutes>(integer)</TimeoutInMinutes>\n    <Capabilities>(string)</Capabilities>\n    <Capabilities>(string)</Capabilities>\n    <Outputs>\n      <OutputKey>(string)</OutputKey>\n      <OutputValue>(string)</OutputValue>\n      <Description>(string)</Description>\n      <ExportName>(string)</ExportName>\n    </Outputs>\n    <Outputs>\n      <OutputKey>(string)</OutputKey>\n      <OutputValue>(string)</OutputValue>\n      <Description>(string)</Description>\n      <ExportName>(string)</ExportName>\n    </Outputs>\n    <RoleARN>(string)</RoleARN>\n    <Tags>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n    </Tags>\n    <Tags>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n    </Tags>\n    <EnableTerminationProtection>(boolean)</EnableTerminationProtection>\n    <DriftInformation>\n      <StackDriftStatus>(string)</StackDriftStatus>\n      <LastCheckTimestamp>(string)</LastCheckTimestamp>\n    </DriftInformation>\n  </Stacks>\n  <Stacks>\n    <StackId>(string)</StackId>\n    <StackName>(string)</StackName>\n    <ChangeSetId>(string)</ChangeSetId>\n    <Description>(string)</Description>\n    <Parameters>\n      <ParameterKey>(string)</ParameterKey>\n      <ParameterValue>(string)</ParameterValue>\n      <UsePreviousValue>(boolean)</UsePreviousValue>\n      <ResolvedValue>(string)</ResolvedValue>\n    </Parameters>\n    <Parameters>\n      <ParameterKey>(string)</ParameterKey>\n      <ParameterValue>(string)</ParameterValue>\n      <UsePreviousValue>(boolean)</UsePreviousValue>\n      <ResolvedValue>(string)</ResolvedValue>\n    </Parameters>\n    <CreationTime>(string)</CreationTime>\n    <DeletionTime>(string)</DeletionTime>\n    <LastUpdatedTime>(string)</LastUpdatedTime>\n    <RollbackConfiguration>\n      <RollbackTriggers>\n        <Arn>(string)</Arn>\n        <Type>(string)</Type>\n      </RollbackTriggers>\n      <RollbackTriggers>\n        <Arn>(string)</Arn>\n        <Type>(string)</Type>\n      </RollbackTriggers>\n      <MonitoringTimeInMinutes>(integer)</MonitoringTimeInMinutes>\n    </RollbackConfiguration>\n    <StackStatus>(string)</StackStatus>\n    <StackStatusReason>(string)</StackStatusReason>\n    <DisableRollback>(boolean)</DisableRollback>\n    <NotificationARNs>(string)</NotificationARNs>\n    <NotificationARNs>(string)</NotificationARNs>\n    <TimeoutInMinutes>(integer)</TimeoutInMinutes>\n    <Capabilities>(string)</Capabilities>\n    <Capabilities>(string)</Capabilities>\n    <Outputs>\n      <OutputKey>(string)</OutputKey>\n      <OutputValue>(string)</OutputValue>\n      <Description>(string)</Description>\n      <ExportName>(string)</ExportName>\n    </Outputs>\n    <Outputs>\n      <OutputKey>(string)</OutputKey>\n      <OutputValue>(string)</OutputValue>\n      <Description>(string)</Description>\n      <ExportName>(string)</ExportName>\n    </Outputs>\n    <RoleARN>(string)</RoleARN>\n    <Tags>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n    </Tags>\n    <Tags>\n      <Key>(string)</Key>\n      <Value>(string)</Value>\n    </Tags>\n    <EnableTerminationProtection>(boolean)</EnableTerminationProtection>\n    <DriftInformation>\n      <StackDriftStatus>(string)</StackDriftStatus>\n      <LastCheckTimestamp>(string)</LastCheckTimestamp>\n    </DriftInformation>\n  </Stacks>\n  <NextToken>(string)</NextToken>\n</element>",
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-9a9101eb-4846-4fbf-8845-cbe5254e8e80"
             },
             {
-              "id": "12ec0a23-58a0-40c6-a0a0-c51420019199",
+              "id": "dde381aa-1959-44fd-a18a-6454aebafb10",
               "name": "Client error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "StackName",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "NextToken",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeStacks&Version=2010-05-15&StackName=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeStacks"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "The name or the unique stack ID that is associated with the stack.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A string that identifies the next page of stacks to retrieve.",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
               },
               "status": "Bad Request",
               "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-dde381aa-1959-44fd-a18a-6454aebafb10"
             },
             {
-              "id": "62af94e4-8841-425a-bca3-cd533296131c",
+              "id": "450b5cb9-f150-4304-b63b-597ddff62fbc",
               "name": "Server error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "StackName",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "NextToken",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeStacks&Version=2010-05-15&StackName=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeStacks"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "The name or the unique stack ID that is associated with the stack.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A string that identifies the next page of stacks to retrieve.",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
               },
               "status": "Internal Server Error",
               "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-450b5cb9-f150-4304-b63b-597ddff62fbc"
             }
           ],
-          "event": [],
+          "createdAt": "2026-10-21T19:51:16.000Z",
+          "updatedAt": "2026-10-21T19:51:16.000Z",
+          "uid": "35240-f2b68b88-bb9d-4303-80b9-4e874f4d824a"
+        }
+      ],
+      "id": "2e495174-4534-45d7-aead-3e59e3271f3a",
+      "createdAt": "2026-10-21T19:51:16.000Z",
+      "updatedAt": "2026-10-21T19:51:16.000Z",
+      "uid": "35240-2e495174-4534-45d7-aead-3e59e3271f3a"
+    },
+    {
+      "name": "?Action=UpdateStack",
+      "item": [
+        {
+          "name": "Amazon CloudFormation Update a stack",
+          "id": "c5cf28e4-fa4c-4197-8bcd-31519703b2b5",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "92c94aa8-c774-4bab-9acc-654b98da91e3",
-          "name": "Amazon CloudFormation Update a stack",
+          },
           "request": {
-            "name": "Amazon CloudFormation Update a stack",
-            "description": {
-              "content": "Updates a stack as specified in the template. After the call completes successfully, the stack update starts.",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
             "url": {
-              "path": [
-                ""
-              ],
+              "raw": "{{baseUrl}}/?Action=UpdateStack&Action=UpdateStack&Version=2010-05-15&StackName=<string>&TemplateBody=<string>&TemplateURL=<uri>&UsePreviousTemplate=<boolean>",
               "host": [
                 "{{baseUrl}}"
+              ],
+              "path": [
+                ""
               ],
               "query": [
                 {
@@ -556,271 +581,274 @@
                   "value": "UpdateStack"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) ",
                   "key": "Action",
-                  "value": "<string>",
-                  "description": "(Required) "
+                  "value": "UpdateStack"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) ",
                   "key": "Version",
-                  "value": "2010-05-15",
-                  "description": "(Required) "
+                  "value": "2010-05-15"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) The name or unique stack ID of the stack to update.",
                   "key": "StackName",
-                  "value": "<string>",
-                  "description": "(Required) The name or unique stack ID of the stack to update."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "Structure containing the template body.",
                   "key": "TemplateBody",
-                  "value": "<string>",
-                  "description": "Structure containing the template body."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "Location of file containing the template body.",
                   "key": "TemplateURL",
-                  "value": "<uri>",
-                  "description": "Location of file containing the template body."
+                  "value": "<uri>"
                 },
                 {
-                  "disabled": false,
+                  "description": "Reuse the existing template that is associated with the stack.",
                   "key": "UsePreviousTemplate",
-                  "value": "<boolean>",
-                  "description": "Reuse the existing template that is associated with the stack."
+                  "value": "<boolean>"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "text/xml"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Updates a stack as specified in the template. After the call completes successfully, the stack update starts."
           },
           "response": [
             {
-              "id": "779f31c8-89d4-4734-9148-ebbd1defa376",
+              "id": "ed9dbd2f-7ea6-4b64-be95-daadbbb94901",
               "name": "Successful response",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    ""
-                  ],
+                  "raw": "{{baseUrl}}/?Action=UpdateStack&Version=2010-05-15&StackName=<string>&TemplateBody=<string>&TemplateURL=<uri>&UsePreviousTemplate=<boolean>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    ""
+                  ],
                   "query": [
                     {
+                      "description": "(Required) ",
                       "key": "Action",
-                      "value": "<string>"
+                      "value": "UpdateStack"
                     },
                     {
+                      "description": "(Required) ",
                       "key": "Version",
                       "value": "2010-05-15"
                     },
                     {
+                      "description": "(Required) The name or unique stack ID of the stack to update.",
                       "key": "StackName",
                       "value": "<string>"
                     },
                     {
+                      "description": "Structure containing the template body.",
                       "key": "TemplateBody",
                       "value": "<string>"
                     },
                     {
+                      "description": "Location of file containing the template body.",
                       "key": "TemplateURL",
                       "value": "<uri>"
                     },
                     {
+                      "description": "Reuse the existing template that is associated with the stack.",
                       "key": "UsePreviousTemplate",
                       "value": "<boolean>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "text/xml"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "xml",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "text/xml"
                 }
               ],
-              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <StackId>(string)</StackId>\n</element>",
               "cookie": [],
-              "_postman_previewlanguage": "xml"
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <StackId>(string)</StackId>\n</element>",
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-ed9dbd2f-7ea6-4b64-be95-daadbbb94901"
             },
             {
-              "id": "dec7ac28-f905-40ad-9834-756be6d7a58a",
+              "id": "e0829bb8-21b2-457a-9288-c1a2a4a9a459",
               "name": "Client error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "StackName",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "TemplateBody",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "TemplateURL",
-                      "value": "<uri>"
-                    },
-                    {
-                      "key": "UsePreviousTemplate",
-                      "value": "<boolean>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=UpdateStack&Version=2010-05-15&StackName=<string>&TemplateBody=<string>&TemplateURL=<uri>&UsePreviousTemplate=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "UpdateStack"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or unique stack ID of the stack to update.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Structure containing the template body.",
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Location of file containing the template body.",
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "Reuse the existing template that is associated with the stack.",
+                      "key": "UsePreviousTemplate",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
               },
               "status": "Bad Request",
               "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-e0829bb8-21b2-457a-9288-c1a2a4a9a459"
             },
             {
-              "id": "aaed6424-7dbd-4858-b7d3-cc93f7345a91",
+              "id": "950eb749-4683-4798-9495-422e9dad33a1",
               "name": "Server error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "StackName",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "TemplateBody",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "TemplateURL",
-                      "value": "<uri>"
-                    },
-                    {
-                      "key": "UsePreviousTemplate",
-                      "value": "<boolean>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=UpdateStack&Version=2010-05-15&StackName=<string>&TemplateBody=<string>&TemplateURL=<uri>&UsePreviousTemplate=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "UpdateStack"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or unique stack ID of the stack to update.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Structure containing the template body.",
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Location of file containing the template body.",
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "Reuse the existing template that is associated with the stack.",
+                      "key": "UsePreviousTemplate",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
               },
               "status": "Internal Server Error",
               "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-950eb749-4683-4798-9495-422e9dad33a1"
             }
           ],
-          "event": [],
+          "createdAt": "2026-10-21T19:51:16.000Z",
+          "updatedAt": "2026-10-21T19:51:16.000Z",
+          "uid": "35240-c5cf28e4-fa4c-4197-8bcd-31519703b2b5"
+        }
+      ],
+      "id": "8fef410c-3cc2-4883-97d5-bcbcbd30cafc",
+      "createdAt": "2026-10-21T19:51:16.000Z",
+      "updatedAt": "2026-10-21T19:51:16.000Z",
+      "uid": "35240-8fef410c-3cc2-4883-97d5-bcbcbd30cafc"
+    },
+    {
+      "name": "?Action=DeleteStack",
+      "item": [
+        {
+          "name": "Amazon CloudFormation Delete a stack",
+          "id": "e0ac0fbf-3503-4c88-901f-ac28084c0d04",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "91aba816-506d-47a2-917f-f8ca17044463",
-          "name": "Amazon CloudFormation Delete a stack",
+          },
           "request": {
-            "name": "Amazon CloudFormation Delete a stack",
-            "description": {
-              "content": "Deletes a specified stack. Once the call completes successfully, stack deletion starts. Deleted stacks do not show up in the DescribeStacks action if the deletion has been completed successfully.",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [],
             "url": {
-              "path": [
-                ""
-              ],
+              "raw": "{{baseUrl}}/?Action=DeleteStack&Action=DeleteStack&Version=2010-05-15&StackName=<string>&RetainResources=<string>&RetainResources=<string>",
               "host": [
                 "{{baseUrl}}"
+              ],
+              "path": [
+                ""
               ],
               "query": [
                 {
@@ -828,243 +856,235 @@
                   "value": "DeleteStack"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) ",
                   "key": "Action",
-                  "value": "<string>",
-                  "description": "(Required) "
+                  "value": "DeleteStack"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) ",
                   "key": "Version",
-                  "value": "2010-05-15",
-                  "description": "(Required) "
+                  "value": "2010-05-15"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) The name or the unique stack ID that is associated with the stack.",
                   "key": "StackName",
-                  "value": "<string>",
-                  "description": "(Required) The name or the unique stack ID that is associated with the stack."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "For stacks in the DELETE_FAILED state, a list of resource logical IDs that are associated with the resources you want to retain.",
                   "key": "RetainResources",
-                  "value": "<string>",
-                  "description": "For stacks in the DELETE_FAILED state, a list of resource logical IDs that are associated with the resources you want to retain."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "For stacks in the DELETE_FAILED state, a list of resource logical IDs that are associated with the resources you want to retain.",
                   "key": "RetainResources",
-                  "value": "<string>",
-                  "description": "For stacks in the DELETE_FAILED state, a list of resource logical IDs that are associated with the resources you want to retain."
+                  "value": "<string>"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "method": "GET",
-            "auth": null
+            "description": "Deletes a specified stack. Once the call completes successfully, stack deletion starts. Deleted stacks do not show up in the DescribeStacks action if the deletion has been completed successfully."
           },
           "response": [
             {
-              "id": "f9e140ea-1e33-47e0-ba19-67f69d1d7cf0",
+              "id": "246fc841-dacb-4d91-93cc-3ee5584c553a",
               "name": "Successful response",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "StackName",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "RetainResources",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "RetainResources",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteStack&Version=2010-05-15&StackName=<string>&RetainResources=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteStack"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or the unique stack ID that is associated with the stack.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "For stacks in the DELETE_FAILED state, a list of resource logical IDs that are associated with the resources you want to retain.",
+                      "key": "RetainResources",
+                      "value": "<string>"
+                    }
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-246fc841-dacb-4d91-93cc-3ee5584c553a"
             },
             {
-              "id": "20bc4b0a-db9f-48a9-a841-49aae97af899",
+              "id": "bdfebc57-e02a-44fa-9563-79c4db7e4a8e",
               "name": "Client error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "StackName",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "RetainResources",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "RetainResources",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteStack&Version=2010-05-15&StackName=<string>&RetainResources=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteStack"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or the unique stack ID that is associated with the stack.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "For stacks in the DELETE_FAILED state, a list of resource logical IDs that are associated with the resources you want to retain.",
+                      "key": "RetainResources",
+                      "value": "<string>"
+                    }
+                  ]
+                }
               },
               "status": "Bad Request",
               "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-bdfebc57-e02a-44fa-9563-79c4db7e4a8e"
             },
             {
-              "id": "66c3c74d-e16e-4cc3-9432-3d037865bada",
+              "id": "6229538f-e2e6-4c7e-a806-da9d48cc473d",
               "name": "Server error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "StackName",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "RetainResources",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "RetainResources",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DeleteStack&Version=2010-05-15&StackName=<string>&RetainResources=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DeleteStack"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or the unique stack ID that is associated with the stack.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "For stacks in the DELETE_FAILED state, a list of resource logical IDs that are associated with the resources you want to retain.",
+                      "key": "RetainResources",
+                      "value": "<string>"
+                    }
+                  ]
+                }
               },
               "status": "Internal Server Error",
               "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-6229538f-e2e6-4c7e-a806-da9d48cc473d"
             }
           ],
-          "event": [],
+          "createdAt": "2026-10-21T19:51:16.000Z",
+          "updatedAt": "2026-10-21T19:51:16.000Z",
+          "uid": "35240-e0ac0fbf-3503-4c88-901f-ac28084c0d04"
+        }
+      ],
+      "id": "8c946544-7d78-4597-b459-6aa8a0ebeb25",
+      "createdAt": "2026-10-21T19:51:16.000Z",
+      "updatedAt": "2026-10-21T19:51:16.000Z",
+      "uid": "35240-8c946544-7d78-4597-b459-6aa8a0ebeb25"
+    },
+    {
+      "name": "?Action=ListStacks",
+      "item": [
+        {
+          "name": "Amazon CloudFormation List stacks",
+          "id": "f706f8ad-97f5-4834-8d9e-bf194eceeda4",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1ab7de3e-3189-4aa1-8ba5-9ac62c2e69f8",
-          "name": "Amazon CloudFormation List stacks",
+          },
           "request": {
-            "name": "Amazon CloudFormation List stacks",
-            "description": {
-              "content": "Returns the summary information for stacks whose status matches the specified StackStatusFilter.",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
             "url": {
-              "path": [
-                ""
-              ],
+              "raw": "{{baseUrl}}/?Action=ListStacks&Action=ListStacks&Version=2010-05-15&NextToken=<string>&StackStatusFilter=CREATE_COMPLETE&StackStatusFilter=UPDATE_ROLLBACK_COMPLETE",
               "host": [
                 "{{baseUrl}}"
+              ],
+              "path": [
+                ""
               ],
               "query": [
                 {
@@ -1072,248 +1092,219 @@
                   "value": "ListStacks"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) ",
                   "key": "Action",
-                  "value": "<string>",
-                  "description": "(Required) "
+                  "value": "ListStacks"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) ",
                   "key": "Version",
-                  "value": "2010-05-15",
-                  "description": "(Required) "
+                  "value": "2010-05-15"
                 },
                 {
-                  "disabled": false,
+                  "description": "A string that identifies the next page of stacks to retrieve.",
                   "key": "NextToken",
-                  "value": "<string>",
-                  "description": "A string that identifies the next page of stacks to retrieve."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "Stack status to use as a filter.",
                   "key": "StackStatusFilter",
-                  "value": "<string>",
-                  "description": "Stack status to use as a filter."
+                  "value": "CREATE_COMPLETE"
                 },
                 {
-                  "disabled": false,
+                  "description": "Stack status to use as a filter.",
                   "key": "StackStatusFilter",
-                  "value": "<string>",
-                  "description": "Stack status to use as a filter."
+                  "value": "UPDATE_ROLLBACK_COMPLETE"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "text/xml"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Returns the summary information for stacks whose status matches the specified StackStatusFilter."
           },
           "response": [
             {
-              "id": "e93b3534-9524-47f7-96e1-00d95e0c8ca3",
+              "id": "4093b59a-842e-45a5-91c5-822d33201a37",
               "name": "Successful response",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    ""
-                  ],
+                  "raw": "{{baseUrl}}/?Action=ListStacks&Version=2010-05-15&NextToken=<string>&StackStatusFilter=UPDATE_ROLLBACK_COMPLETE",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    ""
+                  ],
                   "query": [
                     {
+                      "description": "(Required) ",
                       "key": "Action",
-                      "value": "<string>"
+                      "value": "ListStacks"
                     },
                     {
+                      "description": "(Required) ",
                       "key": "Version",
                       "value": "2010-05-15"
                     },
                     {
+                      "description": "A string that identifies the next page of stacks to retrieve.",
                       "key": "NextToken",
                       "value": "<string>"
                     },
                     {
+                      "description": "Stack status to use as a filter.",
                       "key": "StackStatusFilter",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "StackStatusFilter",
-                      "value": "<string>"
+                      "value": "UPDATE_ROLLBACK_COMPLETE"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "text/xml"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "xml",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "text/xml"
                 }
               ],
-              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <StackSummaries>\n    <StackId>(string)</StackId>\n    <StackName>(string)</StackName>\n    <StackStatus>(string)</StackStatus>\n    <CreationTime>(string)</CreationTime>\n    <DeletionTime>(string)</DeletionTime>\n    <LastUpdatedTime>(string)</LastUpdatedTime>\n    <TemplateDescription>(string)</TemplateDescription>\n  </StackSummaries>\n  <StackSummaries>\n    <StackId>(string)</StackId>\n    <StackName>(string)</StackName>\n    <StackStatus>(string)</StackStatus>\n    <CreationTime>(string)</CreationTime>\n    <DeletionTime>(string)</DeletionTime>\n    <LastUpdatedTime>(string)</LastUpdatedTime>\n    <TemplateDescription>(string)</TemplateDescription>\n  </StackSummaries>\n  <NextToken>(string)</NextToken>\n</element>",
               "cookie": [],
-              "_postman_previewlanguage": "xml"
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <StackSummaries>\n    <StackId>(string)</StackId>\n    <StackName>(string)</StackName>\n    <StackStatus>(string)</StackStatus>\n    <CreationTime>(string)</CreationTime>\n    <DeletionTime>(string)</DeletionTime>\n    <LastUpdatedTime>(string)</LastUpdatedTime>\n    <TemplateDescription>(string)</TemplateDescription>\n  </StackSummaries>\n  <StackSummaries>\n    <StackId>(string)</StackId>\n    <StackName>(string)</StackName>\n    <StackStatus>(string)</StackStatus>\n    <CreationTime>(string)</CreationTime>\n    <DeletionTime>(string)</DeletionTime>\n    <LastUpdatedTime>(string)</LastUpdatedTime>\n    <TemplateDescription>(string)</TemplateDescription>\n  </StackSummaries>\n  <NextToken>(string)</NextToken>\n</element>",
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-4093b59a-842e-45a5-91c5-822d33201a37"
             },
             {
-              "id": "fd3a71af-6feb-4b06-b8a2-6be499841d85",
+              "id": "17209bbc-d856-4786-911d-2f8d0774a390",
               "name": "Client error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "NextToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "StackStatusFilter",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "StackStatusFilter",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=ListStacks&Version=2010-05-15&NextToken=<string>&StackStatusFilter=UPDATE_ROLLBACK_COMPLETE",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ListStacks"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "A string that identifies the next page of stacks to retrieve.",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Stack status to use as a filter.",
+                      "key": "StackStatusFilter",
+                      "value": "UPDATE_ROLLBACK_COMPLETE"
+                    }
+                  ]
+                }
               },
               "status": "Bad Request",
               "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-17209bbc-d856-4786-911d-2f8d0774a390"
             },
             {
-              "id": "6de38fc7-7d40-4a78-bdde-45a2dc4708a7",
+              "id": "127cf0a0-a2fe-46ba-a2ef-5108fb765866",
               "name": "Server error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "NextToken",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "StackStatusFilter",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "StackStatusFilter",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=ListStacks&Version=2010-05-15&NextToken=<string>&StackStatusFilter=UPDATE_ROLLBACK_COMPLETE",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ListStacks"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "A string that identifies the next page of stacks to retrieve.",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Stack status to use as a filter.",
+                      "key": "StackStatusFilter",
+                      "value": "UPDATE_ROLLBACK_COMPLETE"
+                    }
+                  ]
+                }
               },
               "status": "Internal Server Error",
               "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:16.000Z",
+              "updatedAt": "2026-10-21T19:51:16.000Z",
+              "uid": "35240-127cf0a0-a2fe-46ba-a2ef-5108fb765866"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T19:51:16.000Z",
+          "updatedAt": "2026-10-21T19:51:16.000Z",
+          "uid": "35240-f706f8ad-97f5-4834-8d9e-bf194eceeda4"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://cloudformation.amazonaws.com",
-      "key": "baseUrl"
+      "id": "5f07db02-3d18-4eeb-b499-b81bbc16469d",
+      "createdAt": "2026-10-21T19:51:16.000Z",
+      "updatedAt": "2026-10-21T19:51:16.000Z",
+      "uid": "35240-5f07db02-3d18-4eeb-b499-b81bbc16469d"
     }
   ],
   "auth": {
@@ -1321,25 +1312,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "2075d28b-6a25-4a7f-8f7c-cf47f7202204",
-    "name": "Amazon CloudFormation Change Sets Stacks API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Amazon CloudFormation is an infrastructure as code service that enables you to model, provision, and manage AWS and third-party resources by treating infrastructure as code. You use templates to define your resources and their dependencies, then deploy them as stacks.\n\nContact Support:\n Name: Amazon Web Services",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cloudformation.amazonaws.com"
     }
-  }
+  ]
 }

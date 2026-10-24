@@ -1,0 +1,846 @@
+{
+  "info": {
+    "_postman_id": "6e77a088-c8ac-49f8-a831-ebf9ee1c186a",
+    "name": "Amazon CloudFormation Change Sets API",
+    "description": "Amazon CloudFormation is an infrastructure as code service that enables you to model, provision, and manage AWS and third-party resources by treating infrastructure as code. You use templates to define your resources and their dependencies, then deploy them as stacks.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:51:28.000Z",
+    "updatedAt": "2026-10-21T19:51:28.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6e77a088-c8ac-49f8-a831-ebf9ee1c186a"
+  },
+  "item": [
+    {
+      "name": "?Action=CreateChangeSet",
+      "item": [
+        {
+          "name": "Amazon CloudFormation Create a change set",
+          "id": "e87fb285-7c2a-4f19-bf7f-387dd213819b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateChangeSet&Action=CreateChangeSet&Version=2010-05-15&StackName=<string>&ChangeSetName=<string>&TemplateBody=<string>&TemplateURL=<uri>&ChangeSetType=UPDATE",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateChangeSet"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "CreateChangeSet"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-15"
+                },
+                {
+                  "description": "(Required) The name or the unique ID of the stack for which you are creating a change set.",
+                  "key": "StackName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The name of the change set.",
+                  "key": "ChangeSetName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Structure containing the template body.",
+                  "key": "TemplateBody",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Location of file containing the template body.",
+                  "key": "TemplateURL",
+                  "value": "<uri>"
+                },
+                {
+                  "description": "The type of change set operation.",
+                  "key": "ChangeSetType",
+                  "value": "UPDATE"
+                }
+              ]
+            },
+            "description": "Creates a list of changes that will be applied to a stack so that you can review the changes before executing them. Change sets allow you to see how your changes might impact your running resources before implementing them."
+          },
+          "response": [
+            {
+              "id": "7afba053-34db-47a3-931a-6e55790aff65",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateChangeSet&Version=2010-05-15&StackName=<string>&ChangeSetName=<string>&TemplateBody=<string>&TemplateURL=<uri>&ChangeSetType=UPDATE",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateChangeSet"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or the unique ID of the stack for which you are creating a change set.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the change set.",
+                      "key": "ChangeSetName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Structure containing the template body.",
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Location of file containing the template body.",
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "The type of change set operation.",
+                      "key": "ChangeSetType",
+                      "value": "UPDATE"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <Id>(string)</Id>\n  <StackId>(string)</StackId>\n</element>",
+              "createdAt": "2026-10-21T19:51:28.000Z",
+              "updatedAt": "2026-10-21T19:51:28.000Z",
+              "uid": "35240-7afba053-34db-47a3-931a-6e55790aff65"
+            },
+            {
+              "id": "7c3dc87b-fc18-420f-b692-edf1b677e236",
+              "name": "Client error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateChangeSet&Version=2010-05-15&StackName=<string>&ChangeSetName=<string>&TemplateBody=<string>&TemplateURL=<uri>&ChangeSetType=UPDATE",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateChangeSet"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or the unique ID of the stack for which you are creating a change set.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the change set.",
+                      "key": "ChangeSetName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Structure containing the template body.",
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Location of file containing the template body.",
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "The type of change set operation.",
+                      "key": "ChangeSetType",
+                      "value": "UPDATE"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:28.000Z",
+              "updatedAt": "2026-10-21T19:51:28.000Z",
+              "uid": "35240-7c3dc87b-fc18-420f-b692-edf1b677e236"
+            },
+            {
+              "id": "426f4ef4-3322-4ac9-85cf-f058ee5c6e7f",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=CreateChangeSet&Version=2010-05-15&StackName=<string>&ChangeSetName=<string>&TemplateBody=<string>&TemplateURL=<uri>&ChangeSetType=UPDATE",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "CreateChangeSet"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or the unique ID of the stack for which you are creating a change set.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The name of the change set.",
+                      "key": "ChangeSetName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Structure containing the template body.",
+                      "key": "TemplateBody",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Location of file containing the template body.",
+                      "key": "TemplateURL",
+                      "value": "<uri>"
+                    },
+                    {
+                      "description": "The type of change set operation.",
+                      "key": "ChangeSetType",
+                      "value": "UPDATE"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:28.000Z",
+              "updatedAt": "2026-10-21T19:51:28.000Z",
+              "uid": "35240-426f4ef4-3322-4ac9-85cf-f058ee5c6e7f"
+            }
+          ],
+          "createdAt": "2026-10-21T19:51:28.000Z",
+          "updatedAt": "2026-10-21T19:51:28.000Z",
+          "uid": "35240-e87fb285-7c2a-4f19-bf7f-387dd213819b"
+        }
+      ],
+      "id": "82bb80ce-4483-40c6-8651-c8103610bda1",
+      "createdAt": "2026-10-21T19:51:28.000Z",
+      "updatedAt": "2026-10-21T19:51:28.000Z",
+      "uid": "35240-82bb80ce-4483-40c6-8651-c8103610bda1"
+    },
+    {
+      "name": "?Action=DescribeChangeSet",
+      "item": [
+        {
+          "name": "Amazon CloudFormation Describe a change set",
+          "id": "b94c9551-db70-4a3c-99b7-c499741f47b8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeChangeSet&Action=DescribeChangeSet&Version=2010-05-15&ChangeSetName=<string>&StackName=<string>&NextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeChangeSet"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "DescribeChangeSet"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-15"
+                },
+                {
+                  "description": "(Required) The name or Amazon Resource Name (ARN) of the change set.",
+                  "key": "ChangeSetName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name or the unique ID of the stack associated with the change set.",
+                  "key": "StackName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "A string that identifies the next page of information to retrieve.",
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Returns the inputs and a list of changes that CloudFormation will make if you execute the change set."
+          },
+          "response": [
+            {
+              "id": "973ee1e8-95ae-4318-a55c-04f23336cdae",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeChangeSet&Version=2010-05-15&ChangeSetName=<string>&StackName=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeChangeSet"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or Amazon Resource Name (ARN) of the change set.",
+                      "key": "ChangeSetName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name or the unique ID of the stack associated with the change set.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A string that identifies the next page of information to retrieve.",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ChangeSetName>(string)</ChangeSetName>\n  <ChangeSetId>(string)</ChangeSetId>\n  <StackId>(string)</StackId>\n  <StackName>(string)</StackName>\n  <Description>(string)</Description>\n  <ExecutionStatus>(string)</ExecutionStatus>\n  <Status>(string)</Status>\n  <StatusReason>(string)</StatusReason>\n  <Changes>\n    <Type>(string)</Type>\n    <ResourceChange>\n      <Action>(string)</Action>\n      <LogicalResourceId>(string)</LogicalResourceId>\n      <PhysicalResourceId>(string)</PhysicalResourceId>\n      <ResourceType>(string)</ResourceType>\n      <Replacement>(string)</Replacement>\n      <Scope>(string)</Scope>\n      <Scope>(string)</Scope>\n    </ResourceChange>\n  </Changes>\n  <Changes>\n    <Type>(string)</Type>\n    <ResourceChange>\n      <Action>(string)</Action>\n      <LogicalResourceId>(string)</LogicalResourceId>\n      <PhysicalResourceId>(string)</PhysicalResourceId>\n      <ResourceType>(string)</ResourceType>\n      <Replacement>(string)</Replacement>\n      <Scope>(string)</Scope>\n      <Scope>(string)</Scope>\n    </ResourceChange>\n  </Changes>\n  <NextToken>(string)</NextToken>\n  <CreationTime>(string)</CreationTime>\n</element>",
+              "createdAt": "2026-10-21T19:51:28.000Z",
+              "updatedAt": "2026-10-21T19:51:28.000Z",
+              "uid": "35240-973ee1e8-95ae-4318-a55c-04f23336cdae"
+            },
+            {
+              "id": "c4f8908b-fe93-4fbb-9958-ce05b8a63c64",
+              "name": "Client error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeChangeSet&Version=2010-05-15&ChangeSetName=<string>&StackName=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeChangeSet"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or Amazon Resource Name (ARN) of the change set.",
+                      "key": "ChangeSetName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name or the unique ID of the stack associated with the change set.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A string that identifies the next page of information to retrieve.",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:28.000Z",
+              "updatedAt": "2026-10-21T19:51:28.000Z",
+              "uid": "35240-c4f8908b-fe93-4fbb-9958-ce05b8a63c64"
+            },
+            {
+              "id": "9be281bf-5c33-419c-b3ab-d68a7679363f",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeChangeSet&Version=2010-05-15&ChangeSetName=<string>&StackName=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeChangeSet"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or Amazon Resource Name (ARN) of the change set.",
+                      "key": "ChangeSetName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name or the unique ID of the stack associated with the change set.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A string that identifies the next page of information to retrieve.",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:28.000Z",
+              "updatedAt": "2026-10-21T19:51:28.000Z",
+              "uid": "35240-9be281bf-5c33-419c-b3ab-d68a7679363f"
+            }
+          ],
+          "createdAt": "2026-10-21T19:51:28.000Z",
+          "updatedAt": "2026-10-21T19:51:28.000Z",
+          "uid": "35240-b94c9551-db70-4a3c-99b7-c499741f47b8"
+        }
+      ],
+      "id": "9ee97fb8-45ef-43dc-a21e-fd01de6195a6",
+      "createdAt": "2026-10-21T19:51:28.000Z",
+      "updatedAt": "2026-10-21T19:51:28.000Z",
+      "uid": "35240-9ee97fb8-45ef-43dc-a21e-fd01de6195a6"
+    },
+    {
+      "name": "?Action=ExecuteChangeSet",
+      "item": [
+        {
+          "name": "Amazon CloudFormation Execute a change set",
+          "id": "f75b7172-6976-404b-9c51-64737ec61789",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=ExecuteChangeSet&Action=ExecuteChangeSet&Version=2010-05-15&ChangeSetName=<string>&StackName=<string>&DisableRollback=<boolean>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ExecuteChangeSet"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Action",
+                  "value": "ExecuteChangeSet"
+                },
+                {
+                  "description": "(Required) ",
+                  "key": "Version",
+                  "value": "2010-05-15"
+                },
+                {
+                  "description": "(Required) The name or ARN of the change set to execute.",
+                  "key": "ChangeSetName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The name or unique ID of the stack associated with the change set.",
+                  "key": "StackName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Preserves the state of previously provisioned resources when an operation fails.",
+                  "key": "DisableRollback",
+                  "value": "<boolean>"
+                }
+              ]
+            },
+            "description": "Updates a stack using the input information that was provided when the specified change set was created."
+          },
+          "response": [
+            {
+              "id": "8ea6ba7b-e802-4746-99a3-f4d5c41b1f90",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=ExecuteChangeSet&Version=2010-05-15&ChangeSetName=<string>&StackName=<string>&DisableRollback=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ExecuteChangeSet"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or ARN of the change set to execute.",
+                      "key": "ChangeSetName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name or unique ID of the stack associated with the change set.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Preserves the state of previously provisioned resources when an operation fails.",
+                      "key": "DisableRollback",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:28.000Z",
+              "updatedAt": "2026-10-21T19:51:28.000Z",
+              "uid": "35240-8ea6ba7b-e802-4746-99a3-f4d5c41b1f90"
+            },
+            {
+              "id": "8499119d-5953-40f0-971f-3e51a38d0f15",
+              "name": "Client error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=ExecuteChangeSet&Version=2010-05-15&ChangeSetName=<string>&StackName=<string>&DisableRollback=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ExecuteChangeSet"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or ARN of the change set to execute.",
+                      "key": "ChangeSetName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name or unique ID of the stack associated with the change set.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Preserves the state of previously provisioned resources when an operation fails.",
+                      "key": "DisableRollback",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:28.000Z",
+              "updatedAt": "2026-10-21T19:51:28.000Z",
+              "uid": "35240-8499119d-5953-40f0-971f-3e51a38d0f15"
+            },
+            {
+              "id": "ff5125fd-2188-43d7-b86f-8ce58df63cb0",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=ExecuteChangeSet&Version=2010-05-15&ChangeSetName=<string>&StackName=<string>&DisableRollback=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ExecuteChangeSet"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or ARN of the change set to execute.",
+                      "key": "ChangeSetName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name or unique ID of the stack associated with the change set.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Preserves the state of previously provisioned resources when an operation fails.",
+                      "key": "DisableRollback",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:28.000Z",
+              "updatedAt": "2026-10-21T19:51:28.000Z",
+              "uid": "35240-ff5125fd-2188-43d7-b86f-8ce58df63cb0"
+            }
+          ],
+          "createdAt": "2026-10-21T19:51:28.000Z",
+          "updatedAt": "2026-10-21T19:51:28.000Z",
+          "uid": "35240-f75b7172-6976-404b-9c51-64737ec61789"
+        }
+      ],
+      "id": "960c00aa-1055-412a-91a2-aa28a11a04d8",
+      "createdAt": "2026-10-21T19:51:28.000Z",
+      "updatedAt": "2026-10-21T19:51:28.000Z",
+      "uid": "35240-960c00aa-1055-412a-91a2-aa28a11a04d8"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cloudformation.amazonaws.com"
+    }
+  ]
+}

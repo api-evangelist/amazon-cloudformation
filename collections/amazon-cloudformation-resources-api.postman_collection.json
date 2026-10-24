@@ -1,28 +1,39 @@
 {
+  "info": {
+    "_postman_id": "927e969d-6442-4a1a-ac5e-f4d434e267f3",
+    "name": "Amazon CloudFormation Resources API",
+    "description": "Amazon CloudFormation is an infrastructure as code service that enables you to model, provision, and manage AWS and third-party resources by treating infrastructure as code. You use templates to define your resources and their dependencies, then deploy them as stacks.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T19:51:11.000Z",
+    "updatedAt": "2026-10-21T19:51:11.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-927e969d-6442-4a1a-ac5e-f4d434e267f3"
+  },
   "item": [
     {
-      "id": "ff93db34-8d01-43ca-9c91-0c8dbcaa4795",
-      "name": "Resources",
-      "description": {
-        "content": "Operations for managing stack resources",
-        "type": "text/plain"
-      },
+      "name": "?Action=ListStackResources",
       "item": [
         {
-          "id": "81322537-0c21-47ad-af05-1f5bbfe3271d",
           "name": "Amazon CloudFormation List stack resources",
+          "id": "d1231326-019c-4799-929a-ed8e1d28ec2a",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
           "request": {
-            "name": "Amazon CloudFormation List stack resources",
-            "description": {
-              "content": "Returns descriptions of all resources of the specified stack.",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
             "url": {
-              "path": [
-                ""
-              ],
+              "raw": "{{baseUrl}}/?Action=ListStackResources&Action=ListStackResources&Version=2010-05-15&StackName=<string>&NextToken=<string>",
               "host": [
                 "{{baseUrl}}"
+              ],
+              "path": [
+                ""
               ],
               "query": [
                 {
@@ -30,235 +41,239 @@
                   "value": "ListStackResources"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) ",
                   "key": "Action",
-                  "value": "<string>",
-                  "description": "(Required) "
+                  "value": "ListStackResources"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) ",
                   "key": "Version",
-                  "value": "2010-05-15",
-                  "description": "(Required) "
+                  "value": "2010-05-15"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) The name or the unique stack ID.",
                   "key": "StackName",
-                  "value": "<string>",
-                  "description": "(Required) The name or the unique stack ID."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "A string that identifies the next page of stack resources to retrieve.",
                   "key": "NextToken",
-                  "value": "<string>",
-                  "description": "A string that identifies the next page of stack resources to retrieve."
+                  "value": "<string>"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "text/xml"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Returns descriptions of all resources of the specified stack."
           },
           "response": [
             {
-              "id": "ae004d04-46ac-45d1-b523-7944330d8471",
+              "id": "695adf18-0452-4fc6-bc30-5e71bb8596e6",
               "name": "Successful response",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    ""
-                  ],
+                  "raw": "{{baseUrl}}/?Action=ListStackResources&Version=2010-05-15&StackName=<string>&NextToken=<string>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    ""
+                  ],
                   "query": [
                     {
+                      "description": "(Required) ",
                       "key": "Action",
-                      "value": "<string>"
+                      "value": "ListStackResources"
                     },
                     {
+                      "description": "(Required) ",
                       "key": "Version",
                       "value": "2010-05-15"
                     },
                     {
+                      "description": "(Required) The name or the unique stack ID.",
                       "key": "StackName",
                       "value": "<string>"
                     },
                     {
+                      "description": "A string that identifies the next page of stack resources to retrieve.",
                       "key": "NextToken",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "text/xml"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "xml",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "text/xml"
                 }
               ],
-              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <StackResourceSummaries>\n    <LogicalResourceId>(string)</LogicalResourceId>\n    <PhysicalResourceId>(string)</PhysicalResourceId>\n    <ResourceType>(string)</ResourceType>\n    <ResourceStatus>(string)</ResourceStatus>\n    <ResourceStatusReason>(string)</ResourceStatusReason>\n    <LastUpdatedTimestamp>(string)</LastUpdatedTimestamp>\n    <DriftInformation>\n      <StackResourceDriftStatus>(string)</StackResourceDriftStatus>\n      <LastCheckTimestamp>(string)</LastCheckTimestamp>\n    </DriftInformation>\n  </StackResourceSummaries>\n  <StackResourceSummaries>\n    <LogicalResourceId>(string)</LogicalResourceId>\n    <PhysicalResourceId>(string)</PhysicalResourceId>\n    <ResourceType>(string)</ResourceType>\n    <ResourceStatus>(string)</ResourceStatus>\n    <ResourceStatusReason>(string)</ResourceStatusReason>\n    <LastUpdatedTimestamp>(string)</LastUpdatedTimestamp>\n    <DriftInformation>\n      <StackResourceDriftStatus>(string)</StackResourceDriftStatus>\n      <LastCheckTimestamp>(string)</LastCheckTimestamp>\n    </DriftInformation>\n  </StackResourceSummaries>\n  <NextToken>(string)</NextToken>\n</element>",
               "cookie": [],
-              "_postman_previewlanguage": "xml"
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <StackResourceSummaries>\n    <LogicalResourceId>(string)</LogicalResourceId>\n    <PhysicalResourceId>(string)</PhysicalResourceId>\n    <ResourceType>(string)</ResourceType>\n    <ResourceStatus>(string)</ResourceStatus>\n    <ResourceStatusReason>(string)</ResourceStatusReason>\n    <LastUpdatedTimestamp>(string)</LastUpdatedTimestamp>\n    <DriftInformation>\n      <StackResourceDriftStatus>(string)</StackResourceDriftStatus>\n      <LastCheckTimestamp>(string)</LastCheckTimestamp>\n    </DriftInformation>\n  </StackResourceSummaries>\n  <StackResourceSummaries>\n    <LogicalResourceId>(string)</LogicalResourceId>\n    <PhysicalResourceId>(string)</PhysicalResourceId>\n    <ResourceType>(string)</ResourceType>\n    <ResourceStatus>(string)</ResourceStatus>\n    <ResourceStatusReason>(string)</ResourceStatusReason>\n    <LastUpdatedTimestamp>(string)</LastUpdatedTimestamp>\n    <DriftInformation>\n      <StackResourceDriftStatus>(string)</StackResourceDriftStatus>\n      <LastCheckTimestamp>(string)</LastCheckTimestamp>\n    </DriftInformation>\n  </StackResourceSummaries>\n  <NextToken>(string)</NextToken>\n</element>",
+              "createdAt": "2026-10-21T19:51:12.000Z",
+              "updatedAt": "2026-10-21T19:51:12.000Z",
+              "uid": "35240-695adf18-0452-4fc6-bc30-5e71bb8596e6"
             },
             {
-              "id": "f4ab02a8-0f37-4b84-a24d-3c22745db2db",
+              "id": "6801878a-2775-4c34-83b0-38b4fdfff52f",
               "name": "Client error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "StackName",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "NextToken",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=ListStackResources&Version=2010-05-15&StackName=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ListStackResources"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or the unique stack ID.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A string that identifies the next page of stack resources to retrieve.",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
               },
               "status": "Bad Request",
               "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:12.000Z",
+              "updatedAt": "2026-10-21T19:51:12.000Z",
+              "uid": "35240-6801878a-2775-4c34-83b0-38b4fdfff52f"
             },
             {
-              "id": "0195ee4d-eed3-4fac-ad9c-d6d5a9f74b96",
+              "id": "7941d1f5-ba6f-4c19-8e1f-467bc4efa507",
               "name": "Server error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "StackName",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "NextToken",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=ListStackResources&Version=2010-05-15&StackName=<string>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "ListStackResources"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "(Required) The name or the unique stack ID.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "A string that identifies the next page of stack resources to retrieve.",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
               },
               "status": "Internal Server Error",
               "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:12.000Z",
+              "updatedAt": "2026-10-21T19:51:12.000Z",
+              "uid": "35240-7941d1f5-ba6f-4c19-8e1f-467bc4efa507"
             }
           ],
-          "event": [],
+          "createdAt": "2026-10-21T19:51:12.000Z",
+          "updatedAt": "2026-10-21T19:51:12.000Z",
+          "uid": "35240-d1231326-019c-4799-929a-ed8e1d28ec2a"
+        }
+      ],
+      "id": "b461ddf7-8f71-4d48-824f-e2c5e6467520",
+      "createdAt": "2026-10-21T19:51:12.000Z",
+      "updatedAt": "2026-10-21T19:51:12.000Z",
+      "uid": "35240-b461ddf7-8f71-4d48-824f-e2c5e6467520"
+    },
+    {
+      "name": "?Action=DescribeStackResources",
+      "item": [
+        {
+          "name": "Amazon CloudFormation Describe stack resources",
+          "id": "a7aa9c8c-bac6-4ed6-8f92-4dc3074b460a",
           "protocolProfileBehavior": {
             "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "8c63131a-3da0-48a8-a367-92269d237d58",
-          "name": "Amazon CloudFormation Describe stack resources",
+          },
           "request": {
-            "name": "Amazon CloudFormation Describe stack resources",
-            "description": {
-              "content": "Returns AWS resource descriptions for running and deleted stacks. If StackName is specified, all the associated resources that are part of the stack are returned.",
-              "type": "text/plain"
-            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/xml"
+              }
+            ],
             "url": {
-              "path": [
-                ""
-              ],
+              "raw": "{{baseUrl}}/?Action=DescribeStackResources&Action=DescribeStackResources&Version=2010-05-15&StackName=<string>&LogicalResourceId=<string>&PhysicalResourceId=<string>",
               "host": [
                 "{{baseUrl}}"
+              ],
+              "path": [
+                ""
               ],
               "query": [
                 {
@@ -266,248 +281,234 @@
                   "value": "DescribeStackResources"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) ",
                   "key": "Action",
-                  "value": "<string>",
-                  "description": "(Required) "
+                  "value": "DescribeStackResources"
                 },
                 {
-                  "disabled": false,
+                  "description": "(Required) ",
                   "key": "Version",
-                  "value": "2010-05-15",
-                  "description": "(Required) "
+                  "value": "2010-05-15"
                 },
                 {
-                  "disabled": false,
+                  "description": "The name or the unique stack ID.",
                   "key": "StackName",
-                  "value": "<string>",
-                  "description": "The name or the unique stack ID."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "The logical name of the resource.",
                   "key": "LogicalResourceId",
-                  "value": "<string>",
-                  "description": "The logical name of the resource."
+                  "value": "<string>"
                 },
                 {
-                  "disabled": false,
+                  "description": "The name or unique identifier that corresponds to a physical instance ID of a resource.",
                   "key": "PhysicalResourceId",
-                  "value": "<string>",
-                  "description": "The name or unique identifier that corresponds to a physical instance ID of a resource."
+                  "value": "<string>"
                 }
-              ],
-              "variable": []
+              ]
             },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "text/xml"
-              }
-            ],
-            "method": "GET",
-            "auth": null
+            "description": "Returns AWS resource descriptions for running and deleted stacks. If StackName is specified, all the associated resources that are part of the stack are returned."
           },
           "response": [
             {
-              "id": "807049db-dacc-4497-b13c-da8dea902880",
+              "id": "5650c612-861e-4b3b-829b-8594ebbc20b8",
               "name": "Successful response",
               "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "text/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
                 "url": {
-                  "path": [
-                    ""
-                  ],
+                  "raw": "{{baseUrl}}/?Action=DescribeStackResources&Version=2010-05-15&StackName=<string>&LogicalResourceId=<string>&PhysicalResourceId=<string>",
                   "host": [
                     "{{baseUrl}}"
                   ],
+                  "path": [
+                    ""
+                  ],
                   "query": [
                     {
+                      "description": "(Required) ",
                       "key": "Action",
-                      "value": "<string>"
+                      "value": "DescribeStackResources"
                     },
                     {
+                      "description": "(Required) ",
                       "key": "Version",
                       "value": "2010-05-15"
                     },
                     {
+                      "description": "The name or the unique stack ID.",
                       "key": "StackName",
                       "value": "<string>"
                     },
                     {
+                      "description": "The logical name of the resource.",
                       "key": "LogicalResourceId",
                       "value": "<string>"
                     },
                     {
+                      "description": "The name or unique identifier that corresponds to a physical instance ID of a resource.",
                       "key": "PhysicalResourceId",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "text/xml"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                  ]
+                }
               },
               "status": "OK",
               "code": 200,
+              "_postman_previewlanguage": "xml",
               "header": [
                 {
                   "key": "Content-Type",
                   "value": "text/xml"
                 }
               ],
-              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <StackResources>\n    <StackName>(string)</StackName>\n    <StackId>(string)</StackId>\n    <LogicalResourceId>(string)</LogicalResourceId>\n    <PhysicalResourceId>(string)</PhysicalResourceId>\n    <ResourceType>(string)</ResourceType>\n    <Timestamp>(string)</Timestamp>\n    <ResourceStatus>(string)</ResourceStatus>\n    <ResourceStatusReason>(string)</ResourceStatusReason>\n    <Description>(string)</Description>\n    <DriftInformation>\n      <StackResourceDriftStatus>(string)</StackResourceDriftStatus>\n      <LastCheckTimestamp>(string)</LastCheckTimestamp>\n    </DriftInformation>\n  </StackResources>\n  <StackResources>\n    <StackName>(string)</StackName>\n    <StackId>(string)</StackId>\n    <LogicalResourceId>(string)</LogicalResourceId>\n    <PhysicalResourceId>(string)</PhysicalResourceId>\n    <ResourceType>(string)</ResourceType>\n    <Timestamp>(string)</Timestamp>\n    <ResourceStatus>(string)</ResourceStatus>\n    <ResourceStatusReason>(string)</ResourceStatusReason>\n    <Description>(string)</Description>\n    <DriftInformation>\n      <StackResourceDriftStatus>(string)</StackResourceDriftStatus>\n      <LastCheckTimestamp>(string)</LastCheckTimestamp>\n    </DriftInformation>\n  </StackResources>\n</element>",
               "cookie": [],
-              "_postman_previewlanguage": "xml"
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <StackResources>\n    <StackName>(string)</StackName>\n    <StackId>(string)</StackId>\n    <LogicalResourceId>(string)</LogicalResourceId>\n    <PhysicalResourceId>(string)</PhysicalResourceId>\n    <ResourceType>(string)</ResourceType>\n    <Timestamp>(string)</Timestamp>\n    <ResourceStatus>(string)</ResourceStatus>\n    <ResourceStatusReason>(string)</ResourceStatusReason>\n    <Description>(string)</Description>\n    <DriftInformation>\n      <StackResourceDriftStatus>(string)</StackResourceDriftStatus>\n      <LastCheckTimestamp>(string)</LastCheckTimestamp>\n    </DriftInformation>\n  </StackResources>\n  <StackResources>\n    <StackName>(string)</StackName>\n    <StackId>(string)</StackId>\n    <LogicalResourceId>(string)</LogicalResourceId>\n    <PhysicalResourceId>(string)</PhysicalResourceId>\n    <ResourceType>(string)</ResourceType>\n    <Timestamp>(string)</Timestamp>\n    <ResourceStatus>(string)</ResourceStatus>\n    <ResourceStatusReason>(string)</ResourceStatusReason>\n    <Description>(string)</Description>\n    <DriftInformation>\n      <StackResourceDriftStatus>(string)</StackResourceDriftStatus>\n      <LastCheckTimestamp>(string)</LastCheckTimestamp>\n    </DriftInformation>\n  </StackResources>\n</element>",
+              "createdAt": "2026-10-21T19:51:12.000Z",
+              "updatedAt": "2026-10-21T19:51:12.000Z",
+              "uid": "35240-5650c612-861e-4b3b-829b-8594ebbc20b8"
             },
             {
-              "id": "4e631602-e678-45fa-8f9d-ab1c1c41886a",
+              "id": "00714288-4f8a-4cfc-89dd-98c2b7ae4f29",
               "name": "Client error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "StackName",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "LogicalResourceId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "PhysicalResourceId",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeStackResources&Version=2010-05-15&StackName=<string>&LogicalResourceId=<string>&PhysicalResourceId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeStackResources"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "The name or the unique stack ID.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The logical name of the resource.",
+                      "key": "LogicalResourceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name or unique identifier that corresponds to a physical instance ID of a resource.",
+                      "key": "PhysicalResourceId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
               },
               "status": "Bad Request",
               "code": 400,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:12.000Z",
+              "updatedAt": "2026-10-21T19:51:12.000Z",
+              "uid": "35240-00714288-4f8a-4cfc-89dd-98c2b7ae4f29"
             },
             {
-              "id": "21638c3b-78d4-4995-9ee6-f93e96165cc2",
+              "id": "e0bba36a-e0a2-4000-b412-311b6d40776a",
               "name": "Server error",
               "originalRequest": {
-                "url": {
-                  "path": [
-                    ""
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "Action",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "Version",
-                      "value": "2010-05-15"
-                    },
-                    {
-                      "key": "StackName",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "LogicalResourceId",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "PhysicalResourceId",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+                "method": "GET",
                 "header": [
                   {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
+                    "description": "Added as a part of security scheme: apikey",
                     "key": "Authorization",
                     "value": "<API Key>"
                   }
                 ],
-                "method": "GET",
-                "body": {}
+                "url": {
+                  "raw": "{{baseUrl}}/?Action=DescribeStackResources&Version=2010-05-15&StackName=<string>&LogicalResourceId=<string>&PhysicalResourceId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) ",
+                      "key": "Action",
+                      "value": "DescribeStackResources"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "Version",
+                      "value": "2010-05-15"
+                    },
+                    {
+                      "description": "The name or the unique stack ID.",
+                      "key": "StackName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The logical name of the resource.",
+                      "key": "LogicalResourceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The name or unique identifier that corresponds to a physical instance ID of a resource.",
+                      "key": "PhysicalResourceId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
               },
               "status": "Internal Server Error",
               "code": 500,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
+              "_postman_previewlanguage": "text",
+              "header": [],
               "cookie": [],
-              "_postman_previewlanguage": "text"
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-10-21T19:51:12.000Z",
+              "updatedAt": "2026-10-21T19:51:12.000Z",
+              "uid": "35240-e0bba36a-e0a2-4000-b412-311b6d40776a"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "createdAt": "2026-10-21T19:51:12.000Z",
+          "updatedAt": "2026-10-21T19:51:12.000Z",
+          "uid": "35240-a7aa9c8c-bac6-4ed6-8f92-4dc3074b460a"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://cloudformation.amazonaws.com",
-      "key": "baseUrl"
+      "id": "eaa768b4-024e-4b77-ae01-c59add125107",
+      "createdAt": "2026-10-21T19:51:12.000Z",
+      "updatedAt": "2026-10-21T19:51:12.000Z",
+      "uid": "35240-eaa768b4-024e-4b77-ae01-c59add125107"
     }
   ],
   "auth": {
@@ -515,25 +516,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "Authorization"
+        "value": "Authorization",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "75c15a7b-f45d-4fe6-9b24-5ba95ae3ff70",
-    "name": "Amazon CloudFormation Change Sets Resources API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "Amazon CloudFormation is an infrastructure as code service that enables you to model, provision, and manage AWS and third-party resources by treating infrastructure as code. You use templates to define your resources and their dependencies, then deploy them as stacks.\n\nContact Support:\n Name: Amazon Web Services",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://cloudformation.amazonaws.com"
     }
-  }
+  ]
 }
