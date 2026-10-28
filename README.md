@@ -1,4 +1,4 @@
-# Amazon CloudFormation (amazon-cloudformation)
+# Amazon CloudFormation
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,113 +66,214 @@
 
 AWS CloudFormation is an infrastructure-as-code service that speeds up cloud provisioning by enabling developers to define and manage AWS resources programmatically through templates. Scale infrastructure globally and manage resources across all AWS accounts and regions through a single operation.
 
-**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/amazon-cloudformation/refs/heads/main/apis.yml)
+**Areas:** AWS · CloudFormation · Infrastructure as Code · DevOps · IaC
 
-**Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
+## Amazon CloudFormation on APIs.io
 
-## Tags:
+Everything profiled for Amazon CloudFormation is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-cloudformation/](https://apis.io/providers/amazon-cloudformation/)** — or go straight to one of the APIs or properties below.
 
- - AWS, CloudFormation, Infrastructure as Code, DevOps, IaC
+### APIs (12)
 
-## Timestamps
+- [Amazon CloudFormation Resources API](https://apis.io/apis/amazon-cloudformation/amazon-cloudformation-resources-api/) — Operations for managing stack resources
+- [Amazon CloudFormation Stacks API](https://apis.io/apis/amazon-cloudformation/amazon-cloudformation-stacks-api/) — Operations for managing CloudFormation stacks
+- [Amazon CloudFormation Templates API](https://apis.io/apis/amazon-cloudformation/amazon-cloudformation-templates-api/) — Operations for working with CloudFormation templates
+- [Amazon CloudFormation Changesets API](https://apis.io/apis/amazon-cloudformation/amazon-cloudformation-changesets-api/) — Operations for managing CloudFormation change sets
+- [Amazon CloudFormation Cloudformation Generated Template API](https://apis.io/apis/amazon-cloudformation/amazon-cloudformation-generated-template-api/) — The Cloudformation Generated Template API from Amazon CloudFormation — 6 operation(s) for cloudformation generated template.
+- [Amazon CloudFormation Cloudformation Operations API](https://apis.io/apis/amazon-cloudformation/amazon-cloudformation-operations-api/) — The Cloudformation Operations API from Amazon CloudFormation — 44 operation(s) for cloudformation operations.
+- [Amazon CloudFormation Cloudformation Resource Scan API](https://apis.io/apis/amazon-cloudformation/amazon-cloudformation-resource-scan-api/) — The Cloudformation Resource Scan API from Amazon CloudFormation — 3 operation(s) for cloudformation resource scan.
+- [Amazon CloudFormation Cloudformation Stack Instance API](https://apis.io/apis/amazon-cloudformation/amazon-cloudformation-stack-instance-api/) — The Cloudformation Stack Instance API from Amazon CloudFormation — 5 operation(s) for cloudformation stack instance.
+- [Amazon CloudFormation Cloudformation Stack Refactor API](https://apis.io/apis/amazon-cloudformation/amazon-cloudformation-stack-refactor-api/) — The Cloudformation Stack Refactor API from Amazon CloudFormation — 4 operation(s) for cloudformation stack refactor.
+- [Amazon CloudFormation Cloudformation Stack Set API](https://apis.io/apis/amazon-cloudformation/amazon-cloudformation-stack-set-api/) — The Cloudformation Stack Set API from Amazon CloudFormation — 5 operation(s) for cloudformation stack set.
+- [Amazon CloudFormation Cloudformation Stack Set Operation API](https://apis.io/apis/amazon-cloudformation/amazon-cloudformation-stack-set-operation-api/) — The Cloudformation Stack Set Operation API from Amazon CloudFormation — 3 operation(s) for cloudformation stack set operation.
+- [Amazon CloudFormation Cloudformation Type API](https://apis.io/apis/amazon-cloudformation/amazon-cloudformation-type-api/) — The Cloudformation Type API from Amazon CloudFormation — 5 operation(s) for cloudformation type.
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+### Published properties
 
-## APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-### Amazon CloudFormation API
-API for creating, updating, and managing CloudFormation stacks, stack sets, and change sets for infrastructure-as-code deployments across AWS accounts and regions.
+#### MCP servers (2)
 
-**Human URL:** [https://aws.amazon.com/cloudformation/](https://aws.amazon.com/cloudformation/)
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags:
+- [AWS IaC MCP Server](https://apis.io/servers/amazon-cloudformation/aws-iac-mcp-server/)
+- [awslabs.cfn-mcp-server](https://apis.io/servers/amazon-cloudformation/awslabs-cfn-mcp-server/)
 
- - AWS, CloudFormation, Infrastructure as Code, DevOps
+#### Agentic access (1)
 
-#### Properties
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- [Documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/)
-- [OpenAPI](openapi/amazon-cloudformation-openapi.yml)
-- [APIReference](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/)
+- [Amazon Cloudformation Agentic Access](https://apis.io/agentic-access/amazon-cloudformation/amazon-cloudformation-agentic-access/)
 
-## Common Properties
+#### JSON Schema (16)
 
-- [Portal](https://aws.amazon.com/)
+The data models the API reads and writes.
+
+- [Amazon CloudFormation Stack](https://apis.io/schemas/amazon-cloudformation/amazon-cloudformation-stack/)
+- [Change](https://apis.io/schemas/amazon-cloudformation/cloudformation-change/)
+- [ChangeSet](https://apis.io/schemas/amazon-cloudformation/cloudformation-change-set/)
+- [CreateChangeSetOutput](https://apis.io/schemas/amazon-cloudformation/cloudformation-create-change-set-output/)
+- [CreateStackOutput](https://apis.io/schemas/amazon-cloudformation/cloudformation-create-stack-output/)
+- [DescribeStacksOutput](https://apis.io/schemas/amazon-cloudformation/cloudformation-describe-stacks-output/)
+- [ListStacksOutput](https://apis.io/schemas/amazon-cloudformation/cloudformation-list-stacks-output/)
+- [Output](https://apis.io/schemas/amazon-cloudformation/cloudformation-output/)
+- [Parameter](https://apis.io/schemas/amazon-cloudformation/cloudformation-parameter/)
+- [RollbackConfiguration](https://apis.io/schemas/amazon-cloudformation/cloudformation-rollback-configuration/)
+- [Stack](https://apis.io/schemas/amazon-cloudformation/cloudformation-stack/)
+- [StackDriftInformation](https://apis.io/schemas/amazon-cloudformation/cloudformation-stack-drift-information/)
+- [StackResource](https://apis.io/schemas/amazon-cloudformation/cloudformation-stack-resource/)
+- [StackResourceDriftInformation](https://apis.io/schemas/amazon-cloudformation/cloudformation-stack-resource-drift-information/)
+- [Tag](https://apis.io/schemas/amazon-cloudformation/cloudformation-tag/)
+- [UpdateStackOutput](https://apis.io/schemas/amazon-cloudformation/cloudformation-update-stack-output/)
+
+#### JSON Structure (15)
+
+Data models expressed in JSON Structure.
+
+- [Cloudformation Change Set Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-change-set-structure/)
+- [Cloudformation Change Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-change-structure/)
+- [Cloudformation Create Change Set Output Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-create-change-set-output-structure/)
+- [Cloudformation Create Stack Output Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-create-stack-output-structure/)
+- [Cloudformation Describe Stacks Output Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-describe-stacks-output-structure/)
+- [Cloudformation List Stacks Output Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-list-stacks-output-structure/)
+- [Cloudformation Output Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-output-structure/)
+- [Cloudformation Parameter Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-parameter-structure/)
+- [Cloudformation Rollback Configuration Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-rollback-configuration-structure/)
+- [Cloudformation Stack Drift Information Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-stack-drift-information-structure/)
+- [Cloudformation Stack Resource Drift Information Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-stack-resource-drift-information-structure/)
+- [Cloudformation Stack Resource Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-stack-resource-structure/)
+- [Cloudformation Stack Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-stack-structure/)
+- [Cloudformation Tag Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-tag-structure/)
+- [Cloudformation Update Stack Output Structure](https://apis.io/json-structure/amazon-cloudformation/cloudformation-update-stack-output-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Cloudformation Context](https://apis.io/jsonld/amazon-cloudformation/amazon-cloudformation-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon Cloudformation Vocabulary](https://apis.io/vocabularies/amazon-cloudformation/amazon-cloudformation-vocabulary/)
+
+#### Examples (15)
+
+Example requests and responses.
+
+- [Cloudformation Change Example](https://apis.io/examples/amazon-cloudformation/cloudformation-change-example/)
+- [Cloudformation Change Set Example](https://apis.io/examples/amazon-cloudformation/cloudformation-change-set-example/)
+- [Cloudformation Create Change Set Output Example](https://apis.io/examples/amazon-cloudformation/cloudformation-create-change-set-output-example/)
+- [Cloudformation Create Stack Output Example](https://apis.io/examples/amazon-cloudformation/cloudformation-create-stack-output-example/)
+- [Cloudformation Describe Stacks Output Example](https://apis.io/examples/amazon-cloudformation/cloudformation-describe-stacks-output-example/)
+- [Cloudformation List Stacks Output Example](https://apis.io/examples/amazon-cloudformation/cloudformation-list-stacks-output-example/)
+- [Cloudformation Output Example](https://apis.io/examples/amazon-cloudformation/cloudformation-output-example/)
+- [Cloudformation Parameter Example](https://apis.io/examples/amazon-cloudformation/cloudformation-parameter-example/)
+- [Cloudformation Rollback Configuration Example](https://apis.io/examples/amazon-cloudformation/cloudformation-rollback-configuration-example/)
+- [Cloudformation Stack Drift Information Example](https://apis.io/examples/amazon-cloudformation/cloudformation-stack-drift-information-example/)
+- [Cloudformation Stack Example](https://apis.io/examples/amazon-cloudformation/cloudformation-stack-example/)
+- [Cloudformation Stack Resource Drift Information Example](https://apis.io/examples/amazon-cloudformation/cloudformation-stack-resource-drift-information-example/)
+- [Cloudformation Stack Resource Example](https://apis.io/examples/amazon-cloudformation/cloudformation-stack-resource-example/)
+- [Cloudformation Tag Example](https://apis.io/examples/amazon-cloudformation/cloudformation-tag-example/)
+- [Cloudformation Update Stack Output Example](https://apis.io/examples/amazon-cloudformation/cloudformation-update-stack-output-example/)
+
+#### Collections (4)
+
+Postman and Open Collection request collections.
+
+- [Amazon CloudFormation Change Sets API](https://apis.io/collections/amazon-cloudformation/open-amazon-cloudformation-change-sets-api/)
+- [Amazon CloudFormation Change Sets Resources API](https://apis.io/collections/amazon-cloudformation/open-amazon-cloudformation-resources-api/)
+- [Amazon CloudFormation Change Sets Stacks API](https://apis.io/collections/amazon-cloudformation/open-amazon-cloudformation-stacks-api/)
+- [Amazon CloudFormation Change Sets Templates API](https://apis.io/collections/amazon-cloudformation/open-amazon-cloudformation-templates-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Amazon Cloudformation Openapi Overlay](https://apis.io/overlays/amazon-cloudformation/amazon-cloudformation-openapi-overlay/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon CloudFormation — jsonschema rules](https://apis.io/rules/amazon-cloudformation/amazon-cloudformation-jsonschema-spectral-rules/)
+- [Amazon CloudFormation API Rules](https://apis.io/rules/amazon-cloudformation/amazon-cloudformation-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Cloudformation Authentication](https://apis.io/security/amazon-cloudformation/amazon-cloudformation-authentication/)
+- [Amazon Cloudformation Domain Security](https://apis.io/security/amazon-cloudformation/amazon-cloudformation-domain-security/)
+- [Amazon Cloudformation Trust Center](https://apis.io/security/amazon-cloudformation/amazon-cloudformation-trust-center/)
+- [Amazon Cloudformation Vulnerability Disclosure](https://apis.io/security/amazon-cloudformation/amazon-cloudformation-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://aws.amazon.com/cloudformation/)
-- [SpectralRules](rules/amazon-cloudformation-spectral-rules.yml)
-- [Vocabulary](vocabulary/amazon-cloudformation-vocabulary.yaml)
-- [NaftikoCapability](capabilities/infrastructure-as-code.yaml)
+- [Documentation](https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/)
+- [Sign up](https://signin.aws.amazon.com/signup?request_type=register)
+- [Support](https://aws.amazon.com/premiumsupport/)
+- [Blog](https://aws.amazon.com/blogs/devops/)
+- [Compliance](https://aws.amazon.com/compliance/)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| Infrastructure as Code | Define AWS resources in JSON or YAML templates for repeatable, version-controlled deployments. |
-| Multi-Account Stack Sets | Deploy stacks across multiple AWS accounts and regions with a single operation. |
-| Change Sets | Preview changes to running stacks before executing them to avoid unintended updates. |
-| Drift Detection | Detect when deployed infrastructure has drifted from the CloudFormation template definition. |
-| Registry Extensions | Extend CloudFormation to manage third-party and community resources through the Registry. |
+**Kin Score 59.9** — strong · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 63.3 |
+| Contract quality | 65.5 |
+| Contract governance | 31.8 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 72.6 |
+| Access clarity | 60.5 |
 
-| Name | Description |
-|------|-------------|
-| DevOps Automation | Automate infrastructure testing and deployment through CI/CD pipelines. |
-| Multi-Region Deployment | Deploy consistent infrastructure across multiple AWS regions. |
-| Compliance Governance | Enforce organizational infrastructure standards through template guardrails. |
-| Disaster Recovery | Rapidly rebuild infrastructure from templates after failures. |
+**Agent readiness 26.7** — agent-aware
 
-## Integrations
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
 
-| Name | Description |
-|------|-------------|
-| AWS CodePipeline | Automate CloudFormation deployments in CI/CD pipelines. |
-| AWS Config | Track infrastructure changes and detect drift with Config integration. |
-| AWS IAM | Control who can create and update CloudFormation stacks. |
-| AWS Service Catalog | Publish approved CloudFormation templates as self-service products. |
-| Amazon SNS | Receive stack event notifications via SNS topics. |
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-cloudformation/](https://apis.io/providers/amazon-cloudformation/).
 
-### OpenAPI
+## How this profile is made
 
-- [Amazon CloudFormation API](openapi/amazon-cloudformation-openapi.yml)
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-### JSON Schema
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon CloudFormation: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-- [Stack](json-schema/cloudformation-stack-schema.json)
-- [ChangeSet](json-schema/cloudformation-change-set-schema.json)
-- [StackResource](json-schema/cloudformation-stack-resource-schema.json)
-- [Parameter](json-schema/cloudformation-parameter-schema.json)
-- [Output](json-schema/cloudformation-output-schema.json)
+## Open an issue
 
-### JSON-LD
-
-- [Amazon CloudFormation Context](json-ld/amazon-cloudformation-context.jsonld)
-
-## Capabilities
-
-### Shared Per-API Definitions
-
-- [Amazon CloudFormation](capabilities/shared/cloudformation.yaml) — 8 operations
-
-### Workflow Capabilities
-
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Infrastructure as Code Deployment](capabilities/infrastructure-as-code.yaml) | Amazon CloudFormation | 8 | DevOps Engineer |
-
-## Vocabulary
-
-- [Amazon CloudFormation Vocabulary](vocabulary/amazon-cloudformation-vocabulary.yaml) — Unified taxonomy covering operations, workflows, and personas
-
-## Rules
-
-- [Amazon CloudFormation Spectral Rules](rules/amazon-cloudformation-spectral-rules.yml) — 19 rules enforcing Amazon CloudFormation API conventions
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-cloudformation/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
